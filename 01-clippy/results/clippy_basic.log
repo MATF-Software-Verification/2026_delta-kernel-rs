@@ -1,0 +1,4 @@
+   Compiling delta_kernel v0.18.2 (/Users/branko.grbic/Documents/Faculty/2026_delta-kernel-rs/delta-kernel-rs/kernel)
+   Compiling delta_kernel_derive v0.18.2 (/Users/branko.grbic/Documents/Faculty/2026_delta-kernel-rs/delta-kernel-rs/derive-macros)
+    Checking test_utils v0.18.2 (/Users/branko.grbic/Documents/Faculty/2026_delta-kernel-rs/delta-kernel-rs/test-utils)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 9.74s
