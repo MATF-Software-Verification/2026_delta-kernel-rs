@@ -1,4 +1,5 @@
+clippy 0.1.90 (1159e78c47 2025-09-14)
    Compiling delta_kernel v0.18.2 (/Users/branko.grbic/Documents/Faculty/2026_delta-kernel-rs/delta-kernel-rs/kernel)
    Compiling delta_kernel_derive v0.18.2 (/Users/branko.grbic/Documents/Faculty/2026_delta-kernel-rs/delta-kernel-rs/derive-macros)
     Checking test_utils v0.18.2 (/Users/branko.grbic/Documents/Faculty/2026_delta-kernel-rs/delta-kernel-rs/test-utils)
-    Finished `dev` profile [unoptimized + debuginfo] target(s) in 11.10s
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 10.02s

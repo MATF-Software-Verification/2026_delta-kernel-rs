@@ -9,14 +9,20 @@ cd "$DELTA_KERNEL_RS_DIR"
 
 # Run clippy on the delta_kernel crate
 echo "Running basic Clippy..."
-cargo clippy -p delta_kernel --all-targets --features default-engine-rustls -- -D warnings > "$RESULTS_DIR/clippy_basic.log" 2>&1
+{
+  cargo clippy --version
+  cargo clippy -p delta_kernel --all-targets --features default-engine-rustls -- -D warnings
+} &> "$RESULTS_DIR/clippy_basic.log"
 
 # Run clippy with the pedantic level
 echo "Running pedantic Clippy..."
-cargo clippy -p delta_kernel --all-targets --features default-engine-rustls -- -W clippy::pedantic > "$RESULTS_DIR/clippy_pedantic.log" 2>&1
+{
+  cargo clippy --version
+  cargo clippy -p delta_kernel --all-targets --features default-engine-rustls -- -W clippy::pedantic
+} &> "$RESULTS_DIR/clippy_pedantic.log"
 
-# Apply fixes using cargo clippy --fix into a patch file and discard the changes in the submodule
-echo "Applying fixes..."
-cargo clippy --fix -p delta_kernel --all-targets --features default-engine-rustls -- -W clippy::pedantic
-git diff --binary > "$RESULTS_DIR/clippy_fixes.patch"
+# Apply pedantic clippy fixes using cargo clippy --fix into a patch file and discard the changes in the submodule
+echo "Applying pedantic clippy fixes..."
+cargo clippy --fix -p delta_kernel --all-targets --features default-engine-rustls -- -W clippy::pedantic &> /dev/null
+git diff --binary > "$RESULTS_DIR/clippy_pedantic_fixes.patch"
 git restore .
