@@ -1,0 +1,142 @@
+Apple clang-format version 21.0.0 (clang-2100.1.1.101)
+ffi/examples/read-table/arrow.c:55:34: error: code should be clang-formatted [-Wclang-format-violations]
+static void add_batch_to_context(
+                                 ^
+ffi/examples/read-table/arrow.c:56:25: error: code should be clang-formatted [-Wclang-format-violations]
+  ArrowContext* context,
+                        ^
+ffi/examples/read-table/arrow.c:114:29: error: code should be clang-formatted [-Wclang-format-violations]
+  ExclusiveEngineData* data) {
+                            ^
+ffi/examples/read-table/arrow.c:132:58: error: code should be clang-formatted [-Wclang-format-violations]
+  ExternResultHandleExclusiveEngineData transformed_res = evaluate_expression(
+                                                         ^
+ffi/examples/read-table/arrow.c:132:79: error: code should be clang-formatted [-Wclang-format-violations]
+  ExternResultHandleExclusiveEngineData transformed_res = evaluate_expression(
+                                                                              ^
+ffi/examples/read-table/arrow.c:133:21: error: code should be clang-formatted [-Wclang-format-violations]
+    context->engine,
+                    ^
+ffi/examples/read-table/arrow.c:134:11: error: code should be clang-formatted [-Wclang-format-violations]
+    &data,
+          ^
+ffi/examples/read-table/arrow.c:163:85: error: code should be clang-formatted [-Wclang-format-violations]
+  free(arrow_data); // just frees the struct, the data and schema are freed/owned by add_batch_to_context
+                                                                                    ^
+ffi/examples/read-table/arrow.c:185:48: error: code should be clang-formatted [-Wclang-format-violations]
+    print_error("Couldn't read data.", (Error*) read_res.err);
+                                               ^
+ffi/examples/read-table/arrow.c:212:24: error: code should be clang-formatted [-Wclang-format-violations]
+struct extract_col_data {
+                       ^
+ffi/examples/read-table/arrow.c:217:76: error: code should be clang-formatted [-Wclang-format-violations]
+void extract_col(GArrowRecordBatch* element, struct extract_col_data* data) {
+                                                                           ^
+ffi/examples/read-table/kernel_utils.c:1:1: error: code should be clang-formatted [-Wclang-format-violations]
+#include <delta_kernel_ffi.h>
+^
+ffi/examples/read-table/kernel_utils.c:46:5: error: code should be clang-formatted [-Wclang-format-violations]
+char *strndup(const char *s, size_t n) {
+    ^
+ffi/examples/read-table/kernel_utils.c:46:7: error: code should be clang-formatted [-Wclang-format-violations]
+char *strndup(const char *s, size_t n) {
+      ^
+ffi/examples/read-table/kernel_utils.c:46:25: error: code should be clang-formatted [-Wclang-format-violations]
+char *strndup(const char *s, size_t n) {
+                        ^
+ffi/examples/read-table/kernel_utils.c:46:27: error: code should be clang-formatted [-Wclang-format-violations]
+char *strndup(const char *s, size_t n) {
+                          ^
+ffi/examples/read-table/kernel_utils.c:46:39: error: code should be clang-formatted [-Wclang-format-violations]
+char *strndup(const char *s, size_t n) {
+                                      ^
+ffi/examples/read-table/kernel_utils.c:48:7: error: code should be clang-formatted [-Wclang-format-violations]
+  char *p = malloc(len + 1);
+      ^
+ffi/examples/read-table/kernel_utils.c:48:9: error: code should be clang-formatted [-Wclang-format-violations]
+  char *p = malloc(len + 1);
+        ^
+ffi/examples/read-table/kernel_utils.c:69:2: error: code should be clang-formatted [-Wclang-format-violations]
+}
+ ^
+ffi/examples/read-table/read_table.c:6:1: error: code should be clang-formatted [-Wclang-format-violations]
+#include "arrow.h"
+^
+ffi/examples/read-table/read_table.c:58:14: error: code should be clang-formatted [-Wclang-format-violations]
+  print_diag("Called back to read file: %.*s. (size: %" PRIu64 ", num records: ", (int)path.len, path.ptr, size);
+             ^
+ffi/examples/read-table/read_table.c:58:82: error: code should be clang-formatted [-Wclang-format-violations]
+  print_diag("Called back to read file: %.*s. (size: %" PRIu64 ", num records: ", (int)path.len, path.ptr, size);
+                                                                                 ^
+ffi/examples/read-table/read_table.c:58:97: error: code should be clang-formatted [-Wclang-format-violations]
+  print_diag("Called back to read file: %.*s. (size: %" PRIu64 ", num records: ", (int)path.len, path.ptr, size);
+                                                                                                ^
+ffi/examples/read-table/read_table.c:58:107: error: code should be clang-formatted [-Wclang-format-violations]
+  print_diag("Called back to read file: %.*s. (size: %" PRIu64 ", num records: ", (int)path.len, path.ptr, size);
+                                                                                                          ^
+ffi/examples/read-table/read_table.c:97:90: error: code should be clang-formatted [-Wclang-format-violations]
+void do_visit_scan_metadata(void* engine_context, HandleSharedScanMetadata scan_metadata) {
+                                                                                         ^
+ffi/examples/read-table/read_table.c:98:14: error: code should be clang-formatted [-Wclang-format-violations]
+  print_diag("\nScan iterator found some data to read\n  Of this data, here is "
+             ^
+ffi/examples/read-table/read_table.c:98:81: error: code should be clang-formatted [-Wclang-format-violations]
+  print_diag("\nScan iterator found some data to read\n  Of this data, here is "
+                                                                                ^
+ffi/examples/read-table/read_table.c:162:46: error: code should be clang-formatted [-Wclang-format-violations]
+void free_partition_list(PartitionList* list) {
+                                             ^
+ffi/examples/read-table/read_table.c:170:18: error: code should be clang-formatted [-Wclang-format-violations]
+static const char *LEVEL_STRING[] = {
+                 ^
+ffi/examples/read-table/read_table.c:170:20: error: code should be clang-formatted [-Wclang-format-violations]
+static const char *LEVEL_STRING[] = {
+                   ^
+ffi/examples/read-table/read_table.c:170:38: error: code should be clang-formatted [-Wclang-format-violations]
+static const char *LEVEL_STRING[] = {
+                                     ^
+ffi/examples/read-table/read_table.c:171:44: error: code should be clang-formatted [-Wclang-format-violations]
+  "ERROR", "WARN", "INFO", "DEBUG", "TRACE"
+                                           ^
+ffi/examples/read-table/read_table.c:175:12: error: code should be clang-formatted [-Wclang-format-violations]
+#define RED   "\x1b[31m"
+           ^
+ffi/examples/read-table/read_table.c:176:13: error: code should be clang-formatted [-Wclang-format-violations]
+#define BLUE  "\x1b[34m"
+            ^
+ffi/examples/read-table/read_table.c:177:12: error: code should be clang-formatted [-Wclang-format-violations]
+#define DIM   "\x1b[2m"
+           ^
+ffi/examples/read-table/read_table.c:180:42: error: code should be clang-formatted [-Wclang-format-violations]
+void tracing_callback(struct Event event) {
+                                         ^
+ffi/examples/read-table/read_table.c:184:12: error: code should be clang-formatted [-Wclang-format-violations]
+  struct tm *tm_info = gmtime(&tv.tv_sec);
+           ^
+ffi/examples/read-table/read_table.c:184:14: error: code should be clang-formatted [-Wclang-format-violations]
+  struct tm *tm_info = gmtime(&tv.tv_sec);
+             ^
+ffi/examples/read-table/read_table.c:203:12: error: code should be clang-formatted [-Wclang-format-violations]
+    printf(
+           ^
+ffi/examples/read-table/read_table.c:204:28: error: code should be clang-formatted [-Wclang-format-violations]
+      "  %sat%s %.*s:%i\n",
+                           ^
+ffi/examples/read-table/read_table.c:205:11: error: code should be clang-formatted [-Wclang-format-violations]
+      DIM,
+          ^
+ffi/examples/read-table/read_table.c:206:13: error: code should be clang-formatted [-Wclang-format-violations]
+      RESET,
+            ^
+ffi/examples/read-table/read_table.c:207:27: error: code should be clang-formatted [-Wclang-format-violations]
+      (int)event.file.len,
+                          ^
+ffi/examples/read-table/read_table.c:208:22: error: code should be clang-formatted [-Wclang-format-violations]
+      event.file.ptr,
+                     ^
+ffi/examples/read-table/read_table.c:213:47: error: code should be clang-formatted [-Wclang-format-violations]
+void log_line_callback(KernelStringSlice line) {
+                                              ^
+ffi/examples/read-table/read_table.c:324:30: error: code should be clang-formatted [-Wclang-format-violations]
+    ExternResultbool ok_res =
+                             ^

@@ -20,7 +20,7 @@ Current version is **v0.18.2**, pinned at commit `f105333a003232d7284f1a8f06cca3
 | # | Tool or technique | Purpose | Directory |
 |---|-------------------|---------|-----------|
 | 1 | Clippy | Static analysis of Rust code | [01-clippy/](01-clippy/) |
-| 2 | rustfmt and clang-format | Rust and C formatting checks | 02-formatting/ |
+| 2 | rustfmt and clang-format | Rust and C formatting checks | [02-rustfmt_clang/](02-rustfmt_clang/) |
 | 3 | Valgrind Memcheck | Dynamic memory analysis of the FFI example | 03-valgrind/ |
 | 4 | Unit testing | Testing individual functions and edge cases | 04-unit-tests/ |
 | 5 | Integration and black-box testing | Testing public APIs and component interaction | 05-integration-tests/ |
