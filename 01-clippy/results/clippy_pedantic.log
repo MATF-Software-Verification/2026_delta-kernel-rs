@@ -11082,46 +11082,338 @@ note: first possible panic found here
     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#missing_panics_doc
 
 warning: `test_utils` (lib) generated 41 warnings (run `cargo clippy --fix --lib -p test_utils` to apply 20 suggestions)
-warning: redundant closure
-  --> kernel/tests/cdf.rs:38:14
-   |
-38 |         .map(|field| field.name())
-   |              ^^^^^^^^^^^^^^^^^^^^ help: replace the closure with the method itself: `delta_kernel::schema::StructField::name`
-   |
-   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#redundant_closure_for_method_calls
-   = note: `-W clippy::redundant-closure-for-method-calls` implied by `-W clippy::pedantic`
-   = help: to override `-W clippy::pedantic` add `#[allow(clippy::redundant_closure_for_method_calls)]`
+warning: #[should_panic] attribute without a reason
+   --> kernel/tests/golden_tables.rs:219:13
+    |
+219 |             #[should_panic]
+    |             ^^^^^^^^^^^^^^^ help: consider specifying the expected panic: `#[should_panic(expected = /* panic message */)]`
+...
+431 | negative_test!("deltalog-invalid-protocol-version");
+    | --------------------------------------------------- in this macro invocation
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#should_panic_without_expect
+    = note: `-W clippy::should-panic-without-expect` implied by `-W clippy::pedantic`
+    = help: to override `-W clippy::pedantic` add `#[allow(clippy::should_panic_without_expect)]`
+    = note: this warning originates in the macro `negative_test` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: #[should_panic] attribute without a reason
+   --> kernel/tests/golden_tables.rs:219:13
+    |
+219 |             #[should_panic]
+    |             ^^^^^^^^^^^^^^^ help: consider specifying the expected panic: `#[should_panic(expected = /* panic message */)]`
+...
+432 | negative_test!("deltalog-state-reconstruction-from-checkpoint-missing-metadata");
+    | -------------------------------------------------------------------------------- in this macro invocation
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#should_panic_without_expect
+    = note: this warning originates in the macro `negative_test` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: #[should_panic] attribute without a reason
+   --> kernel/tests/golden_tables.rs:219:13
+    |
+219 |             #[should_panic]
+    |             ^^^^^^^^^^^^^^^ help: consider specifying the expected panic: `#[should_panic(expected = /* panic message */)]`
+...
+433 | negative_test!("deltalog-state-reconstruction-from-checkpoint-missing-protocol");
+    | -------------------------------------------------------------------------------- in this macro invocation
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#should_panic_without_expect
+    = note: this warning originates in the macro `negative_test` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: #[should_panic] attribute without a reason
+   --> kernel/tests/golden_tables.rs:219:13
+    |
+219 |             #[should_panic]
+    |             ^^^^^^^^^^^^^^^ help: consider specifying the expected panic: `#[should_panic(expected = /* panic message */)]`
+...
+434 | negative_test!("deltalog-state-reconstruction-without-metadata");
+    | ---------------------------------------------------------------- in this macro invocation
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#should_panic_without_expect
+    = note: this warning originates in the macro `negative_test` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: #[should_panic] attribute without a reason
+   --> kernel/tests/golden_tables.rs:219:13
+    |
+219 |             #[should_panic]
+    |             ^^^^^^^^^^^^^^^ help: consider specifying the expected panic: `#[should_panic(expected = /* panic message */)]`
+...
+435 | negative_test!("deltalog-state-reconstruction-without-protocol");
+    | ---------------------------------------------------------------- in this macro invocation
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#should_panic_without_expect
+    = note: this warning originates in the macro `negative_test` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: #[should_panic] attribute without a reason
+   --> kernel/tests/golden_tables.rs:219:13
+    |
+219 |             #[should_panic]
+    |             ^^^^^^^^^^^^^^^ help: consider specifying the expected panic: `#[should_panic(expected = /* panic message */)]`
+...
+436 | negative_test!("no-delta-log-folder"); // expected DELTA_TABLE_NOT_FOUND
+    | ------------------------------------- in this macro invocation
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#should_panic_without_expect
+    = note: this warning originates in the macro `negative_test` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: #[should_panic] attribute without a reason
+   --> kernel/tests/golden_tables.rs:219:13
+    |
+219 |             #[should_panic]
+    |             ^^^^^^^^^^^^^^^ help: consider specifying the expected panic: `#[should_panic(expected = /* panic message */)]`
+...
+437 | negative_test!("versions-not-contiguous"); // expected DELTA_VERSIONS_NOT_CONTIGUOUS
+    | ----------------------------------------- in this macro invocation
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#should_panic_without_expect
+    = note: this warning originates in the macro `negative_test` (in Nightly builds, run with -Z macro-backtrace for more info)
 
 warning: item in documentation is missing backticks
-  --> kernel/tests/log_tail.rs:15:33
+  --> kernel/tests/log_compaction.rs:13:25
    |
-15 | /// Helper function to create a LogPath for a commit at the given version
-   |                                 ^^^^^^^
+13 | /// Convert a URL to an object_store::Path
+   |                         ^^^^^^^^^^^^^^^^^^
    |
    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_markdown
    = note: `-W clippy::doc-markdown` implied by `-W clippy::pedantic`
    = help: to override `-W clippy::pedantic` add `#[allow(clippy::doc_markdown)]`
 help: try
    |
-15 - /// Helper function to create a LogPath for a commit at the given version
-15 + /// Helper function to create a `LogPath` for a commit at the given version
+13 - /// Convert a URL to an object_store::Path
+13 + /// Convert a URL to an `object_store::Path`
    |
 
-warning: this argument is passed by value, but not consumed in the function body
-  --> kernel/tests/log_tail.rs:21:52
+warning: variables can be used directly in the `format!` string
+  --> kernel/tests/log_compaction.rs:17:24
    |
-21 | fn create_file_meta(table_root: &Url, commit_path: Path) -> FileMeta {
-   |                                                    ^^^^
+17 |         .ok_or_else(|| format!("URL has no path segments: {}", url))?;
+   |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
    |
-   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_pass_by_value
-   = note: `-W clippy::needless-pass-by-value` implied by `-W clippy::pedantic`
-   = help: to override `-W clippy::pedantic` add `#[allow(clippy::needless_pass_by_value)]`
-help: consider taking a reference instead
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args
+   = note: `-W clippy::uninlined-format-args` implied by `-W clippy::pedantic`
+   = help: to override `-W clippy::pedantic` add `#[allow(clippy::uninlined_format_args)]`
+help: change this to
    |
-21 | fn create_file_meta(table_root: &Url, commit_path: &Path) -> FileMeta {
-   |                                                    +
+17 -         .ok_or_else(|| format!("URL has no path segments: {}", url))?;
+17 +         .ok_or_else(|| format!("URL has no path segments: {url}"))?;
+   |
 
-warning: `delta_kernel` (test "cdf") generated 1 warning (run `cargo clippy --fix --test "cdf"` to apply 1 suggestion)
+warning: this function has too many lines (125/100)
+   --> kernel/tests/log_compaction.rs:25:7
+    |
+ 25 |   async fn action_reconciliation_round_trip() -> Result<(), Box<dyn std::error::Error>> {
+    |  _______^
+ 26 | |     let _ = tracing_subscriber::fmt::try_init();
+...   |
+197 | |     Ok(())
+198 | | }
+    | |_^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#too_many_lines
+    = note: `-W clippy::too-many-lines` implied by `-W clippy::pedantic`
+    = help: to override `-W clippy::pedantic` add `#[allow(clippy::too_many_lines)]`
+
+warning: casting `u128` to `i64` may truncate the value
+  --> kernel/tests/log_compaction.rs:62:36
+   |
+62 |       let current_timestamp_millis = SystemTime::now()
+   |  ____________________________________^
+63 | |         .duration_since(UNIX_EPOCH)
+64 | |         .unwrap()
+65 | |         .as_millis() as i64;
+   | |___________________________^
+   |
+   = help: if this is intentional allow the lint with `#[allow(clippy::cast_possible_truncation)]` ...
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#cast_possible_truncation
+   = note: `-W clippy::cast-possible-truncation` implied by `-W clippy::pedantic`
+   = help: to override `-W clippy::pedantic` add `#[allow(clippy::cast_possible_truncation)]`
+help: ... or use `try_from` and handle the error accordingly
+   |
+62 ~     let current_timestamp_millis = i64::try_from(SystemTime::now()
+63 +         .duration_since(UNIX_EPOCH)
+64 +         .unwrap()
+65 ~         .as_millis());
+   |
+
+warning: variables can be used directly in the `format!` string
+  --> kernel/tests/log_compaction.rs:66:27
+   |
+66 |       let commit2_content = format!(
+   |  ___________________________^
+67 | |         r#"{{"commitInfo":{{"timestamp":{},"operation":"DELETE","operationParameters":{{"predicate":"id <= 10"}},"isBlindAppend":false}}}}
+68 | | {{"remove":{{"path":"part-00000-file1.parquet","partitionValues":{{}},"size":1024,"modificationTime":1587968586000,"dataChange":true,"del...
+69 | | "#,
+70 | |         current_timestamp_millis, current_timestamp_millis
+71 | |     );
+   | |_____^
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args
+
+warning: binding's name is too similar to existing binding
+   --> kernel/tests/write.rs:191:44
+    |
+191 |         CommitResult::CommittedTransaction(committed) => {
+    |                                            ^^^^^^^^^
+    |
+note: existing binding defined here
+   --> kernel/tests/write.rs:155:9
+    |
+155 |     let committer = Box::new(FileSystemCommitter::new());
+    |         ^^^^^^^^^
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#similar_names
+    = note: `-W clippy::similar-names` implied by `-W clippy::pedantic`
+    = help: to override `-W clippy::pedantic` add `#[allow(clippy::similar_names)]`
+
+warning: variables can be used directly in the `format!` string
+   --> kernel/tests/log_compaction.rs:190:13
+    |
+190 | /             format!(
+191 | |                 "deletionTimestamp should be present in remove action: {}",
+192 | |                 remove_line
+193 | |             )
+    | |_____________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args
+
+warning: this function has too many lines (171/100)
+   --> kernel/tests/log_compaction.rs:202:7
+    |
+202 |   async fn expired_tombstone_exclusion() -> Result<(), Box<dyn std::error::Error>> {
+    |  _______^
+203 | |     let _ = tracing_subscriber::fmt::try_init();
+204 | |
+205 | |     let schema = Arc::new(StructType::try_new(vec![StructField::nullable(
+...   |
+408 | |     Ok(())
+409 | | }
+    | |_^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#too_many_lines
+
+warning: casting `u128` to `i64` may truncate the value
+   --> kernel/tests/log_compaction.rs:239:29
+    |
+239 |       let expired_timestamp = SystemTime::now()
+    |  _____________________________^
+240 | |         .duration_since(UNIX_EPOCH)
+241 | |         .unwrap()
+242 | |         .as_millis() as i64
+    | |___________________________^
+    |
+    = help: if this is intentional allow the lint with `#[allow(clippy::cast_possible_truncation)]` ...
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#cast_possible_truncation
+help: ... or use `try_from` and handle the error accordingly
+    |
+239 ~     let expired_timestamp = i64::try_from(SystemTime::now()
+240 +         .duration_since(UNIX_EPOCH)
+241 +         .unwrap()
+242 +         .as_millis())
+    |
+
+warning: casting `u128` to `i64` may truncate the value
+   --> kernel/tests/log_compaction.rs:260:28
+    |
+260 |       let recent_timestamp = SystemTime::now()
+    |  ____________________________^
+261 | |         .duration_since(UNIX_EPOCH)
+262 | |         .unwrap()
+263 | |         .as_millis() as i64
+    | |___________________________^
+    |
+    = help: if this is intentional allow the lint with `#[allow(clippy::cast_possible_truncation)]` ...
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#cast_possible_truncation
+help: ... or use `try_from` and handle the error accordingly
+    |
+260 ~     let recent_timestamp = i64::try_from(SystemTime::now()
+261 +         .duration_since(UNIX_EPOCH)
+262 +         .unwrap()
+263 +         .as_millis())
+    |
+
+warning: long literal lacking separators
+   --> kernel/tests/write.rs:802:9
+    |
+802 |         1634567890123456i64,   // 2021-10-18T12:31:30.123456
+    |         ^^^^^^^^^^^^^^^^^^^ help: consider: `1_634_567_890_123_456_i64`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unreadable_literal
+    = note: `-W clippy::unreadable-literal` implied by `-W clippy::pedantic`
+    = help: to override `-W clippy::pedantic` add `#[allow(clippy::unreadable_literal)]`
+
+warning: long literal lacking separators
+   --> kernel/tests/write.rs:803:9
+    |
+803 |         1634567950654321i64,   // 2021-10-18T12:32:30.654321
+    |         ^^^^^^^^^^^^^^^^^^^ help: consider: `1_634_567_950_654_321_i64`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unreadable_literal
+
+warning: long literal lacking separators
+   --> kernel/tests/write.rs:804:9
+    |
+804 |         1672531200000000i64,   // 2023-01-01T00:00:00.000000
+    |         ^^^^^^^^^^^^^^^^^^^ help: consider: `1_672_531_200_000_000_i64`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unreadable_literal
+
+warning: long literal lacking separators
+   --> kernel/tests/write.rs:805:9
+    |
+805 |         253402300799999999i64, // 9999-12-31T23:59:59.999999 (near max valid timestamp)
+    |         ^^^^^^^^^^^^^^^^^^^^^ help: consider: `253_402_300_799_999_999_i64`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unreadable_literal
+
+warning: long literal lacking separators
+   --> kernel/tests/write.rs:806:10
+    |
+806 |         -62135596800000000i64, // 0001-01-01T00:00:00.000000 (near min valid timestamp)
+    |          ^^^^^^^^^^^^^^^^^^^^ help: consider: `62_135_596_800_000_000_i64`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unreadable_literal
+
+warning: variables can be used directly in the `format!` string
+   --> kernel/tests/log_compaction.rs:392:13
+    |
+392 | /             format!(
+393 | |                 "deletionTimestamp should be present in recent remove action: {}",
+394 | |                 recent_remove_line
+395 | |             )
+    | |_____________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args
+
+warning: variables can be used directly in the `format!` string
+   --> kernel/tests/log_compaction.rs:403:5
+    |
+403 | /     assert!(
+404 | |         total_actions >= 4,
+405 | |         "Should have at least 4 actions: protocol, metadata, 1 add, 1 remove (recent). Found {}",
+406 | |         total_actions
+407 | |     );
+    | |_____^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args
+
+warning: long literal lacking separators
+    --> kernel/tests/write.rs:1762:21
+     |
+1762 |         first_ict > 1612345678,
+     |                     ^^^^^^^^^^ help: consider: `1_612_345_678`
+     |
+     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unreadable_literal
+
+warning: `delta_kernel` (test "log_compaction") generated 11 warnings (run `cargo clippy --fix --test "log_compaction"` to apply 6 suggestions)
+warning: adding items after statements is confusing, since items exist from the start of the scope
+  --> kernel/benches/metadata_bench.rs:43:5
+   |
+43 |     use delta_kernel::engine::default::storage::store_from_url;
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#items_after_statements
+   = note: `-W clippy::items-after-statements` implied by `-W clippy::pedantic`
+   = help: to override `-W clippy::pedantic` add `#[allow(clippy::items_after_statements)]`
+
 warning: casting `usize` to `i32` may truncate the value on targets with 64-bit wide pointers
   --> kernel/benches/expression_bench.rs:35:33
    |
@@ -11157,6 +11449,47 @@ warning: casting `usize` to `f64` causes a loss of precision on targets with 64-
    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#cast_precision_loss
    = note: `-W clippy::cast-precision-loss` implied by `-W clippy::pedantic`
    = help: to override `-W clippy::pedantic` add `#[allow(clippy::cast_precision_loss)]`
+
+warning: consider adding a `;` to the last statement for consistent formatting
+  --> kernel/benches/metadata_bench.rs:54:9
+   |
+54 | /         b.iter(|| {
+55 | |             Snapshot::builder_for(url.clone())
+56 | |                 .build(engine.as_ref())
+57 | |                 .expect("Failed to create snapshot")
+58 | |         })
+   | |__________^
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#semicolon_if_nothing_returned
+   = note: `-W clippy::semicolon-if-nothing-returned` implied by `-W clippy::pedantic`
+   = help: to override `-W clippy::pedantic` add `#[allow(clippy::semicolon_if_nothing_returned)]`
+help: add a `;` here
+   |
+58 |         b.iter(|| {
+...
+61 |                 .expect("Failed to create snapshot")
+62 ~         });
+   |
+
+warning: consider adding a `;` to the last statement for consistent formatting
+  --> kernel/benches/metadata_bench.rs:72:9
+   |
+72 | /         b.iter(|| {
+73 | |             let scan = snapshot
+74 | |                 .clone() // arc
+75 | |                 .scan_builder()
+...  |
+85 | |         })
+   | |__________^
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#semicolon_if_nothing_returned
+help: add a `;` here
+   |
+85 |         b.iter(|| {
+...
+97 |             }
+98 ~         });
+   |
 
 warning: casting `usize` to `i32` may truncate the value on targets with 64-bit wide pointers
   --> kernel/benches/expression_bench.rs:64:33
@@ -11280,125 +11613,8 @@ help: add a `;` here
 171 ~                 });
     |
 
-warning: adding items after statements is confusing, since items exist from the start of the scope
-  --> kernel/benches/metadata_bench.rs:43:5
-   |
-43 |     use delta_kernel::engine::default::storage::store_from_url;
-   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   |
-   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#items_after_statements
-   = note: `-W clippy::items-after-statements` implied by `-W clippy::pedantic`
-   = help: to override `-W clippy::pedantic` add `#[allow(clippy::items_after_statements)]`
-
-warning: consider adding a `;` to the last statement for consistent formatting
-  --> kernel/benches/metadata_bench.rs:54:9
-   |
-54 | /         b.iter(|| {
-55 | |             Snapshot::builder_for(url.clone())
-56 | |                 .build(engine.as_ref())
-57 | |                 .expect("Failed to create snapshot")
-58 | |         })
-   | |__________^
-   |
-   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#semicolon_if_nothing_returned
-   = note: `-W clippy::semicolon-if-nothing-returned` implied by `-W clippy::pedantic`
-   = help: to override `-W clippy::pedantic` add `#[allow(clippy::semicolon_if_nothing_returned)]`
-help: add a `;` here
-   |
-58 |         b.iter(|| {
-...
-61 |                 .expect("Failed to create snapshot")
-62 ~         });
-   |
-
-warning: consider adding a `;` to the last statement for consistent formatting
-  --> kernel/benches/metadata_bench.rs:72:9
-   |
-72 | /         b.iter(|| {
-73 | |             let scan = snapshot
-74 | |                 .clone() // arc
-75 | |                 .scan_builder()
-...  |
-85 | |         })
-   | |__________^
-   |
-   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#semicolon_if_nothing_returned
-help: add a `;` here
-   |
-85 |         b.iter(|| {
-...
-97 |             }
-98 ~         });
-   |
-
-warning: `delta_kernel` (test "log_tail") generated 2 warnings (run `cargo clippy --fix --test "log_tail"` to apply 1 suggestion)
-warning: `delta_kernel` (bench "expression_bench") generated 12 warnings (run `cargo clippy --fix --bench "expression_bench"` to apply 3 suggestions)
-warning: binding's name is too similar to existing binding
-   --> kernel/tests/write.rs:191:44
-    |
-191 |         CommitResult::CommittedTransaction(committed) => {
-    |                                            ^^^^^^^^^
-    |
-note: existing binding defined here
-   --> kernel/tests/write.rs:155:9
-    |
-155 |     let committer = Box::new(FileSystemCommitter::new());
-    |         ^^^^^^^^^
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#similar_names
-    = note: `-W clippy::similar-names` implied by `-W clippy::pedantic`
-    = help: to override `-W clippy::pedantic` add `#[allow(clippy::similar_names)]`
-
-warning: long literal lacking separators
-   --> kernel/tests/write.rs:802:9
-    |
-802 |         1634567890123456i64,   // 2021-10-18T12:31:30.123456
-    |         ^^^^^^^^^^^^^^^^^^^ help: consider: `1_634_567_890_123_456_i64`
-    |
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unreadable_literal
-    = note: `-W clippy::unreadable-literal` implied by `-W clippy::pedantic`
-    = help: to override `-W clippy::pedantic` add `#[allow(clippy::unreadable_literal)]`
-
-warning: long literal lacking separators
-   --> kernel/tests/write.rs:803:9
-    |
-803 |         1634567950654321i64,   // 2021-10-18T12:32:30.654321
-    |         ^^^^^^^^^^^^^^^^^^^ help: consider: `1_634_567_950_654_321_i64`
-    |
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unreadable_literal
-
-warning: long literal lacking separators
-   --> kernel/tests/write.rs:804:9
-    |
-804 |         1672531200000000i64,   // 2023-01-01T00:00:00.000000
-    |         ^^^^^^^^^^^^^^^^^^^ help: consider: `1_672_531_200_000_000_i64`
-    |
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unreadable_literal
-
-warning: long literal lacking separators
-   --> kernel/tests/write.rs:805:9
-    |
-805 |         253402300799999999i64, // 9999-12-31T23:59:59.999999 (near max valid timestamp)
-    |         ^^^^^^^^^^^^^^^^^^^^^ help: consider: `253_402_300_799_999_999_i64`
-    |
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unreadable_literal
-
-warning: long literal lacking separators
-   --> kernel/tests/write.rs:806:10
-    |
-806 |         -62135596800000000i64, // 0001-01-01T00:00:00.000000 (near min valid timestamp)
-    |          ^^^^^^^^^^^^^^^^^^^^ help: consider: `62_135_596_800_000_000_i64`
-    |
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unreadable_literal
-
 warning: `delta_kernel` (bench "metadata_bench") generated 3 warnings (run `cargo clippy --fix --bench "metadata_bench"` to apply 2 suggestions)
-warning: long literal lacking separators
-    --> kernel/tests/write.rs:1762:21
-     |
-1762 |         first_ict > 1612345678,
-     |                     ^^^^^^^^^^ help: consider: `1_612_345_678`
-     |
-     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unreadable_literal
-
+warning: `delta_kernel` (bench "expression_bench") generated 12 warnings (run `cargo clippy --fix --bench "expression_bench"` to apply 3 suggestions)
 warning: redundant closure
   --> kernel/tests/v2_checkpoints.rs:41:14
    |
@@ -11409,173 +11625,34 @@ warning: redundant closure
    = note: `-W clippy::redundant-closure-for-method-calls` implied by `-W clippy::pedantic`
    = help: to override `-W clippy::pedantic` add `#[allow(clippy::redundant_closure_for_method_calls)]`
 
-warning: #[should_panic] attribute without a reason
-   --> kernel/tests/golden_tables.rs:219:13
-    |
-219 |             #[should_panic]
-    |             ^^^^^^^^^^^^^^^ help: consider specifying the expected panic: `#[should_panic(expected = /* panic message */)]`
-...
-431 | negative_test!("deltalog-invalid-protocol-version");
-    | --------------------------------------------------- in this macro invocation
-    |
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#should_panic_without_expect
-    = note: `-W clippy::should-panic-without-expect` implied by `-W clippy::pedantic`
-    = help: to override `-W clippy::pedantic` add `#[allow(clippy::should_panic_without_expect)]`
-    = note: this warning originates in the macro `negative_test` (in Nightly builds, run with -Z macro-backtrace for more info)
-
-warning: #[should_panic] attribute without a reason
-   --> kernel/tests/golden_tables.rs:219:13
-    |
-219 |             #[should_panic]
-    |             ^^^^^^^^^^^^^^^ help: consider specifying the expected panic: `#[should_panic(expected = /* panic message */)]`
-...
-432 | negative_test!("deltalog-state-reconstruction-from-checkpoint-missing-metadata");
-    | -------------------------------------------------------------------------------- in this macro invocation
-    |
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#should_panic_without_expect
-    = note: this warning originates in the macro `negative_test` (in Nightly builds, run with -Z macro-backtrace for more info)
-
-warning: #[should_panic] attribute without a reason
-   --> kernel/tests/golden_tables.rs:219:13
-    |
-219 |             #[should_panic]
-    |             ^^^^^^^^^^^^^^^ help: consider specifying the expected panic: `#[should_panic(expected = /* panic message */)]`
-...
-433 | negative_test!("deltalog-state-reconstruction-from-checkpoint-missing-protocol");
-    | -------------------------------------------------------------------------------- in this macro invocation
-    |
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#should_panic_without_expect
-    = note: this warning originates in the macro `negative_test` (in Nightly builds, run with -Z macro-backtrace for more info)
-
-warning: #[should_panic] attribute without a reason
-   --> kernel/tests/golden_tables.rs:219:13
-    |
-219 |             #[should_panic]
-    |             ^^^^^^^^^^^^^^^ help: consider specifying the expected panic: `#[should_panic(expected = /* panic message */)]`
-...
-434 | negative_test!("deltalog-state-reconstruction-without-metadata");
-    | ---------------------------------------------------------------- in this macro invocation
-    |
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#should_panic_without_expect
-    = note: this warning originates in the macro `negative_test` (in Nightly builds, run with -Z macro-backtrace for more info)
-
-warning: #[should_panic] attribute without a reason
-   --> kernel/tests/golden_tables.rs:219:13
-    |
-219 |             #[should_panic]
-    |             ^^^^^^^^^^^^^^^ help: consider specifying the expected panic: `#[should_panic(expected = /* panic message */)]`
-...
-435 | negative_test!("deltalog-state-reconstruction-without-protocol");
-    | ---------------------------------------------------------------- in this macro invocation
-    |
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#should_panic_without_expect
-    = note: this warning originates in the macro `negative_test` (in Nightly builds, run with -Z macro-backtrace for more info)
-
-warning: #[should_panic] attribute without a reason
-   --> kernel/tests/golden_tables.rs:219:13
-    |
-219 |             #[should_panic]
-    |             ^^^^^^^^^^^^^^^ help: consider specifying the expected panic: `#[should_panic(expected = /* panic message */)]`
-...
-436 | negative_test!("no-delta-log-folder"); // expected DELTA_TABLE_NOT_FOUND
-    | ------------------------------------- in this macro invocation
-    |
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#should_panic_without_expect
-    = note: this warning originates in the macro `negative_test` (in Nightly builds, run with -Z macro-backtrace for more info)
-
-warning: #[should_panic] attribute without a reason
-   --> kernel/tests/golden_tables.rs:219:13
-    |
-219 |             #[should_panic]
-    |             ^^^^^^^^^^^^^^^ help: consider specifying the expected panic: `#[should_panic(expected = /* panic message */)]`
-...
-437 | negative_test!("versions-not-contiguous"); // expected DELTA_VERSIONS_NOT_CONTIGUOUS
-    | ----------------------------------------- in this macro invocation
-    |
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#should_panic_without_expect
-    = note: this warning originates in the macro `negative_test` (in Nightly builds, run with -Z macro-backtrace for more info)
-
-warning: `delta_kernel` (test "v2_checkpoints") generated 1 warning (run `cargo clippy --fix --test "v2_checkpoints"` to apply 1 suggestion)
 warning: item in documentation is missing backticks
-  --> kernel/tests/log_compaction.rs:13:25
+  --> kernel/tests/log_tail.rs:15:33
    |
-13 | /// Convert a URL to an object_store::Path
-   |                         ^^^^^^^^^^^^^^^^^^
+15 | /// Helper function to create a LogPath for a commit at the given version
+   |                                 ^^^^^^^
    |
    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_markdown
    = note: `-W clippy::doc-markdown` implied by `-W clippy::pedantic`
    = help: to override `-W clippy::pedantic` add `#[allow(clippy::doc_markdown)]`
 help: try
    |
-13 - /// Convert a URL to an object_store::Path
-13 + /// Convert a URL to an `object_store::Path`
+15 - /// Helper function to create a LogPath for a commit at the given version
+15 + /// Helper function to create a `LogPath` for a commit at the given version
    |
 
-warning: variables can be used directly in the `format!` string
-  --> kernel/tests/log_compaction.rs:17:24
+warning: this argument is passed by value, but not consumed in the function body
+  --> kernel/tests/log_tail.rs:21:52
    |
-17 |         .ok_or_else(|| format!("URL has no path segments: {}", url))?;
-   |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+21 | fn create_file_meta(table_root: &Url, commit_path: Path) -> FileMeta {
+   |                                                    ^^^^
    |
-   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args
-   = note: `-W clippy::uninlined-format-args` implied by `-W clippy::pedantic`
-   = help: to override `-W clippy::pedantic` add `#[allow(clippy::uninlined_format_args)]`
-help: change this to
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_pass_by_value
+   = note: `-W clippy::needless-pass-by-value` implied by `-W clippy::pedantic`
+   = help: to override `-W clippy::pedantic` add `#[allow(clippy::needless_pass_by_value)]`
+help: consider taking a reference instead
    |
-17 -         .ok_or_else(|| format!("URL has no path segments: {}", url))?;
-17 +         .ok_or_else(|| format!("URL has no path segments: {url}"))?;
-   |
-
-warning: this function has too many lines (125/100)
-   --> kernel/tests/log_compaction.rs:25:7
-    |
- 25 |   async fn action_reconciliation_round_trip() -> Result<(), Box<dyn std::error::Error>> {
-    |  _______^
- 26 | |     let _ = tracing_subscriber::fmt::try_init();
-...   |
-197 | |     Ok(())
-198 | | }
-    | |_^
-    |
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#too_many_lines
-    = note: `-W clippy::too-many-lines` implied by `-W clippy::pedantic`
-    = help: to override `-W clippy::pedantic` add `#[allow(clippy::too_many_lines)]`
-
-warning: casting `u128` to `i64` may truncate the value
-  --> kernel/tests/log_compaction.rs:62:36
-   |
-62 |       let current_timestamp_millis = SystemTime::now()
-   |  ____________________________________^
-63 | |         .duration_since(UNIX_EPOCH)
-64 | |         .unwrap()
-65 | |         .as_millis() as i64;
-   | |___________________________^
-   |
-   = help: if this is intentional allow the lint with `#[allow(clippy::cast_possible_truncation)]` ...
-   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#cast_possible_truncation
-   = note: `-W clippy::cast-possible-truncation` implied by `-W clippy::pedantic`
-   = help: to override `-W clippy::pedantic` add `#[allow(clippy::cast_possible_truncation)]`
-help: ... or use `try_from` and handle the error accordingly
-   |
-62 ~     let current_timestamp_millis = i64::try_from(SystemTime::now()
-63 +         .duration_since(UNIX_EPOCH)
-64 +         .unwrap()
-65 ~         .as_millis());
-   |
-
-warning: variables can be used directly in the `format!` string
-  --> kernel/tests/log_compaction.rs:66:27
-   |
-66 |       let commit2_content = format!(
-   |  ___________________________^
-67 | |         r#"{{"commitInfo":{{"timestamp":{},"operation":"DELETE","operationParameters":{{"predicate":"id <= 10"}},"isBlindAppend":false}}}}
-68 | | {{"remove":{{"path":"part-00000-file1.parquet","partitionValues":{{}},"size":1024,"modificationTime":1587968586000,"dataChange":true,"del...
-69 | | "#,
-70 | |         current_timestamp_millis, current_timestamp_millis
-71 | |     );
-   | |_____^
-   |
-   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args
+21 | fn create_file_meta(table_root: &Url, commit_path: &Path) -> FileMeta {
+   |                                                    +
 
 warning: this function has too many lines (115/100)
    --> kernel/tests/write_row_tracking.rs:39:7
@@ -11593,97 +11670,199 @@ warning: this function has too many lines (115/100)
     = note: `-W clippy::too-many-lines` implied by `-W clippy::pedantic`
     = help: to override `-W clippy::pedantic` add `#[allow(clippy::too_many_lines)]`
 
-warning: variables can be used directly in the `format!` string
-   --> kernel/tests/log_compaction.rs:190:13
-    |
-190 | /             format!(
-191 | |                 "deletionTimestamp should be present in remove action: {}",
-192 | |                 remove_line
-193 | |             )
-    | |_____________^
-    |
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args
+warning: `delta_kernel` (test "v2_checkpoints") generated 1 warning (run `cargo clippy --fix --test "v2_checkpoints"` to apply 1 suggestion)
+warning: redundant closure
+  --> kernel/tests/cdf.rs:38:14
+   |
+38 |         .map(|field| field.name())
+   |              ^^^^^^^^^^^^^^^^^^^^ help: replace the closure with the method itself: `delta_kernel::schema::StructField::name`
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#redundant_closure_for_method_calls
+   = note: `-W clippy::redundant-closure-for-method-calls` implied by `-W clippy::pedantic`
+   = help: to override `-W clippy::pedantic` add `#[allow(clippy::redundant_closure_for_method_calls)]`
 
-warning: this function has too many lines (171/100)
-   --> kernel/tests/log_compaction.rs:202:7
-    |
-202 |   async fn expired_tombstone_exclusion() -> Result<(), Box<dyn std::error::Error>> {
-    |  _______^
-203 | |     let _ = tracing_subscriber::fmt::try_init();
-204 | |
-205 | |     let schema = Arc::new(StructType::try_new(vec![StructField::nullable(
-...   |
-408 | |     Ok(())
-409 | | }
-    | |_^
-    |
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#too_many_lines
-
-warning: casting `u128` to `i64` may truncate the value
-   --> kernel/tests/log_compaction.rs:239:29
-    |
-239 |       let expired_timestamp = SystemTime::now()
-    |  _____________________________^
-240 | |         .duration_since(UNIX_EPOCH)
-241 | |         .unwrap()
-242 | |         .as_millis() as i64
-    | |___________________________^
-    |
-    = help: if this is intentional allow the lint with `#[allow(clippy::cast_possible_truncation)]` ...
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#cast_possible_truncation
-help: ... or use `try_from` and handle the error accordingly
-    |
-239 ~     let expired_timestamp = i64::try_from(SystemTime::now()
-240 +         .duration_since(UNIX_EPOCH)
-241 +         .unwrap()
-242 +         .as_millis())
-    |
-
-warning: casting `u128` to `i64` may truncate the value
-   --> kernel/tests/log_compaction.rs:260:28
-    |
-260 |       let recent_timestamp = SystemTime::now()
-    |  ____________________________^
-261 | |         .duration_since(UNIX_EPOCH)
-262 | |         .unwrap()
-263 | |         .as_millis() as i64
-    | |___________________________^
-    |
-    = help: if this is intentional allow the lint with `#[allow(clippy::cast_possible_truncation)]` ...
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#cast_possible_truncation
-help: ... or use `try_from` and handle the error accordingly
-    |
-260 ~     let recent_timestamp = i64::try_from(SystemTime::now()
-261 +         .duration_since(UNIX_EPOCH)
-262 +         .unwrap()
-263 +         .as_millis())
-    |
-
-warning: variables can be used directly in the `format!` string
-   --> kernel/tests/log_compaction.rs:392:13
-    |
-392 | /             format!(
-393 | |                 "deletionTimestamp should be present in recent remove action: {}",
-394 | |                 recent_remove_line
-395 | |             )
-    | |_____________^
-    |
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args
-
-warning: variables can be used directly in the `format!` string
-   --> kernel/tests/log_compaction.rs:403:5
-    |
-403 | /     assert!(
-404 | |         total_actions >= 4,
-405 | |         "Should have at least 4 actions: protocol, metadata, 1 add, 1 remove (recent). Found {}",
-406 | |         total_actions
-407 | |     );
-    | |_____^
-    |
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args
-
-warning: `delta_kernel` (test "log_compaction") generated 11 warnings (run `cargo clippy --fix --test "log_compaction"` to apply 6 suggestions)
 warning: `delta_kernel` (test "write_row_tracking") generated 1 warning
+warning: `delta_kernel` (test "log_tail") generated 2 warnings (run `cargo clippy --fix --test "log_tail"` to apply 1 suggestion)
+warning: `delta_kernel` (test "cdf") generated 1 warning (run `cargo clippy --fix --test "cdf"` to apply 1 suggestion)
+warning: it is more concise to loop over containers instead of using explicit iteration methods
+   --> kernel/tests/read.rs:361:22
+    |
+361 |     for scan_file in scan_files.into_iter() {
+    |                      ^^^^^^^^^^^^^^^^^^^^^^ help: to write this more concisely, try: `scan_files`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_into_iter_loop
+    = note: `-W clippy::explicit-into-iter-loop` implied by `-W clippy::pedantic`
+    = help: to override `-W clippy::pedantic` add `#[allow(clippy::explicit_into_iter_loop)]`
+
+warning: this argument is passed by value, but not consumed in the function body
+   --> kernel/tests/read.rs:531:28
+    |
+531 | fn table_for_numbers(nums: Vec<u32>) -> Vec<String> {
+    |                            ^^^^^^^^ help: consider changing the type to: `&[u32]`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_pass_by_value
+    = note: `-W clippy::needless-pass-by-value` implied by `-W clippy::pedantic`
+    = help: to override `-W clippy::pedantic` add `#[allow(clippy::needless_pass_by_value)]`
+
+warning: it is more concise to loop over references to containers instead of using explicit iteration methods
+   --> kernel/tests/read.rs:540:16
+    |
+540 |     for num in nums.iter() {
+    |                ^^^^^^^^^^^ help: to write this more concisely, try: `&nums`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_iter_loop
+    = note: `-W clippy::explicit-iter-loop` implied by `-W clippy::pedantic`
+    = help: to override `-W clippy::pedantic` add `#[allow(clippy::explicit_iter_loop)]`
+
+warning: it is more concise to loop over containers instead of using explicit iteration methods
+   --> kernel/tests/read.rs:596:29
+    |
+596 |     for (pred, expected) in cases.into_iter() {
+    |                             ^^^^^^^^^^^^^^^^^ help: to write this more concisely, try: `cases`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_into_iter_loop
+
+warning: it is more concise to loop over containers instead of using explicit iteration methods
+   --> kernel/tests/read.rs:753:29
+    |
+753 |     for (pred, expected) in cases.into_iter() {
+    |                             ^^^^^^^^^^^^^^^^^ help: to write this more concisely, try: `cases`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_into_iter_loop
+
+warning: it is more concise to loop over containers instead of using explicit iteration methods
+   --> kernel/tests/read.rs:884:29
+    |
+884 |     for (pred, expected) in cases.into_iter() {
+    |                             ^^^^^^^^^^^^^^^^^ help: to write this more concisely, try: `cases`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_into_iter_loop
+
+warning: it is more concise to loop over containers instead of using explicit iteration methods
+   --> kernel/tests/read.rs:927:29
+    |
+927 |     for (pred, expected) in cases.into_iter() {
+    |                             ^^^^^^^^^^^^^^^^^ help: to write this more concisely, try: `cases`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_into_iter_loop
+
+warning: it is more concise to loop over containers instead of using explicit iteration methods
+   --> kernel/tests/read.rs:980:29
+    |
+980 |     for (pred, expected) in cases.into_iter() {
+    |                             ^^^^^^^^^^^^^^^^^ help: to write this more concisely, try: `cases`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_into_iter_loop
+
+warning: casting `usize` to `i64` may wrap around the value on targets with 64-bit wide pointers
+    --> kernel/tests/read.rs:1421:45
+     |
+1421 |         let expected_values: Vec<i64> = (0..batch.num_rows() as i64).collect();
+     |                                             ^^^^^^^^^^^^^^^^^^^^^^^
+     |
+     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#cast_possible_wrap
+     = note: `-W clippy::cast-possible-wrap` implied by `-W clippy::pedantic`
+     = help: to override `-W clippy::pedantic` add `#[allow(clippy::cast_possible_wrap)]`
+
+warning: adding items after statements is confusing, since items exist from the start of the scope
+    --> kernel/tests/read.rs:1543:5
+     |
+1543 | /     fn get_file_path_for_test(path: &ParsedLogPath) -> &str {
+1544 | |         &path.location.location.as_str()[10..]
+1545 | |     }
+     | |_____^
+     |
+     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#items_after_statements
+     = note: `-W clippy::items-after-statements` implied by `-W clippy::pedantic`
+     = help: to override `-W clippy::pedantic` add `#[allow(clippy::items_after_statements)]`
+
+warning: adding items after statements is confusing, since items exist from the start of the scope
+    --> kernel/tests/read.rs:1547:5
+     |
+1547 | /     fn ensure_segment_does_not_contain(invalid_files: &[&str], segment: &LogSegment) {
+1548 | |         assert!(
+1549 | |             !segment.ascending_commit_files.iter().any(|p| {
+1550 | |                 let test_path = get_file_path_for_test(p);
+...    |
+1581 | |     }
+     | |_____^
+     |
+     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#items_after_statements
+
+warning: it is more concise to loop over references to containers instead of using explicit iteration methods
+    --> kernel/tests/read.rs:1583:25
+     |
+1583 |     for invalid_file in invalid_files.iter() {
+     |                         ^^^^^^^^^^^^^^^^^^^^ help: to write this more concisely, try: `&invalid_files`
+     |
+     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_iter_loop
+
+warning: it is more concise to loop over references to containers instead of using explicit iteration methods
+    --> kernel/tests/read.rs:1592:25
+     |
+1592 |     for invalid_file in invalid_files.iter() {
+     |                         ^^^^^^^^^^^^^^^^^^^^ help: to write this more concisely, try: `&invalid_files`
+     |
+     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_iter_loop
+
+warning: item in documentation is missing backticks
+ --> kernel/tests/golden_tables.rs:3:40
+  |
+3 | //! Data (golden tables) are stored in tests/golden_data/<table_name>.tar.zst
+  |                                        ^^^^^^^^^^^^^^^^^
+  |
+  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_markdown
+  = note: `-W clippy::doc-markdown` implied by `-W clippy::pedantic`
+  = help: to override `-W clippy::pedantic` add `#[allow(clippy::doc_markdown)]`
+help: try
+  |
+3 - //! Data (golden tables) are stored in tests/golden_data/<table_name>.tar.zst
+3 + //! Data (golden tables) are stored in `tests/golden_data`/<table_name>.tar.zst
+  |
+
+warning: item in documentation is missing backticks
+ --> kernel/tests/golden_tables.rs:3:59
+  |
+3 | //! Data (golden tables) are stored in tests/golden_data/<table_name>.tar.zst
+  |                                                           ^^^^^^^^^^^^^^^^^^^
+  |
+  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_markdown
+help: try
+  |
+3 - //! Data (golden tables) are stored in tests/golden_data/<table_name>.tar.zst
+3 + //! Data (golden tables) are stored in tests/golden_data/<`table_name>.tar.zst`
+  |
+
+warning: it is more concise to loop over containers instead of using explicit iteration methods
+  --> kernel/tests/golden_tables.rs:40:17
+   |
+40 |     for meta in files.into_iter() {
+   |                 ^^^^^^^^^^^^^^^^^ help: to write this more concisely, try: `files`
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_into_iter_loop
+   = note: `-W clippy::explicit-into-iter-loop` implied by `-W clippy::pedantic`
+   = help: to override `-W clippy::pedantic` add `#[allow(clippy::explicit_into_iter_loop)]`
+
+warning: consider adding a `;` to the last statement for consistent formatting
+  --> kernel/tests/golden_tables.rs:76:21
+   |
+76 | /                     sort_columns.push(SortColumn {
+77 | |                         values: col.clone(),
+78 | |                         options: None,
+79 | |                     })
+   | |______________________^
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#semicolon_if_nothing_returned
+   = note: `-W clippy::semicolon-if-nothing-returned` implied by `-W clippy::pedantic`
+   = help: to override `-W clippy::pedantic` add `#[allow(clippy::semicolon_if_nothing_returned)]`
+help: add a `;` here
+   |
+79 |                     sort_columns.push(SortColumn {
+80 |                         values: col.clone(),
+81 |                         options: None,
+82 ~                     });
+   |
+
 warning: matching over `()` is more explicit
   --> kernel/tests/row_tracking.rs:35:19
    |
@@ -11759,52 +11938,7 @@ warning: casting `u64` to `i64` may wrap around the value
     = note: `-W clippy::cast-possible-wrap` implied by `-W clippy::pedantic`
     = help: to override `-W clippy::pedantic` add `#[allow(clippy::cast_possible_wrap)]`
 
-warning: it is more concise to loop over containers instead of using explicit iteration methods
-   --> kernel/tests/read.rs:361:22
-    |
-361 |     for scan_file in scan_files.into_iter() {
-    |                      ^^^^^^^^^^^^^^^^^^^^^^ help: to write this more concisely, try: `scan_files`
-    |
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_into_iter_loop
-    = note: `-W clippy::explicit-into-iter-loop` implied by `-W clippy::pedantic`
-    = help: to override `-W clippy::pedantic` add `#[allow(clippy::explicit_into_iter_loop)]`
-
-warning: this argument is passed by value, but not consumed in the function body
-   --> kernel/tests/read.rs:531:28
-    |
-531 | fn table_for_numbers(nums: Vec<u32>) -> Vec<String> {
-    |                            ^^^^^^^^ help: consider changing the type to: `&[u32]`
-    |
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#needless_pass_by_value
-    = note: `-W clippy::needless-pass-by-value` implied by `-W clippy::pedantic`
-    = help: to override `-W clippy::pedantic` add `#[allow(clippy::needless_pass_by_value)]`
-
-warning: it is more concise to loop over references to containers instead of using explicit iteration methods
-   --> kernel/tests/read.rs:540:16
-    |
-540 |     for num in nums.iter() {
-    |                ^^^^^^^^^^^ help: to write this more concisely, try: `&nums`
-    |
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_iter_loop
-    = note: `-W clippy::explicit-iter-loop` implied by `-W clippy::pedantic`
-    = help: to override `-W clippy::pedantic` add `#[allow(clippy::explicit_iter_loop)]`
-
-warning: it is more concise to loop over containers instead of using explicit iteration methods
-   --> kernel/tests/read.rs:596:29
-    |
-596 |     for (pred, expected) in cases.into_iter() {
-    |                             ^^^^^^^^^^^^^^^^^ help: to write this more concisely, try: `cases`
-    |
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_into_iter_loop
-
-warning: it is more concise to loop over containers instead of using explicit iteration methods
-   --> kernel/tests/read.rs:753:29
-    |
-753 |     for (pred, expected) in cases.into_iter() {
-    |                             ^^^^^^^^^^^^^^^^^ help: to write this more concisely, try: `cases`
-    |
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_into_iter_loop
-
+warning: `delta_kernel` (test "read") generated 13 warnings (run `cargo clippy --fix --test "read"` to apply 9 suggestions)
 warning: this function has too many lines (102/100)
    --> kernel/tests/row_tracking.rs:623:7
     |
@@ -11822,30 +11956,6 @@ warning: this function has too many lines (102/100)
     = note: `-W clippy::too-many-lines` implied by `-W clippy::pedantic`
     = help: to override `-W clippy::pedantic` add `#[allow(clippy::too_many_lines)]`
 
-warning: it is more concise to loop over containers instead of using explicit iteration methods
-   --> kernel/tests/read.rs:884:29
-    |
-884 |     for (pred, expected) in cases.into_iter() {
-    |                             ^^^^^^^^^^^^^^^^^ help: to write this more concisely, try: `cases`
-    |
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_into_iter_loop
-
-warning: it is more concise to loop over containers instead of using explicit iteration methods
-   --> kernel/tests/read.rs:927:29
-    |
-927 |     for (pred, expected) in cases.into_iter() {
-    |                             ^^^^^^^^^^^^^^^^^ help: to write this more concisely, try: `cases`
-    |
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_into_iter_loop
-
-warning: it is more concise to loop over containers instead of using explicit iteration methods
-   --> kernel/tests/read.rs:980:29
-    |
-980 |     for (pred, expected) in cases.into_iter() {
-    |                             ^^^^^^^^^^^^^^^^^ help: to write this more concisely, try: `cases`
-    |
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_into_iter_loop
-
 warning: matching over `()` is more explicit
    --> kernel/tests/row_tracking.rs:766:19
     |
@@ -11854,117 +11964,7 @@ warning: matching over `()` is more explicit
     |
     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#ignored_unit_patterns
 
-warning: casting `usize` to `i64` may wrap around the value on targets with 64-bit wide pointers
-    --> kernel/tests/read.rs:1421:45
-     |
-1421 |         let expected_values: Vec<i64> = (0..batch.num_rows() as i64).collect();
-     |                                             ^^^^^^^^^^^^^^^^^^^^^^^
-     |
-     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#cast_possible_wrap
-     = note: `-W clippy::cast-possible-wrap` implied by `-W clippy::pedantic`
-     = help: to override `-W clippy::pedantic` add `#[allow(clippy::cast_possible_wrap)]`
-
-warning: adding items after statements is confusing, since items exist from the start of the scope
-    --> kernel/tests/read.rs:1543:5
-     |
-1543 | /     fn get_file_path_for_test(path: &ParsedLogPath) -> &str {
-1544 | |         &path.location.location.as_str()[10..]
-1545 | |     }
-     | |_____^
-     |
-     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#items_after_statements
-     = note: `-W clippy::items-after-statements` implied by `-W clippy::pedantic`
-     = help: to override `-W clippy::pedantic` add `#[allow(clippy::items_after_statements)]`
-
-warning: adding items after statements is confusing, since items exist from the start of the scope
-    --> kernel/tests/read.rs:1547:5
-     |
-1547 | /     fn ensure_segment_does_not_contain(invalid_files: &[&str], segment: &LogSegment) {
-1548 | |         assert!(
-1549 | |             !segment.ascending_commit_files.iter().any(|p| {
-1550 | |                 let test_path = get_file_path_for_test(p);
-...    |
-1581 | |     }
-     | |_____^
-     |
-     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#items_after_statements
-
-warning: it is more concise to loop over references to containers instead of using explicit iteration methods
-    --> kernel/tests/read.rs:1583:25
-     |
-1583 |     for invalid_file in invalid_files.iter() {
-     |                         ^^^^^^^^^^^^^^^^^^^^ help: to write this more concisely, try: `&invalid_files`
-     |
-     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_iter_loop
-
-warning: it is more concise to loop over references to containers instead of using explicit iteration methods
-    --> kernel/tests/read.rs:1592:25
-     |
-1592 |     for invalid_file in invalid_files.iter() {
-     |                         ^^^^^^^^^^^^^^^^^^^^ help: to write this more concisely, try: `&invalid_files`
-     |
-     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_iter_loop
-
 warning: `delta_kernel` (test "row_tracking") generated 8 warnings (run `cargo clippy --fix --test "row_tracking"` to apply 5 suggestions)
-warning: item in documentation is missing backticks
- --> kernel/tests/golden_tables.rs:3:40
-  |
-3 | //! Data (golden tables) are stored in tests/golden_data/<table_name>.tar.zst
-  |                                        ^^^^^^^^^^^^^^^^^
-  |
-  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_markdown
-  = note: `-W clippy::doc-markdown` implied by `-W clippy::pedantic`
-  = help: to override `-W clippy::pedantic` add `#[allow(clippy::doc_markdown)]`
-help: try
-  |
-3 - //! Data (golden tables) are stored in tests/golden_data/<table_name>.tar.zst
-3 + //! Data (golden tables) are stored in `tests/golden_data`/<table_name>.tar.zst
-  |
-
-warning: item in documentation is missing backticks
- --> kernel/tests/golden_tables.rs:3:59
-  |
-3 | //! Data (golden tables) are stored in tests/golden_data/<table_name>.tar.zst
-  |                                                           ^^^^^^^^^^^^^^^^^^^
-  |
-  = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#doc_markdown
-help: try
-  |
-3 - //! Data (golden tables) are stored in tests/golden_data/<table_name>.tar.zst
-3 + //! Data (golden tables) are stored in tests/golden_data/<`table_name>.tar.zst`
-  |
-
-warning: `delta_kernel` (test "read") generated 13 warnings (run `cargo clippy --fix --test "read"` to apply 9 suggestions)
-warning: it is more concise to loop over containers instead of using explicit iteration methods
-  --> kernel/tests/golden_tables.rs:40:17
-   |
-40 |     for meta in files.into_iter() {
-   |                 ^^^^^^^^^^^^^^^^^ help: to write this more concisely, try: `files`
-   |
-   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#explicit_into_iter_loop
-   = note: `-W clippy::explicit-into-iter-loop` implied by `-W clippy::pedantic`
-   = help: to override `-W clippy::pedantic` add `#[allow(clippy::explicit_into_iter_loop)]`
-
-warning: consider adding a `;` to the last statement for consistent formatting
-  --> kernel/tests/golden_tables.rs:76:21
-   |
-76 | /                     sort_columns.push(SortColumn {
-77 | |                         values: col.clone(),
-78 | |                         options: None,
-79 | |                     })
-   | |______________________^
-   |
-   = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#semicolon_if_nothing_returned
-   = note: `-W clippy::semicolon-if-nothing-returned` implied by `-W clippy::pedantic`
-   = help: to override `-W clippy::pedantic` add `#[allow(clippy::semicolon_if_nothing_returned)]`
-help: add a `;` here
-   |
-79 |                     sort_columns.push(SortColumn {
-80 |                         values: col.clone(),
-81 |                         options: None,
-82 ~                     });
-   |
-
 warning: unused `async` for function with no await statements
    --> kernel/tests/golden_tables.rs:255:1
     |
@@ -12263,6 +12263,22 @@ warning: unnecessary semicolon
     = note: `-W clippy::unnecessary-semicolon` implied by `-W clippy::pedantic`
     = help: to override `-W clippy::pedantic` add `#[allow(clippy::unnecessary_semicolon)]`
 
+warning: this function has too many lines (118/100)
+   --> kernel/tests/write.rs:425:7
+    |
+425 |   async fn test_append_partitioned() -> Result<(), Box<dyn std::error::Error>> {
+    |  _______^
+426 | |     // setup tracing
+427 | |     let _ = tracing_subscriber::fmt::try_init();
+...   |
+569 | |     Ok(())
+570 | | }
+    | |_^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#too_many_lines
+    = note: `-W clippy::too-many-lines` implied by `-W clippy::pedantic`
+    = help: to override `-W clippy::pedantic` add `#[allow(clippy::too_many_lines)]`
+
 warning: long literal lacking separators
    --> kernel/src/expressions/scalars.rs:773:30
     |
@@ -12359,21 +12375,19 @@ warning: long literal lacking separators
      |
      = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unreadable_literal
 
-warning: this function has too many lines (118/100)
-   --> kernel/tests/write.rs:425:7
+warning: this function has too many lines (109/100)
+   --> kernel/tests/write.rs:635:7
     |
-425 |   async fn test_append_partitioned() -> Result<(), Box<dyn std::error::Error>> {
+635 |   async fn test_write_txn_actions() -> Result<(), Box<dyn std::error::Error>> {
     |  _______^
-426 | |     // setup tracing
-427 | |     let _ = tracing_subscriber::fmt::try_init();
+636 | |     // setup tracing
+637 | |     let _ = tracing_subscriber::fmt::try_init();
 ...   |
-569 | |     Ok(())
-570 | | }
+767 | |     Ok(())
+768 | | }
     | |_^
     |
     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#too_many_lines
-    = note: `-W clippy::too-many-lines` implied by `-W clippy::pedantic`
-    = help: to override `-W clippy::pedantic` add `#[allow(clippy::too_many_lines)]`
 
 warning: long literal lacking separators
   --> kernel/src/log_path.rs:81:29
@@ -12406,36 +12420,6 @@ warning: long literal lacking separators
     |                                                                          ^^^^^^^ help: consider: `1_000_000`
     |
     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unreadable_literal
-
-warning: this function has too many lines (109/100)
-   --> kernel/tests/write.rs:635:7
-    |
-635 |   async fn test_write_txn_actions() -> Result<(), Box<dyn std::error::Error>> {
-    |  _______^
-636 | |     // setup tracing
-637 | |     let _ = tracing_subscriber::fmt::try_init();
-...   |
-767 | |     Ok(())
-768 | | }
-    | |_^
-    |
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#too_many_lines
-
-warning: long literal lacking separators
-    --> kernel/src/scan/mod.rs:1253:35
-     |
-1253 |                 Scalar::Timestamp(123456),
-     |                                   ^^^^^^ help: consider: `123_456`
-     |
-     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unreadable_literal
-
-warning: long literal lacking separators
-    --> kernel/src/scan/mod.rs:1258:35
-     |
-1258 |                 Scalar::Timestamp(123456),
-     |                                   ^^^^^^ help: consider: `123_456`
-     |
-     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unreadable_literal
 
 warning: this function has too many lines (170/100)
     --> kernel/tests/write.rs:863:7
@@ -12482,10 +12466,18 @@ warning: adding items after statements is confusing, since items exist from the 
     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#items_after_statements
 
 warning: long literal lacking separators
-    --> kernel/src/schema/mod.rs:2053:82
+    --> kernel/src/scan/mod.rs:1253:35
      |
-2053 |                 assert!(matches!(id_start, MetadataValue::Number(num) if *num == 2147483648i64));
-     |                                                                                  ^^^^^^^^^^^^^ help: consider: `2_147_483_648_i64`
+1253 |                 Scalar::Timestamp(123456),
+     |                                   ^^^^^^ help: consider: `123_456`
+     |
+     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unreadable_literal
+
+warning: long literal lacking separators
+    --> kernel/src/scan/mod.rs:1258:35
+     |
+1258 |                 Scalar::Timestamp(123456),
+     |                                   ^^^^^^ help: consider: `123_456`
      |
      = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unreadable_literal
 
@@ -12503,6 +12495,39 @@ help: change this to
 1291 -             _ => panic!("Unexpected domain: {}", domain),
 1291 +             _ => panic!("Unexpected domain: {domain}"),
      |
+
+warning: long literal lacking separators
+    --> kernel/src/schema/mod.rs:2053:82
+     |
+2053 |                 assert!(matches!(id_start, MetadataValue::Number(num) if *num == 2147483648i64));
+     |                                                                                  ^^^^^^^^^^^^^ help: consider: `2_147_483_648_i64`
+     |
+     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unreadable_literal
+
+warning: variables can be used directly in the `format!` string
+    --> kernel/tests/write.rs:1640:39
+     |
+1640 |     let commit_path = table_url.join(&format!("_delta_log/{:020}.json", version))?;
+     |                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args
+help: change this to
+     |
+1640 -     let commit_path = table_url.join(&format!("_delta_log/{:020}.json", version))?;
+1640 +     let commit_path = table_url.join(&format!("_delta_log/{version:020}.json"))?;
+     |
+
+warning: variables can be used directly in the `format!` string
+    --> kernel/tests/write.rs:1650:5
+     |
+1650 | /     assert!(
+1651 | |         !lines.is_empty(),
+1652 | |         "Commit log at version {} should not be empty",
+1653 | |         version
+1654 | |     );
+     | |_____^
+     |
+     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args
 
 warning: long literal lacking separators
    --> kernel/src/snapshot/builder.rs:145:28
@@ -12559,6 +12584,18 @@ warning: long literal lacking separators
     |
     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unreadable_literal
 
+warning: variables can be used directly in the `format!` string
+    --> kernel/tests/write.rs:1761:5
+     |
+1761 | /     assert!(
+1762 | |         first_ict > 1612345678,
+1763 | |         "First commit ICT ({}) should be greater than enablement timestamp (1612345678)",
+1764 | |         first_ict
+1765 | |     );
+     | |_____^
+     |
+     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args
+
 warning: long literal lacking separators
    --> kernel/src/snapshot.rs:833:32
     |
@@ -12583,6 +12620,19 @@ warning: long literal lacking separators
     |
     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unreadable_literal
 
+warning: variables can be used directly in the `format!` string
+    --> kernel/tests/write.rs:1807:5
+     |
+1807 | /     assert!(
+1808 | |         second_ict > first_ict,
+1809 | |         "Second ICT ({}) should be greater than first ICT ({})",
+1810 | |         second_ict,
+1811 | |         first_ict
+1812 | |     );
+     | |_____^
+     |
+     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args
+
 warning: long literal lacking separators
     --> kernel/src/snapshot.rs:1107:36
      |
@@ -12598,6 +12648,18 @@ warning: long literal lacking separators
      |                                  ^^^^^^^^^^^^^^^^ help: consider: `1_587_968_586_200_i64`
      |
      = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unreadable_literal
+
+warning: this function has too many lines (112/100)
+    --> kernel/tests/write.rs:1818:7
+     |
+1818 |   async fn test_remove_files_adds_expected_entries() -> Result<(), Box<dyn std::error::Error>> {
+     |  _______^
+...    |
+1981 | |     Ok(())
+1982 | | }
+     | |_^
+     |
+     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#too_many_lines
 
 warning: long literal lacking separators
     --> kernel/src/snapshot.rs:1313:36
@@ -12703,6 +12765,19 @@ warning: long literal lacking separators
      |
      = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unreadable_literal
 
+warning: variables can be used directly in the `format!` string
+    --> kernel/tests/write.rs:1865:37
+     |
+1865 |                 tmp_table_path.join(format!("_delta_log/{:020}.json", commit_version));
+     |                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+     |
+     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args
+help: change this to
+     |
+1865 -                 tmp_table_path.join(format!("_delta_log/{:020}.json", commit_version));
+1865 +                 tmp_table_path.join(format!("_delta_log/{commit_version:020}.json"));
+     |
+
 warning: long literal lacking separators
     --> kernel/src/snapshot.rs:1583:28
      |
@@ -12719,31 +12794,6 @@ warning: long literal lacking separators
      |
      = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unreadable_literal
 
-warning: variables can be used directly in the `format!` string
-    --> kernel/tests/write.rs:1640:39
-     |
-1640 |     let commit_path = table_url.join(&format!("_delta_log/{:020}.json", version))?;
-     |                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     |
-     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args
-help: change this to
-     |
-1640 -     let commit_path = table_url.join(&format!("_delta_log/{:020}.json", version))?;
-1640 +     let commit_path = table_url.join(&format!("_delta_log/{version:020}.json"))?;
-     |
-
-warning: variables can be used directly in the `format!` string
-    --> kernel/tests/write.rs:1650:5
-     |
-1650 | /     assert!(
-1651 | |         !lines.is_empty(),
-1652 | |         "Commit log at version {} should not be empty",
-1653 | |         version
-1654 | |     );
-     | |_____^
-     |
-     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args
-
 warning: long literal lacking separators
    --> kernel/src/table_changes/physical_to_logical.rs:168:31
     |
@@ -12751,18 +12801,6 @@ warning: long literal lacking separators
     |                               ^^^^^^^^^^^^^ help: consider: `1_000_000_000_000`
     |
     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unreadable_literal
-
-warning: variables can be used directly in the `format!` string
-    --> kernel/tests/write.rs:1761:5
-     |
-1761 | /     assert!(
-1762 | |         first_ict > 1612345678,
-1763 | |         "First commit ICT ({}) should be greater than enablement timestamp (1612345678)",
-1764 | |         first_ict
-1765 | |     );
-     | |_____^
-     |
-     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args
 
 warning: long literal lacking separators
    --> kernel/src/table_changes/physical_to_logical.rs:379:31
@@ -12779,19 +12817,6 @@ warning: long literal lacking separators
     |                          ^^^^^^^^^^ help: consider: `1_681_511_377`
     |
     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unreadable_literal
-
-warning: variables can be used directly in the `format!` string
-    --> kernel/tests/write.rs:1807:5
-     |
-1807 | /     assert!(
-1808 | |         second_ict > first_ict,
-1809 | |         "Second ICT ({}) should be greater than first ICT ({})",
-1810 | |         second_ict,
-1811 | |         first_ict
-1812 | |     );
-     | |_____^
-     |
-     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args
 
 warning: binding's name is too similar to existing binding
    --> kernel/src/table_changes/resolve_dvs.rs:327:17
@@ -12818,47 +12843,6 @@ note: existing binding defined here
 321 |         let add_dv = treemap_to_dv_descriptor(RoaringTreemap::from([0, 1]));
     |             ^^^^^^
     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#similar_names
-
-warning: this function has too many lines (112/100)
-    --> kernel/tests/write.rs:1818:7
-     |
-1818 |   async fn test_remove_files_adds_expected_entries() -> Result<(), Box<dyn std::error::Error>> {
-     |  _______^
-...    |
-1981 | |     Ok(())
-1982 | | }
-     | |_^
-     |
-     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#too_many_lines
-
-warning: variables can be used directly in the `format!` string
-    --> kernel/tests/write.rs:1865:37
-     |
-1865 |                 tmp_table_path.join(format!("_delta_log/{:020}.json", commit_version));
-     |                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-     |
-     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args
-help: change this to
-     |
-1865 -                 tmp_table_path.join(format!("_delta_log/{:020}.json", commit_version));
-1865 +                 tmp_table_path.join(format!("_delta_log/{commit_version:020}.json"));
-     |
-
-warning: long literal lacking separators
-   --> kernel/src/table_properties/deserialize.rs:320:39
-    |
-320 |             Duration::from_secs(123 * 604800)
-    |                                       ^^^^^^ help: consider: `604_800`
-    |
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unreadable_literal
-
-warning: long literal lacking separators
-   --> kernel/src/table_properties/deserialize.rs:325:39
-    |
-325 |             Duration::from_secs(123 * 604800)
-    |                                       ^^^^^^ help: consider: `604_800`
-    |
-    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unreadable_literal
 
 warning: redundant closure
     --> kernel/tests/write.rs:1969:50
@@ -12909,6 +12893,22 @@ warning: variables can be used directly in the `format!` string
      | |_________^
      |
      = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#uninlined_format_args
+
+warning: long literal lacking separators
+   --> kernel/src/table_properties/deserialize.rs:320:39
+    |
+320 |             Duration::from_secs(123 * 604800)
+    |                                       ^^^^^^ help: consider: `604_800`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unreadable_literal
+
+warning: long literal lacking separators
+   --> kernel/src/table_properties/deserialize.rs:325:39
+    |
+325 |             Duration::from_secs(123 * 604800)
+    |                                       ^^^^^^ help: consider: `604_800`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#unreadable_literal
 
 warning: it is more concise to loop over references to containers instead of using explicit iteration methods
     --> kernel/tests/write.rs:2133:25
@@ -12994,6 +12994,7 @@ warning: #[should_panic] attribute without a reason
      |
      = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#should_panic_without_expect
 
+warning: `delta_kernel` (test "write") generated 26 warnings (run `cargo clippy --fix --test "write"` to apply 12 suggestions)
 warning: binding's name is too similar to existing binding
    --> kernel/src/engine/arrow_expression/evaluate_expression.rs:391:17
     |
@@ -13007,7 +13008,6 @@ note: existing binding defined here
     |                 ^^^^^^^
     = help: for further information visit https://rust-lang.github.io/rust-clippy/master/index.html#similar_names
 
-warning: `delta_kernel` (test "write") generated 26 warnings (run `cargo clippy --fix --test "write"` to apply 12 suggestions)
 warning: binding's name is too similar to existing binding
    --> kernel/src/engine/arrow_expression/tests.rs:412:9
     |

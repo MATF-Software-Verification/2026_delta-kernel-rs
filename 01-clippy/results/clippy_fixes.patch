@@ -1,0 +1,421 @@
+diff --git a/kernel/benches/expression_bench.rs b/kernel/benches/expression_bench.rs
+index 6ef8ee75..c3e90f19 100644
+--- a/kernel/benches/expression_bench.rs
++++ b/kernel/benches/expression_bench.rs
+@@ -139,7 +139,7 @@ fn to_json_benchmark(c: &mut Criterion) {
+                 b.iter(|| {
+                     let result = to_json(black_box(struct_array));
+                     black_box(result).unwrap()
+-                })
++                });
+             },
+         );
+ 
+@@ -152,7 +152,7 @@ fn to_json_benchmark(c: &mut Criterion) {
+                 b.iter(|| {
+                     let result = to_json(black_box(struct_array));
+                     black_box(result).unwrap()
+-                })
++                });
+             },
+         );
+ 
+@@ -165,7 +165,7 @@ fn to_json_benchmark(c: &mut Criterion) {
+                 b.iter(|| {
+                     let result = to_json(black_box(struct_array));
+                     black_box(result).unwrap()
+-                })
++                });
+             },
+         );
+     }
+diff --git a/kernel/benches/metadata_bench.rs b/kernel/benches/metadata_bench.rs
+index 65676675..47edec82 100644
+--- a/kernel/benches/metadata_bench.rs
++++ b/kernel/benches/metadata_bench.rs
+@@ -55,7 +55,7 @@ fn create_snapshot_benchmark(c: &mut Criterion) {
+             Snapshot::builder_for(url.clone())
+                 .build(engine.as_ref())
+                 .expect("Failed to create snapshot")
+-        })
++        });
+     });
+ }
+ 
+@@ -82,7 +82,7 @@ fn scan_metadata_benchmark(c: &mut Criterion) {
+             for result in metadata_iter {
+                 result.expect("Failed to process scan metadata");
+             }
+-        })
++        });
+     });
+     group.finish();
+ }
+diff --git a/kernel/tests/cdf.rs b/kernel/tests/cdf.rs
+index 8f6d306a..fc4947c8 100644
+--- a/kernel/tests/cdf.rs
++++ b/kernel/tests/cdf.rs
+@@ -35,7 +35,7 @@ fn read_cdf_for_table(
+     let names = table_changes
+         .schema()
+         .fields()
+-        .map(|field| field.name())
++        .map(delta_kernel::schema::StructField::name)
+         .filter(|name| *name != "_commit_timestamp")
+         .collect_vec();
+     let schema = table_changes.schema().project(&names)?;
+diff --git a/kernel/tests/golden_tables.rs b/kernel/tests/golden_tables.rs
+index e2472091..0bc47961 100644
+--- a/kernel/tests/golden_tables.rs
++++ b/kernel/tests/golden_tables.rs
+@@ -1,6 +1,6 @@
+ //! Golden table tests adapted from delta-io/delta tests.
+ //!
+-//! Data (golden tables) are stored in tests/golden_data/<table_name>.tar.zst
++//! Data (golden tables) are stored in `tests/golden_data`/<`table_name>.tar.zst`
+ //! Each table directory has a table/ and expected/ subdirectory with the input/output respectively
+ 
+ use std::path::{Path, PathBuf};
+@@ -37,7 +37,7 @@ async fn read_expected(path: &Path) -> DeltaResult<RecordBatch> {
+     let files = store.list(None).try_collect::<Vec<_>>().await?;
+     let mut batches = vec![];
+     let mut schema = None;
+-    for meta in files.into_iter() {
++    for meta in files {
+         if let Some(ext) = meta.location.extension() {
+             if ext == "parquet" {
+                 let reader = ParquetObjectReader::new(store.clone(), meta.location);
+@@ -76,7 +76,7 @@ fn sort_record_batch(batch: RecordBatch) -> DeltaResult<RecordBatch> {
+                     sort_columns.push(SortColumn {
+                         values: col.clone(),
+                         options: None,
+-                    })
++                    });
+                 }
+             }
+             _ => sort_columns.push(SortColumn {
+diff --git a/kernel/tests/log_compaction.rs b/kernel/tests/log_compaction.rs
+index e90607fd..24057443 100644
+--- a/kernel/tests/log_compaction.rs
++++ b/kernel/tests/log_compaction.rs
+@@ -10,11 +10,11 @@ use object_store::path::Path;
+ use object_store::ObjectStore;
+ use url::Url;
+ 
+-/// Convert a URL to an object_store::Path
++/// Convert a URL to an `object_store::Path`
+ fn url_to_object_store_path(url: &Url) -> Result<Path, Box<dyn std::error::Error>> {
+     let path_segments = url
+         .path_segments()
+-        .ok_or_else(|| format!("URL has no path segments: {}", url))?;
++        .ok_or_else(|| format!("URL has no path segments: {url}"))?;
+ 
+     let path_string = path_segments.skip(1).collect::<Vec<_>>().join("/");
+ 
+@@ -64,10 +64,9 @@ async fn action_reconciliation_round_trip() -> Result<(), Box<dyn std::error::Er
+         .unwrap()
+         .as_millis() as i64;
+     let commit2_content = format!(
+-        r#"{{"commitInfo":{{"timestamp":{},"operation":"DELETE","operationParameters":{{"predicate":"id <= 10"}},"isBlindAppend":false}}}}
+-{{"remove":{{"path":"part-00000-file1.parquet","partitionValues":{{}},"size":1024,"modificationTime":1587968586000,"dataChange":true,"deletionTimestamp":{}}}}}
+-"#,
+-        current_timestamp_millis, current_timestamp_millis
++        r#"{{"commitInfo":{{"timestamp":{current_timestamp_millis},"operation":"DELETE","operationParameters":{{"predicate":"id <= 10"}},"isBlindAppend":false}}}}
++{{"remove":{{"path":"part-00000-file1.parquet","partitionValues":{{}},"size":1024,"modificationTime":1587968586000,"dataChange":true,"deletionTimestamp":{current_timestamp_millis}}}}}
++"#
+     );
+     store
+         .put(
+@@ -188,8 +187,7 @@ async fn action_reconciliation_round_trip() -> Result<(), Box<dyn std::error::Er
+         .as_i64()
+         .ok_or_else(|| {
+             format!(
+-                "deletionTimestamp should be present in remove action: {}",
+-                remove_line
++                "deletionTimestamp should be present in remove action: {remove_line}"
+             )
+         })?;
+     assert_eq!(actual_deletion_timestamp, current_timestamp_millis);
+@@ -390,8 +388,7 @@ async fn expired_tombstone_exclusion() -> Result<(), Box<dyn std::error::Error>>
+         .as_i64()
+         .ok_or_else(|| {
+             format!(
+-                "deletionTimestamp should be present in recent remove action: {}",
+-                recent_remove_line
++                "deletionTimestamp should be present in recent remove action: {recent_remove_line}"
+             )
+         })?;
+     assert_eq!(actual_deletion_timestamp, recent_timestamp);
+@@ -402,8 +399,7 @@ async fn expired_tombstone_exclusion() -> Result<(), Box<dyn std::error::Error>>
+         .count();
+     assert!(
+         total_actions >= 4,
+-        "Should have at least 4 actions: protocol, metadata, 1 add, 1 remove (recent). Found {}",
+-        total_actions
++        "Should have at least 4 actions: protocol, metadata, 1 add, 1 remove (recent). Found {total_actions}"
+     );
+     Ok(())
+ }
+diff --git a/kernel/tests/log_tail.rs b/kernel/tests/log_tail.rs
+index 1d91d626..b3138aee 100644
+--- a/kernel/tests/log_tail.rs
++++ b/kernel/tests/log_tail.rs
+@@ -12,7 +12,7 @@ use test_utils::{
+     actions_to_string, add_commit, add_staged_commit, delta_path_for_version, TestAction,
+ };
+ 
+-/// Helper function to create a LogPath for a commit at the given version
++/// Helper function to create a `LogPath` for a commit at the given version
+ fn create_log_path(table_root: &Url, commit_path: Path) -> LogPath {
+     let file_meta = create_file_meta(table_root, commit_path);
+     LogPath::try_new(file_meta).expect("Failed to create LogPath")
+diff --git a/kernel/tests/read.rs b/kernel/tests/read.rs
+index 23757c8d..2fd87747 100644
+--- a/kernel/tests/read.rs
++++ b/kernel/tests/read.rs
+@@ -358,7 +358,7 @@ fn read_with_scan_metadata(
+     }
+ 
+     let mut batches = vec![];
+-    for scan_file in scan_files.into_iter() {
++    for scan_file in scan_files {
+         let file_path = location.join(&scan_file.path)?;
+         let mut selection_vector = scan_file
+             .dv_info
+@@ -537,7 +537,7 @@ fn table_for_numbers(nums: Vec<u32>) -> Vec<String> {
+     .into_iter()
+     .map(String::from)
+     .collect();
+-    for num in nums.iter() {
++    for num in &nums {
+         res.push(format!("| {num}.{num}     | {num}      |"));
+     }
+     res.push("+---------+--------+".to_string());
+@@ -593,7 +593,7 @@ fn predicate_on_number() -> Result<(), Box<dyn std::error::Error>> {
+         ),
+     ];
+ 
+-    for (pred, expected) in cases.into_iter() {
++    for (pred, expected) in cases {
+         read_table_data(
+             "./tests/data/basic_partitioned",
+             Some(&["a_float", "number"]),
+@@ -750,7 +750,7 @@ fn predicate_on_number_not() -> Result<(), Box<dyn std::error::Error>> {
+             table_for_numbers(vec![4]),
+         ),
+     ];
+-    for (pred, expected) in cases.into_iter() {
++    for (pred, expected) in cases {
+         read_table_data(
+             "./tests/data/basic_partitioned",
+             Some(&["a_float", "number"]),
+@@ -881,7 +881,7 @@ fn and_or_predicates() -> Result<(), Box<dyn std::error::Error>> {
+             table_for_numbers(vec![1, 2, 3, 4, 5, 6]),
+         ),
+     ];
+-    for (pred, expected) in cases.into_iter() {
++    for (pred, expected) in cases {
+         read_table_data(
+             "./tests/data/basic_partitioned",
+             Some(&["a_float", "number"]),
+@@ -924,7 +924,7 @@ fn not_and_or_predicates() -> Result<(), Box<dyn std::error::Error>> {
+             vec![],
+         ),
+     ];
+-    for (pred, expected) in cases.into_iter() {
++    for (pred, expected) in cases {
+         read_table_data(
+             "./tests/data/basic_partitioned",
+             Some(&["a_float", "number"]),
+@@ -977,7 +977,7 @@ fn invalid_skips_none_predicates() -> Result<(), Box<dyn std::error::Error>> {
+             table_for_numbers(vec![1, 2, 3, 4, 5, 6]),
+         ),
+     ];
+-    for (pred, expected) in cases.into_iter() {
++    for (pred, expected) in cases {
+         read_table_data(
+             "./tests/data/basic_partitioned",
+             Some(&["a_float", "number"]),
+@@ -1580,7 +1580,7 @@ async fn test_invalid_files_are_skipped() -> Result<(), Box<dyn std::error::Erro
+         }
+     }
+ 
+-    for invalid_file in invalid_files.iter() {
++    for invalid_file in &invalid_files {
+         let invalid_path = Path::from(*invalid_file);
+         storage.put(&invalid_path, vec![1u8].into()).await?;
+         let snapshot = Snapshot::builder_for(location.clone()).build(engine.as_ref())?;
+@@ -1589,7 +1589,7 @@ async fn test_invalid_files_are_skipped() -> Result<(), Box<dyn std::error::Erro
+     }
+ 
+     // final test with _all_ the files we should ignore
+-    for invalid_file in invalid_files.iter() {
++    for invalid_file in &invalid_files {
+         let invalid_path = Path::from(*invalid_file);
+         storage.put(&invalid_path, vec![1u8].into()).await?;
+     }
+diff --git a/kernel/tests/row_tracking.rs b/kernel/tests/row_tracking.rs
+index b3b67d77..cd8d2894 100644
+--- a/kernel/tests/row_tracking.rs
++++ b/kernel/tests/row_tracking.rs
+@@ -32,7 +32,7 @@ async fn create_row_tracking_table(
+     Arc<dyn ObjectStore>,
+ )> {
+     let tmp_test_dir_url = Url::from_directory_path(tmp_dir.path())
+-        .map_err(|_| Error::generic("Failed to convert directory path to URL"))?;
++        .map_err(|()| Error::generic("Failed to convert directory path to URL"))?;
+     let (store, engine, table_location) = engine_store_setup(table_name, Some(&tmp_test_dir_url));
+ 
+     // Create table with row tracking feature enabled
+@@ -99,7 +99,7 @@ fn string_array(data: Vec<String>) -> Arc<dyn Array> {
+     Arc::new(StringArray::from(data))
+ }
+ 
+-/// Helper function to generate ArrowEngineData from batches of Arrow arrays.
++/// Helper function to generate `ArrowEngineData` from batches of Arrow arrays.
+ fn generate_data<I>(schema: SchemaRef, batches: I) -> DeltaResult<Vec<ArrowEngineData>>
+ where
+     I: IntoIterator<Item = Vec<Arc<dyn Array>>>,
+@@ -122,7 +122,7 @@ async fn verify_row_tracking_in_commit(
+     expected_base_row_ids: Vec<i64>,
+     expected_row_id_high_water_mark: i64,
+ ) -> DeltaResult<()> {
+-    let commit_url = table_url.join(&format!("_delta_log/{:020}.json", commit_version))?;
++    let commit_url = table_url.join(&format!("_delta_log/{commit_version:020}.json"))?;
+     let commit = store.get(&Path::from_url_path(commit_url.path())?).await?;
+ 
+     let parsed_actions: Vec<_> = Deserializer::from_slice(&commit.bytes().await?)
+@@ -150,7 +150,7 @@ async fn verify_row_tracking_in_commit(
+             })
+         })
+         .unzip();
+-    base_row_ids.sort();
++    base_row_ids.sort_unstable();
+ 
+     assert_eq!(base_row_ids, expected_base_row_ids);
+     assert_eq!(
+@@ -763,7 +763,7 @@ async fn test_no_row_tracking_fields_without_feature() -> DeltaResult<()> {
+ 
+     // Create a table without row tracking
+     let tmp_test_dir_url = Url::from_directory_path(tmp_test_dir.path())
+-        .map_err(|_| Error::generic("Failed to convert directory path to URL"))?;
++        .map_err(|()| Error::generic("Failed to convert directory path to URL"))?;
+     let (store, engine, table_location) =
+         engine_store_setup("test_no_row_tracking", Some(&tmp_test_dir_url));
+ 
+diff --git a/kernel/tests/v2_checkpoints.rs b/kernel/tests/v2_checkpoints.rs
+index 27e33a7c..a1ad6d28 100644
+--- a/kernel/tests/v2_checkpoints.rs
++++ b/kernel/tests/v2_checkpoints.rs
+@@ -38,7 +38,7 @@ fn test_v2_checkpoint_with_table(
+ fn to_string_vec(string_slice_vec: Vec<&str>) -> Vec<String> {
+     string_slice_vec
+         .into_iter()
+-        .map(|s| s.to_string())
++        .map(std::string::ToString::to_string)
+         .collect()
+ }
+ 
+diff --git a/kernel/tests/write.rs b/kernel/tests/write.rs
+index 343fc14d..003fb33c 100644
+--- a/kernel/tests/write.rs
++++ b/kernel/tests/write.rs
+@@ -200,7 +200,7 @@ async fn write_data_and_check_result_and_stats(
+             );
+         }
+         _ => panic!("Commit should have succeeded"),
+-    };
++    }
+ 
+     Ok(())
+ }
+@@ -1288,7 +1288,7 @@ async fn test_set_domain_metadata_basic() -> Result<(), Box<dyn std::error::Erro
+         match domain {
+             d if d == domain1 => assert_eq!(config, config1),
+             d if d == domain2 => assert_eq!(config, config2),
+-            _ => panic!("Unexpected domain: {}", domain),
++            _ => panic!("Unexpected domain: {domain}"),
+         }
+     }
+ 
+@@ -1637,7 +1637,7 @@ async fn get_ict_at_version(
+     table_url: &Url,
+     version: u64,
+ ) -> Result<i64, Box<dyn std::error::Error>> {
+-    let commit_path = table_url.join(&format!("_delta_log/{:020}.json", version))?;
++    let commit_path = table_url.join(&format!("_delta_log/{version:020}.json"))?;
+     let commit = store.get(&Path::from_url_path(commit_path.path())?).await?;
+     let commit_content = String::from_utf8(commit.bytes().await?.to_vec())?;
+ 
+@@ -1649,8 +1649,7 @@ async fn get_ict_at_version(
+         .collect();
+     assert!(
+         !lines.is_empty(),
+-        "Commit log at version {} should not be empty",
+-        version
++        "Commit log at version {version} should not be empty"
+     );
+ 
+     // First line should contain commitInfo with inCommitTimestamp
+@@ -1760,8 +1759,7 @@ async fn test_ict_commit_e2e() -> Result<(), Box<dyn std::error::Error>> {
+ 
+     assert!(
+         first_ict > 1612345678,
+-        "First commit ICT ({}) should be greater than enablement timestamp (1612345678)",
+-        first_ict
++        "First commit ICT ({first_ict}) should be greater than enablement timestamp (1612345678)"
+     );
+ 
+     // Second commit
+@@ -1806,9 +1804,7 @@ async fn test_ict_commit_e2e() -> Result<(), Box<dyn std::error::Error>> {
+     // Verify monotonic property: second_ict > first_ict
+     assert!(
+         second_ict > first_ict,
+-        "Second ICT ({}) should be greater than first ICT ({})",
+-        second_ict,
+-        first_ict
++        "Second ICT ({second_ict}) should be greater than first ICT ({first_ict})"
+     );
+ 
+     Ok(())
+@@ -1862,7 +1858,7 @@ async fn test_remove_files_adds_expected_entries() -> Result<(), Box<dyn std::er
+ 
+             // Read the commit log directly to verify remove actions
+             let commit_path =
+-                tmp_table_path.join(format!("_delta_log/{:020}.json", commit_version));
++                tmp_table_path.join(format!("_delta_log/{commit_version:020}.json"));
+             let commit_content = std::fs::read_to_string(commit_path)?;
+ 
+             let parsed_commits: Vec<_> = Deserializer::from_str(&commit_content)
+@@ -1966,9 +1962,9 @@ async fn test_remove_files_adds_expected_entries() -> Result<(), Box<dyn std::er
+                 dv.get("pathOrInlineDv").and_then(|v| v.as_str()),
+                 Some("vBn[lx{q8@P<9BNH/isA")
+             );
+-            assert_eq!(dv.get("offset").and_then(|v| v.as_i64()), Some(1));
+-            assert_eq!(dv.get("sizeInBytes").and_then(|v| v.as_i64()), Some(36));
+-            assert_eq!(dv.get("cardinality").and_then(|v| v.as_i64()), Some(2));
++            assert_eq!(dv.get("offset").and_then(serde_json::Value::as_i64), Some(1));
++            assert_eq!(dv.get("sizeInBytes").and_then(serde_json::Value::as_i64), Some(36));
++            assert_eq!(dv.get("cardinality").and_then(serde_json::Value::as_i64), Some(2));
+ 
+             // Row tracking fields should be absent as the feature is was not enabled on writing
+             // row_tracking tests cover having these populated.
+@@ -2111,8 +2107,7 @@ async fn test_remove_files_with_modified_selection_vector() -> Result<(), Box<dy
+ 
+         assert!(
+             initial_file_count >= 3,
+-            "Need at least 3 files for this test, got {}",
+-            initial_file_count
++            "Need at least 3 files for this test, got {initial_file_count}"
+         );
+ 
+         // Create a transaction to remove files in two batches
+@@ -2130,7 +2125,7 @@ async fn test_remove_files_with_modified_selection_vector() -> Result<(), Box<dy
+ 
+         // Select only the first file for removal
+         let mut first_batch_removed = 0;
+-        for selected in selection_vector.iter_mut() {
++        for selected in &mut selection_vector {
+             if *selected && first_batch_removed < 1 {
+                 // Keep selected for removal
+                 first_batch_removed += 1;

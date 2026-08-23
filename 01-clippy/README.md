@@ -18,6 +18,11 @@ From this directory:
 2. **Pedantic** (`-W clippy::pedantic`) - extra lints. Log: `results/clippy_pedantic.log`.
 3. `--fix` - apply auto-fixes, save `results/clippy_fixes.patch`, then restore the submodule so the tree stays clean.
 
+## Conclusion
+
+The default Clippy analysis of the `delta_kernel` package completed successfully. It reported 0 warnings with warnings treated as errors. 
+The additional pedantic analysis contained 1,321 items, but Cargo explicitly reported 784 duplicate warnings. The important distinction is that `clippy::pedantic` is intentionally strict, disabled by default, and can produce occasional false positives. Therefore, pedantic warnings should not be treated as a failed score.
+
 ## AI Triage
 
 Since pedantic lints can be noisy, AI could be a great additional tool to triage and filter out important pedantic lints. Example of the triage is saved at `results/pedantic_ai_triage.md`.
