@@ -1,0 +1,150 @@
+   Compiling delta_kernel v0.18.2 (/Users/branko.grbic/Documents/Faculty/2026_delta-kernel-rs/delta-kernel-rs/kernel)
+   Compiling test_utils v0.18.2 (/Users/branko.grbic/Documents/Faculty/2026_delta-kernel-rs/delta-kernel-rs/test-utils)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 11.13s
+     Running unittests src/lib.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/delta_kernel-5773cb4266929cbd)
+
+running 1 test
+test actions::tests::test_parse_schema_nesting_boundary ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 692 filtered out; finished in 0.01s
+
+     Running tests/cdf.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/cdf-527530cfa005349c)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 16 filtered out; finished in 0.00s
+
+     Running tests/dv.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/dv-9bf9ae03e8c3d19c)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.00s
+
+     Running tests/golden_tables.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/golden_tables-d54d607126408e83)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 87 filtered out; finished in 0.00s
+
+     Running tests/hdfs.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/hdfs-00c3dad29495e22f)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/log_compaction.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/log_compaction-a1dbc2d1b4d0d4d6)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.00s
+
+     Running tests/log_tail.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/log_tail-08131cc2e8a95bfd)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.00s
+
+     Running tests/read.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/read-d4adfbe14e695f28)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 33 filtered out; finished in 0.00s
+
+     Running tests/row_tracking.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/row_tracking-c03aa1932408aa5e)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s
+
+     Running tests/v2_checkpoints.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/v2_checkpoints-82d4a53a04f0c8ea)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 0.00s
+
+     Running tests/write.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/write-1a45815dfd5e7b81)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 26 filtered out; finished in 0.00s
+
+     Running tests/write_row_tracking.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/write_row_tracking-5d653ce1f08f8fa3)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.34s
+     Running unittests src/lib.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/delta_kernel-5773cb4266929cbd)
+
+running 1 test
+test actions::tests::test_metadata_try_new_rejects_metadata_columns ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 692 filtered out; finished in 0.00s
+
+     Running tests/cdf.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/cdf-527530cfa005349c)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 16 filtered out; finished in 0.00s
+
+     Running tests/dv.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/dv-9bf9ae03e8c3d19c)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.00s
+
+     Running tests/golden_tables.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/golden_tables-d54d607126408e83)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 87 filtered out; finished in 0.00s
+
+     Running tests/hdfs.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/hdfs-00c3dad29495e22f)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/log_compaction.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/log_compaction-a1dbc2d1b4d0d4d6)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.00s
+
+     Running tests/log_tail.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/log_tail-08131cc2e8a95bfd)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.00s
+
+     Running tests/read.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/read-d4adfbe14e695f28)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 33 filtered out; finished in 0.00s
+
+     Running tests/row_tracking.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/row_tracking-c03aa1932408aa5e)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s
+
+     Running tests/v2_checkpoints.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/v2_checkpoints-82d4a53a04f0c8ea)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 0.00s
+
+     Running tests/write.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/write-1a45815dfd5e7b81)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 26 filtered out; finished in 0.00s
+
+     Running tests/write_row_tracking.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/write_row_tracking-5d653ce1f08f8fa3)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
+

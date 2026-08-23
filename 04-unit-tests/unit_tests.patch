@@ -1,0 +1,77 @@
+diff --git a/kernel/src/actions/mod.rs b/kernel/src/actions/mod.rs
+index 0537fd22..ee7b9f00 100644
+--- a/kernel/src/actions/mod.rs
++++ b/kernel/src/actions/mod.rs
+@@ -1062,7 +1062,7 @@ mod tests {
+             json::ReaderBuilder,
+         },
+         engine::{arrow_data::EngineDataArrowExt as _, arrow_expression::ArrowEvaluationHandler},
+-        schema::{ArrayType, DataType, MapType, StructField},
++        schema::{ArrayType, DataType, MapType, MetadataColumnSpec, StructField},
+         Engine, EvaluationHandler, JsonHandler, ParquetHandler, StorageHandler,
+     };
+     use serde_json::json;
+@@ -1147,6 +1147,38 @@ mod tests {
+         assert_eq!(schema, expected);
+     }
+ 
++    // Regression characterization for https://github.com/delta-io/delta-kernel-rs/issues/1896.
++    #[test]
++    fn test_parse_schema_nesting_boundary() {
++        let metadata = |depth| Metadata {
++            schema_string: serde_json::to_string(&nested_schema(depth)).unwrap(),
++            ..Default::default()
++        };
++
++        metadata(41).parse_schema().unwrap();
++
++        let error = metadata(42).parse_schema().unwrap_err();
++        let error = match error {
++            Error::Backtraced { source, .. } => *source,
++            error => error,
++        };
++        match error {
++            Error::MalformedJson(error) => {
++                assert!(error.to_string().starts_with("recursion limit exceeded"));
++            }
++            error => panic!("expected a JSON recursion limit error, got {error:?}"),
++        }
++    }
++
++    fn nested_schema(depth: usize) -> StructType {
++        (0..depth).fold(
++            StructType::new_unchecked([StructField::nullable("leaf", DataType::INTEGER)]),
++            |schema, depth| {
++                StructType::new_unchecked([StructField::nullable(format!("level_{depth}"), schema)])
++            },
++        )
++    }
++
+     #[test]
+     fn test_add_schema() {
+         let schema = get_commit_schema()
+@@ -1852,6 +1884,24 @@ mod tests {
+         assert_eq!(metadata.configuration, config);
+     }
+ 
++    #[test]
++    fn test_metadata_try_new_rejects_metadata_columns() {
++        let schema = StructType::new_unchecked([StructField::create_metadata_column(
++            "row_index",
++            MetadataColumnSpec::RowIndex,
++        )]);
++
++        let result = Metadata::try_new(None, None, schema, vec![], 0, HashMap::new());
++
++        assert!(matches!(
++            result,
++            Err(Error::Schema(message))
++                if message
++                    == "Table schema must not contain metadata columns. \
++                        Found metadata column: 'row_index'"
++        ));
++    }
++
+     #[test]
+     fn test_metadata_try_new_default() {
+         let schema = StructType::new_unchecked([StructField::not_null("id", DataType::INTEGER)]);

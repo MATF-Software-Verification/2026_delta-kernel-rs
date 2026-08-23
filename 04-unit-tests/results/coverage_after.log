@@ -1,0 +1,1073 @@
+cargo-llvm-cov 0.8.7
+info: cargo-llvm-cov currently setting cfg(coverage); you can opt-out it by passing --no-cfg-coverage
+   Compiling delta_kernel v0.18.2 (/Users/branko.grbic/Documents/Faculty/2026_delta-kernel-rs/delta-kernel-rs/kernel)
+   Compiling delta_kernel_derive v0.18.2 (/Users/branko.grbic/Documents/Faculty/2026_delta-kernel-rs/delta-kernel-rs/derive-macros)
+   Compiling test_utils v0.18.2 (/Users/branko.grbic/Documents/Faculty/2026_delta-kernel-rs/delta-kernel-rs/test-utils)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 22.24s
+     Running unittests src/lib.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/llvm-cov-target/debug/deps/delta_kernel-5773cb4266929cbd)
+
+running 693 tests
+test action_reconciliation::tests::test_calculate_transaction_expiration_timestamp ... ok
+test action_reconciliation::tests::test_calculate_transaction_expiration_timestamp_edge_cases ... ok
+test action_reconciliation::tests::test_deleted_file_retention_timestamp_edge_cases ... ok
+test action_reconciliation::tests::test_deleted_file_retention_timestamp_with_large_now_time ... ok
+test action_reconciliation::tests::test_deleted_file_retention_timestamp_with_time ... ok
+test action_reconciliation::tests::test_retention_calculator_trait_deleted_file_retention_timestamp ... ok
+test action_reconciliation::tests::test_retention_calculator_trait_get_transaction_expiration_timestamp ... ok
+test action_reconciliation::log_replay::tests::test_action_reconciliation_visitor_validation_and_type_errors ... ok
+test action_reconciliation::log_replay::tests::test_action_reconciliation_visitor_complex_field_errors ... ok
+test actions::crc::tests::test_file_size_histogram_schema ... ok
+test actions::crc::tests::test_deleted_record_counts_histogram_schema ... ok
+test actions::crc::tests::test_crc_schema ... ok
+test actions::deletion_vector::tests::test_deletion_vector_path_absolute_path_with_known_uuid ... ok
+test actions::deletion_vector::tests::test_deletion_vector_path_absolute_path_with_known_uuid_empty_prefix ... ok
+test actions::deletion_vector::tests::test_deletion_vector_path_absolute_path_with_prefix ... ok
+test actions::deletion_vector::tests::test_deletion_vector_path_uniqueness ... ok
+test actions::deletion_vector::tests::test_deletion_vector_storage_type_from_str_error_message ... ok
+test actions::deletion_vector::tests::test_deletion_vector_storage_type_from_str_invalid ... ok
+test actions::deletion_vector::tests::test_deletion_vector_absolute_path ... ok
+test actions::deletion_vector::tests::test_deletion_vector_storage_type_from_str_valid ... ok
+test actions::deletion_vector::tests::test_deletion_vector_storage_type_roundtrip ... ok
+test actions::deletion_vector::tests::test_dv_to_bools ... ignored
+test actions::deletion_vector::tests::test_inline_native_serialization_error ... ok
+test actions::deletion_vector::tests::test_dv_row_indexes ... ok
+test actions::deletion_vector::tests::test_inline_read ... ok
+test actions::deletion_vector::tests::test_deletion_vector_read ... ok
+test actions::deletion_vector::tests::test_magic_number_constants ... ok
+test actions::deletion_vector_writer::tests::test_deletion_vector_trait ... ok
+test actions::deletion_vector_writer::tests::test_kernel_deletion_vector_add_indexes ... ok
+test actions::deletion_vector_writer::tests::test_kernel_deletion_vector_new ... ok
+test action_reconciliation::log_replay::tests::test_action_reconciliation_visitor_file_actions_in_batch ... ok
+test action_reconciliation::log_replay::tests::test_action_reconciliation_processor_error_propagation ... ok
+test actions::deletion_vector_writer::tests::test_streaming_writer_multiple_dvs ... ok
+test actions::deletion_vector_writer::tests::test_streaming_writer_roundtrip ... ok
+test actions::crc::tests::test_crc_protocol_metadata_visitor ... ok
+test actions::deletion_vector_writer::tests::test_streaming_writer_single_dv ... ok
+test actions::deletion_vector_writer::tests::test_to_descriptor_fields ... ok
+test actions::deletion_vector_writer::tests::test_to_descriptor_preserves_absolute_path ... ok
+test actions::deletion_vector_writer::tests::test_to_descriptor_preserves_absolute_path_empty_prefix ... ok
+test actions::deletion_vector_writer::tests::test_array_based_deletion_vector ... ok
+test action_reconciliation::log_replay::tests::test_action_reconciliation_visitor_already_seen_non_file_actions ... ok
+test action_reconciliation::log_replay::tests::test_action_reconciliation_visitor_file_actions_with_deletion_vectors ... ok
+test action_reconciliation::log_replay::tests::test_action_reconciliation_visitor_boundary_cases_for_tombstone_expiration ... ok
+test actions::tests::test_add_schema ... ok
+test action_reconciliation::log_replay::tests::test_action_reconciliation_visitor_txn_retention ... ok
+test actions::deletion_vector_writer::tests::test_multiple_deletion_vectors_roundtrip_with_descriptor ... ok
+test actions::deletion_vector_writer::tests::test_streaming_writer_empty_dv ... ok
+test action_reconciliation::log_replay::tests::test_action_reconciliation_actions_iter_file_actions ... ok
+test actions::tests::test_add_tags_deserialization_null_case ... ok
+test actions::tests::test_cdc_schema ... ok
+test actions::tests::test_checkpoint_metadata_schema ... ok
+test actions::tests::test_add_tags_deserialization_non_null_values_case ... ok
+test actions::tests::test_add_tags_deserialization_nullable_values_case ... ok
+test actions::tests::test_commit_info_schema ... ok
+test action_reconciliation::log_replay::tests::test_action_reconciliation_actions_iter_with_txn_retention ... ok
+test actions::tests::test_domain_metadata_schema ... ok
+test action_reconciliation::log_replay::tests::test_action_reconciliation_visitor_duplicate_non_file_actions ... ok
+test actions::tests::test_catalog_managed_writes ... ok
+test actions::tests::test_format_default ... ok
+test actions::tests::test_ensure_supported_features ... ok
+test actions::tests::test_ensure_write_supported ... ok
+test actions::tests::test_domain_metadata_into_engine_data ... ok
+test actions::tests::test_ensure_read_supported ... ok
+test actions::tests::test_format_empty_options ... ok
+test actions::tests::test_format_special_characters ... ok
+test actions::tests::test_commit_info_into_engine_data ... ok
+test actions::tests::test_format_try_from_scalar ... ok
+test actions::tests::test_illegal_writer_feature_combination ... ok
+test actions::tests::test_into_engine_data ... ok
+test actions::set_transaction::tests::test_visitor_retention_with_null_last_updated ... ok
+test actions::tests::test_metadata_schema ... ok
+test action_reconciliation::log_replay::tests::test_action_reconciliation_visitor ... ok
+test actions::tests::test_metadata_try_new_rejects_metadata_columns ... ok
+test actions::tests::test_metadata_try_new ... ok
+test actions::tests::test_metadata_try_new_default ... ok
+test actions::tests::test_metadata_unique_ids ... ok
+test actions::tests::test_parse_table_feature_never_fails ... ok
+test actions::tests::test_protocol_into_engine_data_no_features ... ok
+test actions::tests::test_schema_contains_file_actions_empty_schema ... ok
+test actions::tests::test_schema_contains_file_actions_with_add ... ok
+test actions::tests::test_schema_contains_file_actions_with_both ... ok
+test actions::tests::test_metadata_into_engine_data ... ok
+test actions::tests::test_remove_schema ... ok
+test action_reconciliation::log_replay::tests::test_action_reconciliation_actions_iter_file_actions_with_deletion_vectors ... ok
+test actions::tests::test_protocol_into_engine_data ... ok
+test actions::tests::test_protocol_into_engine_data_empty_features ... ok
+test actions::tests::test_schema_contains_file_actions_with_neither ... ok
+test actions::tests::test_metadata_with_log_schema ... ok
+test actions::tests::test_sidecar_schema ... ok
+test actions::tests::test_schema_contains_file_actions_with_remove ... ok
+test actions::tests::test_transaction_schema ... ok
+test actions::tests::test_validate_column_mapping_reader_v1_invalid ... ok
+test actions::tests::test_validate_legacy_column_mapping_valid ... ok
+test actions::tests::test_v2_checkpoint_supported ... ok
+test actions::tests::test_validate_legacy_column_mapping_with_writer_features_valid ... ok
+test actions::tests::test_validate_legacy_writer_only_features_valid ... ok
+test actions::tests::test_validate_multiple_readerwriter_features_reader_v2_invalid ... ok
+test actions::tests::test_validate_protocol ... ok
+test actions::tests::test_validate_table_features_invalid ... ok
+test actions::tests::test_validate_table_features_unknown ... ok
+test actions::tests::test_validate_table_features_valid ... ok
+test action_reconciliation::log_replay::tests::test_action_reconciliation_actions_iter_non_file_actions ... ok
+test actions::visitors::tests::commit_info_not_present ... ok
+test actions::visitors::tests::commit_info_get ... ok
+test actions::visitors::tests::commit_info_not_first ... ok
+test actions::visitors::tests::test_parse_remove_partitioned ... ok
+test checkpoint::tests::test_create_last_checkpoint_data ... ok
+test checkpoint::tests::test_deleted_file_retention_timestamp ... ok
+test actions::visitors::tests::test_parse_remove_all_fields_unique ... ok
+test actions::set_transaction::tests::test_txn_retention_filtering ... ok
+test actions::visitors::tests::test_parse_protocol ... ok
+test actions::visitors::tests::test_parse_add_partitioned ... ok
+test actions::visitors::tests::test_parse_metadata ... ok
+test committer::tests::test_commit_metadata ... ok
+test actions::tests::test_parse_schema_nesting_boundary ... ok
+test engine::arrow_conversion::tests::test_metadata_string_conversion ... ok
+test engine::arrow_conversion::tests::test_variant_shredded_type_fail ... ok
+test engine::arrow_data::tests::test_append_columns ... ok
+test engine::arrow_data::tests::test_append_columns_empty_new_columns ... ok
+test actions::visitors::tests::test_parse_sidecar ... ok
+test engine::arrow_data::tests::test_append_columns_empty_existing_data ... ok
+test engine::arrow_data::tests::test_append_columns_row_mismatch ... ok
+test engine::arrow_data::tests::test_append_columns_schema_field_count_mismatch ... ok
+test engine::arrow_data::tests::test_append_columns_various_data_types ... ok
+test actions::visitors::tests::test_parse_cdc ... ok
+test engine::arrow_data::tests::test_append_columns_with_nulls ... ok
+test engine::arrow_data::tests::test_append_single_column ... ok
+test actions::visitors::tests::test_parse_txn ... ok
+test engine::arrow_data::tests::test_binary_column_extraction ... ok
+test engine::arrow_data::tests::test_binary_column_extraction_type_mismatch ... ok
+test engine::arrow_data::tests::test_protocol_extract ... ok
+test actions::visitors::tests::test_parse_domain_metadata ... ok
+test engine::arrow_expression::apply_schema::apply_schema_validation_tests::test_apply_schema_basic_functionality ... ok
+test engine::arrow_expression::evaluate_expression::tests::test_coalesce_arrays_empty_input_error ... ok
+test engine::arrow_expression::evaluate_expression::tests::test_coalesce_arrays_all_nulls ... ok
+test engine::arrow_expression::evaluate_expression::tests::test_coalesce_arrays_length_mismatch_error ... ok
+test engine::arrow_expression::evaluate_expression::tests::test_coalesce_arrays_single_array ... ok
+test engine::arrow_expression::evaluate_expression::tests::test_coalesce_arrays_same_type ... ok
+test checkpoint::tests::test_create_checkpoint_metadata_batch ... ok
+test engine::arrow_expression::evaluate_expression::tests::test_coalesce_arrays_result_type_validation ... ok
+test engine::arrow_expression::evaluate_expression::tests::test_coalesce_arrays_type_mismatch_error ... ok
+test checkpoint::tests::test_no_checkpoint_staged_commits ... ok
+test engine::arrow_expression::evaluate_expression::tests::test_field_operations_and_multiple_insertions ... ok
+test engine::arrow_expression::evaluate_expression::tests::test_identity_transforms ... ok
+test engine::arrow_expression::evaluate_expression::tests::test_nested_path_transforms ... ok
+test engine::arrow_data::tests::test_md_extract ... ok
+test engine::arrow_expression::evaluate_expression::tests::test_nested_transforms ... ok
+test committer::tests::disallow_filesystem_committer_for_catalog_managed_tables ... ok
+test engine::arrow_expression::tests::test_apply_schema_column_count_mismatch ... ok
+test engine::arrow_expression::evaluate_expression::tests::test_transform_validation ... ok
+test engine::arrow_expression::tests::test_bad_right_type_array ... ok
+test checkpoint::tests::test_finalize_errors_if_checkpoint_data_iterator_is_not_exhausted ... ok
+test engine::arrow_expression::tests::test_array_column ... ok
+test engine::arrow_expression::tests::test_create_one_mismatching_scalar_types ... ok
+test engine::arrow_expression::tests::test_create_one ... ok
+test engine::arrow_expression::tests::test_create_one_top_level_null ... ok
+test engine::arrow_expression::tests::test_create_one_not_null_struct ... ok
+test engine::arrow_expression::tests::test_create_one_nested ... ok
+test engine::arrow_expression::tests::test_extract_column ... ok
+test engine::arrow_expression::tests::test_invalid_array_sides ... ok
+test engine::arrow_expression::tests::test_create_one_nested_null ... ok
+test engine::arrow_expression::tests::test_literal_type_array ... ok
+test engine::arrow_expression::tests::test_null_scalar_map ... ok
+test engine::arrow_expression::tests::test_literal_complex_type_array ... ok
+test engine::arrow_expression::tests::test_null_row_err ... ok
+test engine::arrow_expression::tests::test_null_row ... ok
+test engine::arrow_expression::tests::test_logical ... ok
+test engine::arrow_expression::tests::test_str_arrays ... ok
+test engine::arrow_expression::tests::test_to_json_with_empty_struct_array ... ok
+test engine::arrow_expression::tests::test_scalar_map ... ok
+test engine::arrow_expression::tests::test_binary_op ... ok
+test engine::arrow_expression::tests::test_binary_op_scalar ... ok
+test engine::arrow_expression::tests::test_to_json_with_non_struct_array ... ok
+test engine::arrow_utils::tests::empty_requested_schema ... ok
+test engine::arrow_expression::tests::test_opaque ... ok
+test engine::arrow_expression::tests::test_to_json_with_null_struct ... ok
+test engine::arrow_expression::tests::test_to_json_with_struct_array ... ok
+test engine::arrow_expression::tests::test_to_json_with_nested_struct ... ok
+test engine::arrow_utils::tests::get_requested_indices_by_id_falls_back_to_name ... ok
+test engine::arrow_utils::tests::get_requested_indices_by_id_only ... ok
+test engine::arrow_utils::tests::mask_with_map ... ok
+test engine::arrow_expression::tests::test_binary_cmp ... ok
+test engine::arrow_utils::tests::list_skip_earlier_element ... ok
+test engine::arrow_utils::tests::nested_indices ... ok
+test engine::arrow_utils::tests::ensure_data_types_fails_correctly ... ok
+test engine::arrow_utils::tests::nested_indices_list_mask_inner ... ok
+test engine::arrow_utils::tests::nested_indices_reorder ... ok
+test engine::arrow_utils::tests::reorder_list_of_struct ... ok
+test engine::arrow_utils::tests::nested_reorder_struct ... ok
+test engine::arrow_utils::tests::reorder_map_of_struct ... ok
+test engine::arrow_utils::tests::nested_indices_unselected_list ... ok
+test engine::arrow_utils::tests::nested_indices_mask_inner ... ok
+test engine::arrow_utils::tests::reorder_map_with_structs ... ok
+test engine::arrow_utils::tests::no_matches ... ok
+test engine::arrow_utils::tests::nested_indices_list ... ok
+test engine::arrow_utils::tests::simple_row_index_field ... ok
+test engine::arrow_utils::tests::simple_list_mask ... ok
+test engine::arrow_utils::tests::simple_mask_indices ... ok
+test engine::arrow_utils::tests::simple_nullable_field_missing ... ok
+test engine::arrow_utils::tests::simple_reorder_struct ... ok
+test engine::arrow_utils::tests::nested_indices_list_mask_inner_reorder ... ok
+test engine::arrow_utils::tests::test_ordering_needs_row_indexes ... ok
+test engine::arrow_utils::tests::test_match_parquet_fields_filters_metadata_columns ... ok
+test engine::arrow_utils::tests::simple_reorder_indices ... ok
+test engine::arrow_utils::tests::test_json_parsing ... ok
+test engine::arrow_utils::tests::test_reorder_struct_array_with_row_indexes ... ok
+test engine::arrow_utils::tests::test_reorder_struct_array_missing_row_indexes ... ok
+test engine::arrow_utils::tests::test_row_index_builder_duplicate_row_group_ordinals ... ok
+test engine::arrow_utils::tests::skipped_struct ... ok
+test engine::arrow_utils::tests::test_row_index_builder_no_skipping ... ok
+test engine::arrow_utils::tests::test_row_index_builder_empty_selection ... ok
+test engine::arrow_utils::tests::test_row_index_builder_out_of_bounds_row_group_ordinals ... ok
+test engine::arrow_utils::tests::test_row_index_builder_out_of_order_selection ... ok
+test engine::arrow_utils::tests::test_row_index_builder_single_row_group ... ok
+test engine::arrow_utils::tests::test_write_json ... ok
+test engine::arrow_utils::tests::test_row_index_builder_with_skipping ... ok
+test engine::arrow_utils::tests::test_to_json_bytes_filters_data ... ok
+test checkpoint::tests::test_v1_checkpoint_specific_version ... ok
+test engine::arrow_utils::tests::test_variant_masks ... ok
+test checkpoint::tests::test_v2_checkpoint_supported_table ... ok
+test engine::default::filesystem::tests::test_file_meta_is_correct ... ok
+test checkpoint::tests::test_v1_checkpoint_latest_version_by_default ... ok
+test engine::default::json::tests::test_parse_json_drop_field ... ok
+test engine::arrow_utils::tests::test_arrow_broken_nested_null_masks ... ok
+2026-08-23T18:34:30.793181Z  INFO delta_kernel::engine::default::json::tests: Created temporary malformed file at: file:///var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/.tmpbTb5id
+test engine::default::filesystem::tests::test_head_non_existent ... ok
+test actions::set_transaction::tests::test_txn ... ok
+test engine::default::json::tests::test_parse_json ... ok
+2026-08-23T18:34:30.793928Z  INFO delta_kernel::engine::default::json::tests: Created temporary malformed file at: file:///var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/.tmpm579YP
+2026-08-23T18:34:30.793981Z  INFO delta_kernel::engine::default::json::tests: 
+Attempting to read single malformed JSON file...
+test engine::default::json::tests::test_write_json_file_overwrite ... ok
+test engine::default::parquet::tests::test_as_record_batch ... ok
+test actions::set_transaction::tests::test_replay_for_app_ids ... ok
+2026-08-23T18:34:30.794539Z  INFO delta_kernel::engine::default::json::tests: 
+Attempting to read two malformed JSON files...
+test engine::default::json::tests::test_write_json_file_without_overwrite ... ok
+test engine::default::parquet::tests::test_disallow_non_trailing_slash ... ok
+test engine::default::filesystem::tests::test_head ... ok
+test engine::default::tests::test_pre_signed_url ... ok
+test engine::ensure_data_types::tests::accepts_safe_decimal_casts ... ok
+test engine::default::parquet::tests::test_write_parquet ... ok
+test engine::ensure_data_types::tests::ensure_decimals ... ok
+test engine::ensure_data_types::tests::ensure_large_strings_and_binary ... ok
+test engine::default::storage::tests::test_add_hdfs_scheme ... ok
+test engine::ensure_data_types::tests::ensure_list ... ok
+test engine::ensure_data_types::tests::ensure_map ... ok
+test engine::ensure_data_types::tests::ensure_struct ... ok
+test engine::ensure_data_types::tests::ensure_variants ... ok
+test engine::ensure_data_types::tests::ensure_views ... ok
+test engine::ensure_data_types::tests::rejects_unsafe_decimal_casts ... ok
+test engine::default::json::tests::test_read_invalid_json ... ok
+test engine::default::json::tests::test_read_json_files ... ok
+test engine::arrow_utils::tests::test_parse_json_with_long_strings ... ok
+test engine::parquet_row_group_skipping::tests::test_get_stat_values ... ok
+test engine::default::filesystem::tests::test_read_files ... ok
+test engine_data::tests::filtered_apply_seclection_vector_full ... ok
+test engine_data::tests::filtered_apply_seclection_vector_partial ... ok
+test engine_data::tests::test_from_engine_data ... ok
+test engine_data::tests::test_get_binary_empty_bytes ... ok
+test engine_data::tests::test_get_binary_required ... ok
+test engine_data::tests::test_get_binary_required_missing ... ok
+test engine_data::tests::test_get_binary_some_value ... ok
+test engine_data::tests::test_has_selected_rows_empty_data ... ok
+test engine_data::tests::test_has_selected_rows_selection_vector_same_length_all_false ... ok
+test engine_data::tests::test_has_selected_rows_selection_vector_same_length_some_true ... ok
+test engine::default::parquet::tests::test_read_parquet_files ... ok
+test engine_data::tests::test_has_selected_rows_selection_vector_shorter_than_data ... ok
+test engine_data::tests::test_with_all_rows_selected_empty_data ... ok
+test engine_data::tests::test_try_new_selection_vector_larger_than_data ... ok
+test engine_data::tests::test_with_all_rows_selected_multiple_rows ... ok
+test engine_data::tests::test_with_all_rows_selected_single_row ... ok
+test expressions::column_names::test::test_column_name_macros ... ok
+test expressions::column_names::test::test_column_name_from_str ... ok
+test expressions::column_names::test::test_column_name_methods ... ok
+test expressions::column_names::test::test_column_name_to_string ... ok
+test expressions::column_names::test::test_parse_column_name_list ... ok
+test expressions::column_names::test::test_parse_column_name_macros ... ok
+test engine::sync::storage::tests::test_read_files ... ok
+test expressions::literal_expression_transform::tests::test_all_not_null_a_b ... ok
+test expressions::literal_expression_transform::tests::test_all_not_null_a_n ... ok
+test expressions::literal_expression_transform::tests::test_all_not_null_n_b ... ok
+test expressions::literal_expression_transform::tests::test_all_not_null_n_n ... ok
+test expressions::literal_expression_transform::tests::test_all_nullable_a_b ... ok
+test expressions::literal_expression_transform::tests::test_all_nullable_a_n ... ok
+test expressions::literal_expression_transform::tests::test_all_nullable_n_b ... ok
+test engine::sync::storage::tests::test_file_meta_is_correct ... ok
+test expressions::literal_expression_transform::tests::test_all_nullable_n_n ... ok
+test expressions::literal_expression_transform::tests::test_create_one_extra_values ... ok
+test expressions::literal_expression_transform::tests::test_create_one_incorrect_schema ... ok
+test expressions::literal_expression_transform::tests::test_create_one_missing_values ... ok
+test expressions::literal_expression_transform::tests::test_create_one_top_level_null ... ok
+test expressions::literal_expression_transform::tests::test_not_null_nullable_not_null_a_b ... ok
+test expressions::literal_expression_transform::tests::test_many_structs ... ok
+test expressions::literal_expression_transform::tests::test_not_null_nullable_not_null_a_n ... ok
+test expressions::literal_expression_transform::tests::test_map_and_array ... ok
+test expressions::literal_expression_transform::tests::test_not_null_nullable_not_null_n_b ... ok
+test expressions::literal_expression_transform::tests::test_not_null_nullable_not_null_n_n ... ok
+test expressions::literal_expression_transform::tests::test_not_null_nullable_nullable_a_b ... ok
+test expressions::literal_expression_transform::tests::test_not_null_nullable_nullable_a_n ... ok
+test expressions::literal_expression_transform::tests::test_not_null_nullable_nullable_n_b ... ok
+test expressions::literal_expression_transform::tests::test_not_null_nullable_nullable_n_n ... ok
+test expressions::literal_expression_transform::tests::test_nullable_not_null_not_null_a_b ... ok
+test expressions::literal_expression_transform::tests::test_nullable_not_null_not_null_a_n ... ok
+test expressions::literal_expression_transform::tests::test_nullable_not_null_not_null_n_n ... ok
+test expressions::literal_expression_transform::tests::test_nullable_not_null_not_null_n_b ... ok
+test expressions::literal_expression_transform::tests::test_nullable_nullable_not_null_a_n ... ok
+test expressions::literal_expression_transform::tests::test_nullable_nullable_not_null_a_b ... ok
+test expressions::literal_expression_transform::tests::test_nullable_nullable_not_null_n_b ... ok
+test engine::default::filesystem::tests::test_copy ... ok
+test expressions::literal_expression_transform::tests::test_nullable_nullable_not_null_n_n ... ok
+test expressions::scalars::tests::test_arrays ... ok
+test expressions::scalars::tests::test_bad_decimal ... ok
+test expressions::scalars::tests::test_bytes_conversion ... ok
+test expressions::scalars::tests::test_decimal_display ... ok
+test expressions::scalars::tests::test_decimal_precision ... ok
+test expressions::scalars::tests::test_hashmap_conversion ... ok
+test expressions::scalars::tests::test_hashmap_conversion_with_nullable_values ... ok
+test expressions::scalars::tests::test_invalid_array ... ok
+test expressions::scalars::tests::test_invalid_map ... ok
+test expressions::scalars::tests::test_parse_decimal ... ok
+test engine::sync::json::tests::test_write_json_file_without_overwrite ... ok
+test expressions::scalars::tests::test_partial_cmp ... ok
+test expressions::scalars::tests::test_parse_decimal_expect_fail ... ok
+test expressions::scalars::tests::test_partial_eq ... ok
+test expressions::scalars::tests::test_timestamp_ntz_parse ... ok
+test expressions::scalars::tests::test_timestamp_parse_fails ... ok
+test expressions::scalars::tests::test_timestamp_parse ... ok
+test expressions::scalars::tests::test_vec_conversion ... ok
+test expressions::scalars::tests::test_vec_conversion_different_types ... ok
+test expressions::scalars::tests::test_vec_conversion_with_nullable_values ... ok
+test expressions::tests::test_expression_format ... ok
+test expressions::tests::test_predicate_format ... ok
+test expressions::transforms::tests::test_transform_expr_variadic_all_children_removed ... ok
+2026-08-23T18:34:30.801961Z  WARN delta_kernel::expressions::transforms: Max expression depth 1 exceeded by OpaquePredicate { op: OpaqueTestOp("opaque"), exprs: [Binary(BinaryExpression { op: Plus, left: Literal(Integer(10)), right: Column(ColumnName { path: ["x"] }) }), Binary(BinaryExpression { op: Minus, left: Unknown("unknown"), right: Column(ColumnName { path: ["b"] }) })] }
+test expressions::transforms::tests::test_transform_expr_variadic_child_removal ... ok
+2026-08-23T18:34:30.801999Z  WARN delta_kernel::expressions::transforms: Max expression depth 2 exceeded by BinaryExpression { op: Plus, left: Literal(Integer(10)), right: Column(ColumnName { path: ["x"] }) }
+test expressions::transforms::tests::test_transform_expr_variadic_child_transformation ... ok
+test expressions::transforms::tests::test_transform_expr_variadic_empty_input ... ok
+2026-08-23T18:34:30.802042Z  WARN delta_kernel::expressions::transforms: Max expression depth 3 exceeded by BinaryExpression { op: Plus, left: Literal(Integer(5)), right: Opaque(OpaqueExpression { op: OpaqueTestOp("inscrutable"), exprs: [Literal(Integer(10))] }) }
+test expressions::transforms::tests::test_transform_expr_variadic_mixed_transformations ... ok
+2026-08-23T18:34:30.802095Z  WARN delta_kernel::expressions::transforms: Max expression depth 4 exceeded by OpaqueExpression { op: OpaqueTestOp("inscrutable"), exprs: [Literal(Integer(10))] }
+test expressions::transforms::tests::test_transform_expr_variadic_noop ... ok
+test history_manager::search::tests::test_duplicate_values ... ok
+2026-08-23T18:34:30.802129Z  WARN delta_kernel::expressions::transforms: Max expression depth 1 exceeded by JunctionPredicate { op: And, preds: [Opaque(OpaquePredicate { op: OpaqueTestOp("opaque"), exprs: [Binary(BinaryExpression { op: Plus, left: Literal(Integer(10)), right: Column(ColumnName { path: ["x"] }) }), Binary(BinaryExpression { op: Minus, left: Unknown("unknown"), right: Column(ColumnName { path: ["b"] }) })] }), BooleanExpression(Literal(Boolean(true))), Not(BooleanExpression(Literal(Boolean(true))))] }
+test history_manager::search::tests::test_edge_cases ... ok
+2026-08-23T18:34:30.802173Z  WARN delta_kernel::expressions::transforms: Max expression depth 2 exceeded by OpaquePredicate { op: OpaqueTestOp("opaque"), exprs: [Binary(BinaryExpression { op: Plus, left: Literal(Integer(10)), right: Column(ColumnName { path: ["x"] }) }), Binary(BinaryExpression { op: Minus, left: Unknown("unknown"), right: Column(ColumnName { path: ["b"] }) })] }
+test history_manager::search::tests::test_error_propagation ... ok
+2026-08-23T18:34:30.802198Z  WARN delta_kernel::expressions::transforms: Max expression depth 3 exceeded by BinaryExpression { op: Plus, left: Literal(Integer(10)), right: Column(ColumnName { path: ["x"] }) }
+test history_manager::search::tests::test_exact_match ... ok
+test history_manager::search::tests::test_no_exact_match ... ok
+test kernel_predicates::parquet_stats_skipping::tests::test_eval_binary_comparisons ... ok
+test kernel_predicates::parquet_stats_skipping::tests::test_eval_is_null ... ok
+test kernel_predicates::parquet_stats_skipping::tests::test_junctions ... ok
+test kernel_predicates::tests::test_default_eval_scalar ... ok
+test engine::sync::storage::tests::test_list_from ... ok
+2026-08-23T18:34:30.802416Z  WARN delta_kernel::expressions::transforms: Max expression depth 4 exceeded by BinaryExpression { op: Plus, left: Literal(Integer(5)), right: Opaque(OpaqueExpression { op: OpaqueTestOp("inscrutable"), exprs: [Literal(Integer(10))] }) }
+2026-08-23T18:34:30.802438Z  WARN delta_kernel::expressions::transforms: Max expression depth 5 exceeded by OpaqueExpression { op: OpaqueTestOp("inscrutable"), exprs: [Literal(Integer(10))] }
+test kernel_predicates::tests::test_eval_binary_columns ... ok
+test expressions::transforms::tests::test_depth_checker ... ok
+test kernel_predicates::tests::test_eval_column ... ok
+test engine::sync::json::tests::test_write_json_file_overwrite ... ok
+test kernel_predicates::tests::eval_binary ... ok
+test kernel_predicates::tests::test_eval_binary_scalars ... ok
+test kernel_predicates::tests::test_eval_distinct ... ok
+test kernel_predicates::tests::test_default_scalar_arithmetic ... ok
+test kernel_predicates::tests::test_eval_is_null ... ok
+test kernel_predicates::tests::test_default_partial_cmp_scalars ... ok
+test kernel_predicates::tests::test_eval_junction ... ok
+test kernel_predicates::tests::test_eval_not ... ok
+test kernel_predicates::tests::test_eval_opaque_complex ... ok
+test kernel_predicates::tests::test_eval_opaque_simple ... ok
+test kernel_predicates::tests::test_eval_opaque_predicate ... ok
+test kernel_predicates::tests::test_eval_unknown ... ok
+test kernel_predicates::tests::test_sql_where ... ok
+test listed_log_files::list_log_files_with_log_tail_tests::test_log_tail_covers_entire_range_no_listing ... ok
+test listed_log_files::list_log_files_with_log_tail_tests::test_empty_log_tail ... ok
+test log_compaction::tests::test_compaction_actions_schema_access ... ok
+test listed_log_files::list_log_files_with_log_tail_tests::test_listing_with_large_end_version ... ok
+test listed_log_files::list_log_files_with_log_tail_tests::test_log_tail_defines_latest_version ... ok
+test listed_log_files::list_log_files_with_log_tail_tests::test_listing_omits_staged_commits ... ok
+test listed_log_files::list_log_files_with_log_tail_tests::test_request_subset_with_log_tail ... ok
+test listed_log_files::list_log_files_with_log_tail_tests::test_log_tail_has_latest_commit_files ... ok
+test log_compaction::tests::test_end_version_exceeds_snapshot_version ... ok
+test log_compaction::tests::test_no_compaction_staged_commits ... ok
+test log_compaction::tests::test_invalid_version_range ... ok
+test log_compaction::tests::test_should_compact ... ok
+test log_compaction::tests::test_compaction_data ... ok
+test log_compaction::tests::test_compaction_paths ... ok
+test log_compaction::tests::test_log_compaction_writer_creation ... ok
+test log_path::test::test_staged_commit_path_creation ... ok
+test log_replay::tests::test_check_and_record_seen ... ok
+test log_compaction::tests::test_equal_version_range_invalid ... ok
+test log_replay::tests::test_extract_file_action_add ... ok
+test log_replay::tests::test_extract_file_action_no_action_found ... ok
+test log_path::test::test_staged_commit_path_creation_failures ... ok
+test log_replay::tests::test_extract_file_action_remove ... ok
+test log_replay::tests::test_extract_file_action_skip_removes ... ok
+test log_replay::tests::test_extract_file_action_with_deletion_vector ... ok
+test log_replay::tests::test_is_log_batch ... ok
+test engine::default::json::tests::test_ordered_get_store ... ok
+test log_compaction::tests::test_retention_calculator ... ok
+test log_segment::tests::build_snapshot_with_correct_last_uuid_checkpoint ... ok
+test engine::sync::tests::test_sync_engine ... ok
+test log_segment::tests::build_snapshot_with_checkpoint_greater_than_time_travel_version ... ok
+test log_segment::tests::build_snapshot_with_correct_last_multipart_checkpoint ... ok
+test log_segment::tests::build_snapshot_with_bad_checkpoint_hint_fails ... ok
+test log_compaction::tests::test_writer_debug_impl ... ok
+test log_segment::tests::build_snapshot_with_missing_checkpoint_part_from_hint_fails ... ok
+test log_compaction::tests::test_compaction_data_with_actual_iterator ... ok
+test log_segment::tests::build_snapshot_with_out_of_date_last_checkpoint ... ok
+test log_segment::tests::build_snapshot_with_multiple_incomplete_multipart_checkpoints ... ok
+test log_segment::tests::build_snapshot_with_out_of_date_last_checkpoint_and_incomplete_recent_checkpoint ... ok
+test log_segment::tests::build_snapshot_with_missing_checkpoint_part_no_hint ... ok
+test log_segment::tests::build_snapshot_with_start_checkpoint_and_time_travel_version ... ok
+test log_compaction::tests::test_version_filtering ... ok
+test log_segment::tests::build_snapshot_with_uuid_checkpoint_parquet ... ok
+test log_segment::tests::build_snapshot_with_uuid_checkpoint_json ... ok
+test log_segment::tests::for_timestamp_conversion_gets_commit_range ... ok
+test log_segment::tests::for_timestamp_conversion_no_commit_files ... ok
+test engine::default::filesystem::tests::test_default_engine_listing ... ok
+test log_segment::tests::for_timestamp_conversion_with_limit ... ok
+test log_segment::tests::for_timestamp_conversion_with_large_limit ... ok
+test log_segment::tests::build_snapshot_without_checkpoints ... ok
+test log_segment::tests::table_changes_fails_with_larger_start_version_than_end ... ok
+test log_segment::tests::for_timestamp_conversion_only_contiguous_ranges ... ok
+test log_segment::tests::for_timestamp_conversion_with_old_end_version ... ok
+test log_segment::tests::build_table_changes_with_commit_versions ... ok
+test log_segment::tests::test_commit_cover_compaction_with_checkpoint ... ok
+test log_segment::tests::test_commit_cover_no_compactions ... ok
+test log_segment::tests::test_commit_cover_in_version_range ... ok
+test log_segment::tests::test_commit_cover_multi_compaction ... ok
+test log_segment::tests::test_commit_cover_minimal_overlap ... ok
+test log_segment::tests::test_commit_cover_multi_compaction_one_out_of_range ... ok
+test log_segment::tests::test_commit_cover_one_compaction ... ok
+test log_segment::tests::test_commit_cover_out_of_version_range ... ok
+test log_segment::tests::test_commit_cover_starts_at_checkpoint ... ok
+test log_segment::tests::test_compaction_in_version_range ... ok
+test log_segment::tests::test_compaction_out_of_version_range ... ok
+test log_segment::tests::test_commit_cover_wider_range ... ok
+test log_segment::tests::test_commit_cover_too_early_with_checkpoint ... ok
+test log_segment::tests::test_compaction_simple ... ok
+test log_segment::tests::test_checkpoint_batch_with_no_sidecars_returns_none ... ok
+test log_segment::tests::test_compaction_starts_at_checkpoint ... ok
+test log_segment::tests::test_compaction_to_early_with_checkpoint ... ok
+test log_segment::tests::commits_since ... ok
+test log_segment::tests::test_debug_assert_listed_log_file_in_order_compaction_files ... ok
+test log_segment::tests::test_compaction_with_checkpoint ... ok
+test log_segment::tests::test_debug_assert_listed_log_file_invalid_multipart_checkpoint - should panic ... ok
+test log_segment::tests::test_debug_assert_listed_log_file_different_multipart_checkpoint_versions - should panic ... ok
+test log_segment::tests::test_checkpoint_batch_with_sidecar_files_that_do_not_exist ... ok
+test log_segment::tests::test_debug_assert_listed_log_file_out_of_order_compaction_files - should panic ... ok
+test engine::default::tests::test_default_engine ... ok
+test log_segment::tests::test_create_checkpoint_stream_reads_json_checkpoint_batch_without_sidecars ... ok
+test log_segment::tests::test_latest_commit_file_field_is_captured ... ok
+test log_segment::tests::test_latest_commit_file_with_checkpoint_filtering ... ok
+test log_segment::tests::test_log_segment_contiguous_commit_files ... ok
+test log_segment::tests::test_latest_commit_file_with_checkpoint_at_same_version ... ok
+test log_segment::tests::test_latest_commit_file_with_no_commits ... ok
+test log_segment::tests::test_list_log_files_with_version ... ok
+test log_segment::tests::test_latest_commit_file_edge_case_commit_before_checkpoint ... ok
+test log_segment::tests::test_publish_validation ... ok
+test log_segment::tests::test_multi_compaction ... ok
+test log_segment::tests::test_sidecar_to_filemeta_valid_paths ... ok
+test log_segment::tests::test_multi_compaction_one_out_of_range ... ok
+test path::tests::test_commit_patterns ... ok
+test path::tests::test_multi_part_checkpoint_patterns ... ok
+test path::tests::test_compacted_delta_patterns ... ok
+test path::tests::test_new_classic_parquet_checkpoint ... ok
+test path::tests::test_crc_patterns ... ok
+test path::tests::test_new_commit ... ok
+test log_segment::tests::test_non_contiguous_log ... ok
+test path::tests::test_read_in_commit_timestamp_not_commit_file ... ok
+test path::tests::test_new_uuid_parquet_checkpoint ... ok
+test path::tests::test_single_part_checkpoint_patterns ... ok
+test path::tests::test_should_list ... ok
+test path::tests::test_read_in_commit_timestamp_missing_ict ... ok
+test path::tests::test_staged_commit_paths ... ok
+test path::tests::test_read_in_commit_timestamp_success ... ok
+test row_tracking::tests::test_selected_column_names_and_types ... ok
+test row_tracking::tests::test_serialization_roundtrip ... ok
+test row_tracking::tests::test_visit_basic_functionality ... ok
+test path::tests::test_unknown_invalid_patterns ... ok
+test path::tests::test_uuid_checkpoint_patterns ... ok
+test row_tracking::tests::test_visit_missing_num_records ... ok
+test row_tracking::tests::test_visit_empty_batch ... ok
+test row_tracking::tests::test_visit_multiple_batches ... ok
+test row_tracking::tests::test_visit_with_negative_high_water_mark ... ok
+test row_tracking::tests::test_visit_with_zero_records ... ok
+test row_tracking::tests::test_visit_wrong_getter_count ... ok
+test scan::data_skipping::tests::test_eval_is_null ... ok
+test scan::data_skipping::tests::test_eval_binary_comparisons ... ok
+test scan::data_skipping::tests::test_timestamp_predicates_dont_data_skip ... ok
+test scan::data_skipping::tests::test_timestamp_skipping_disabled ... ok
+test scan::data_skipping::tests::test_eval_distinct ... ok
+test scan::data_skipping::tests::test_sql_where ... ok
+test scan::data_skipping::tests::test_eval_junction ... ok
+test scan::log_replay::tests::test_no_transforms ... ok
+test scan::log_replay::tests::test_scan_action_iter ... ok
+test scan::log_replay::tests::test_row_id_transform ... ok
+test scan::state_info::tests::invalid_rowtracking_config ... ok
+test log_segment::tests::test_reading_sidecar_files_with_predicate ... ok
+test engine::default::executor::tokio::test::test_tokio_background_executor ... ok
+test scan::state_info::tests::metadata_column_matches_partition_column ... ok
+test scan::state_info::tests::multiple_partition_columns ... ok
+test scan::state_info::tests::metadata_column_matches_read_field ... ok
+test scan::state_info::tests::no_partition_columns ... ok
+test scan::log_replay::tests::test_scan_action_iter_with_remove ... ok
+test scan::state_info::tests::partition_at_beginning ... ok
+test scan::log_replay::tests::test_simple_transform ... ok
+test engine::default::executor::tokio::test::test_tokio_multi_thread_executor ... ok
+test scan::state_info::tests::request_row_ids ... ok
+test scan::state_info::tests::with_partition_columns ... ok
+test scan::state_info::tests::request_row_ids_conflicting_row_index_col_name ... ok
+test scan::state_info::tests::with_predicate ... ok
+test scan::tests::test_get_partition_value ... ok
+test scan::state_info::tests::request_row_ids_and_indexes ... ok
+test scan::tests::test_physical_predicate ... ok
+test scan::state::tests::test_simple_visit_scan_metadata ... ok
+test log_segment::tests::test_create_checkpoint_stream_reads_parquet_checkpoint_batch_without_sidecars ... ok
+test scan::tests::test_static_skipping ... ok
+test schema::compare::tests::add_nullable_column_to_map_key_and_value ... ok
+test schema::compare::tests::can_read_is_reflexive ... ok
+test schema::compare::tests::differ_by_non_nullable_column ... ok
+test schema::compare::tests::differ_by_nullable_column ... ok
+test schema::compare::tests::different_field_name_case_fails ... ok
+test log_segment::tests::test_create_checkpoint_stream_returns_checkpoint_batches_as_is_if_schema_has_no_file_actions ... ok
+test schema::compare::tests::different_type_fails ... ok
+test schema::compare::tests::duplicate_field_modulo_case ... ok
+test schema::compare::tests::map_value_becomes_non_nullable_fails ... ok
+test schema::compare::tests::set_nullable_to_false_fails ... ok
+test schema::compare::tests::set_nullable_to_true ... ok
+test schema::tests::test_add_column ... ok
+test scan::tests::test_scan_metadata ... ok
+test schema::tests::test_add_metadata_column ... ok
+test scan::tests::test_scan_metadata_paths ... ok
+test schema::tests::test_all_metadata_column_specs ... ok
+test schema::tests::test_builder_empty ... ok
+test schema::tests::test_builder_from_schema ... ok
+test schema::tests::test_builder_add_fields ... ok
+test schema::tests::test_column_identifier_trait ... ok
+test schema::tests::test_create_metadata_column ... ok
+test schema::tests::test_default_row_index_column ... ok
+test scan::tests::test_scan_metadata_from_same_version ... ok
+test schema::tests::test_double_ended_iterator_collect_reverse ... ok
+test schema::tests::test_double_ended_iterator_owned ... ok
+2026-08-23T18:34:30.818882Z  WARN delta_kernel::schema: Max schema depth 1 exceeded by ArrayType { type_name: "array", element_type: Struct(StructType { type_name: "struct", fields: {"w": StructField { name: "w", data_type: Primitive(Long), nullable: true, metadata: {} }, "x": StructField { name: "x", data_type: Array(ArrayType { type_name: "array", element_type: Primitive(Long), contains_null: true }), nullable: true, metadata: {} }, "y": StructField { name: "y", data_type: Map(MapType { type_name: "map", key_type: Primitive(Long), value_type: Primitive(String), value_contains_null: true }), nullable: true, metadata: {} }, "z": StructField { name: "z", data_type: Struct(StructType { type_name: "struct", fields: {"n": StructField { name: "n", data_type: Primitive(Long), nullable: true, metadata: {} }, "m": StructField { name: "m", data_type: Primitive(String), nullable: true, metadata: {} }}, metadata_columns: {} }), nullable: true, metadata: {} }}, metadata_columns: {} }), contains_null: true }
+test schema::tests::test_double_ended_iterator_ref ... ok
+2026-08-23T18:34:30.819027Z  WARN delta_kernel::schema: Max schema depth 2 exceeded by StructType { type_name: "struct", fields: {"w": StructField { name: "w", data_type: Primitive(Long), nullable: true, metadata: {} }, "x": StructField { name: "x", data_type: Array(ArrayType { type_name: "array", element_type: Primitive(Long), contains_null: true }), nullable: true, metadata: {} }, "y": StructField { name: "y", data_type: Map(MapType { type_name: "map", key_type: Primitive(Long), value_type: Primitive(String), value_contains_null: true }), nullable: true, metadata: {} }, "z": StructField { name: "z", data_type: Struct(StructType { type_name: "struct", fields: {"n": StructField { name: "n", data_type: Primitive(Long), nullable: true, metadata: {} }, "m": StructField { name: "m", data_type: Primitive(String), nullable: true, metadata: {} }}, metadata_columns: {} }), nullable: true, metadata: {} }}, metadata_columns: {} }
+test schema::tests::test_display_struct_type_stable_output ... ok
+2026-08-23T18:34:30.819111Z  WARN delta_kernel::schema: Max schema depth 3 exceeded by StructField { name: "w", data_type: Primitive(Long), nullable: true, metadata: {} }
+test schema::tests::test_double_ended_iterator_single_element ... ok
+test schema::tests::test_double_ended_iterator_with_into_iter_ref ... ok
+test schema::tests::test_duplicate_metadata_columns ... ok
+2026-08-23T18:34:30.819139Z  WARN delta_kernel::schema: Max schema depth 4 exceeded by ArrayType { type_name: "array", element_type: Primitive(Long), contains_null: true }
+2026-08-23T18:34:30.819293Z  WARN delta_kernel::schema: Max schema depth 5 exceeded by StructField { name: "n", data_type: Primitive(Long), nullable: true, metadata: {} }
+test schema::tests::test_empty_struct_type_iterator ... ok
+2026-08-23T18:34:30.819309Z  WARN delta_kernel::schema: Max schema depth 6 exceeded by StructField { name: "u", data_type: Primitive(Long), nullable: true, metadata: {} }
+test schema::tests::test_fused_double_ended_iterator_empty ... ok
+test schema::tests::test_fused_iterator_owned ... ok
+test schema::tests::test_fused_iterator_ref ... ok
+test schema::tests::test_depth_checker ... ok
+test schema::tests::test_fused_iterator_with_into_iter_ref ... ok
+test schema::tests::test_has_invariants ... ok
+test schema::tests::test_iterator_collect ... ok
+test schema::tests::test_iterator_exact_size ... ok
+test schema::tests::test_iterator_functional_methods ... ok
+test schema::tests::test_invalid_decimal ... ok
+test schema::tests::test_iterator_order_preservation ... ok
+test schema::tests::test_iterator_with_metadata ... ok
+test schema::tests::test_metadata_column_spec ... ok
+test schema::tests::test_metadata_column_serialization ... ok
+test schema::tests::test_metadata_value_to_string ... ok
+test schema::tests::test_make_physical_no_column_mapping ... ok
+test schema::tests::test_nested_metadata_columns_validation_array ... ok
+test schema::tests::test_make_physical_column_mapping ... ok
+test schema::tests::test_nested_metadata_columns_validation_map ... ok
+test schema::tests::test_nested_metadata_columns_validation_struct ... ok
+test schema::tests::test_physical_name_fallback_id ... ok
+test schema::tests::test_physical_name_fallback_name ... ok
+test schema::tests::test_num_fields ... ok
+test schema::tests::test_physical_name_with_mode_id ... ok
+test schema::tests::test_physical_name_with_mode_name ... ok
+test schema::tests::test_roundtrip_decimal ... ok
+test schema::tests::test_roundtrip_variant ... ok
+test schema::tests::test_physical_name_with_mode_none ... ok
+test schema::tests::test_serde_data_types ... ok
+test schema::tests::test_struct_type_into_iterator_references ... ok
+test schema::tests::test_struct_type_into_iterator_owned ... ok
+test schema::tests::test_struct_type_iterator_basic ... ok
+test schema::tests::test_unshredded_variant ... ok
+test schema::variant_utils::tests::test_is_unshredded_variant ... ok
+test schema::variant_utils::tests::test_variant_feature_validation ... ok
+test log_segment::tests::test_checkpoint_batch_with_sidecars_returns_sidecar_batches ... ok
+test scan::tests::test_scan_metadata_from_with_update ... ok
+test snapshot::tests::test_get_timestamp_fails_when_commit_missing ... ok
+test snapshot::tests::test_get_timestamp_enablement_version_in_future ... ok
+2026-08-23T18:34:30.822317Z  WARN delta_kernel::engine::default::json: read_json receiver end of channel dropped before sending completed
+test scan::tests::test_scan_with_checkpoint ... ok
+2026-08-23T18:34:30.822593Z  WARN delta_kernel::engine::default::json: read_json receiver end of channel dropped before sending completed
+test snapshot::tests::test_get_timestamp_missing_ict_when_enabled ... ok
+test snapshot::builder::tests::test_snapshot_builder ... ok
+test snapshot::tests::test_domain_metadata ... ok
+test snapshot::tests::test_new_snapshot ... ok
+test snapshot::tests::test_log_compaction_writer ... ok
+2026-08-23T18:34:30.824806Z  WARN delta_kernel::last_checkpoint_hint: invalid _last_checkpoint JSON: missing field `version` at line 1 column 2
+test snapshot::tests::test_read_table_with_empty_last_checkpoint ... ok
+2026-08-23T18:34:30.825148Z  WARN delta_kernel::last_checkpoint_hint: invalid _last_checkpoint JSON: expected value at line 1 column 1
+test snapshot::tests::test_read_table_with_missing_last_checkpoint ... ok
+test snapshot::tests::test_read_table_with_last_checkpoint ... ok
+test log_segment::tests::test_create_checkpoint_stream_reads_checkpoint_file_and_returns_sidecar_batches ... ok
+test schema::tests::test_read_schemas ... ok
+test log_segment::tests::test_create_checkpoint_stream_returns_checkpoint_batches_if_checkpoint_is_multi_part ... ok
+test snapshot::tests::test_snapshot_read_metadata ... ok
+test snapshot::tests::test_timestamp_with_ict_disabled ... ok
+test snapshot::tests::test_read_table_with_checkpoint ... ok
+test snapshot::tests::test_try_new_from_empty_log_tail ... ok
+test snapshot::tests::test_try_new_from_version_boundary_cases ... ok
+2026-08-23T18:34:30.827821Z  WARN delta_kernel::engine::default::json: read_json receiver end of channel dropped before sending completed
+test snapshot::tests::test_timestamp_with_ict_enablement_timeline ... ok
+test snapshot::tests::test_try_new_from_latest_commit_preservation ... ok
+test log_segment::tests::test_replay_for_metadata ... ok
+test snapshot::tests::test_get_timestamp_with_checkpoint_and_commit_same_version ... ok
+test snapshot::tests::test_snapshot_new_from_crc ... ok
+test scan::tests::test_replay_for_scan_metadata ... ok
+test table_changes::log_replay::tests::add_remove ... ok
+test table_changes::log_replay::tests::cdf_not_enabled ... ok
+test table_changes::physical_to_logical::tests::test_get_cdf_transform_expr_add_file_with_cdf_metadata ... ok
+test table_changes::physical_to_logical::tests::test_get_cdf_transform_expr_cdc_file_with_partition ... ok
+test table_changes::log_replay::tests::file_meta_timestamp ... ok
+test table_changes::physical_to_logical::tests::test_get_cdf_transform_expr_remove_file_with_cdf_metadata ... ok
+test table_changes::physical_to_logical::tests::test_scan_file_physical_schema_for_add_remove ... ok
+test table_changes::physical_to_logical::tests::test_get_cdf_transform_expr_returns_none_for_identity ... ok
+test table_changes::physical_to_logical::tests::test_scan_file_physical_schema_for_cdc ... ok
+test table_changes::log_replay::tests::column_mapping_should_succeed ... ok
+test table_changes::resolve_dvs::tests::add_file_no_dv_resolution ... ok
+test table_changes::log_replay::tests::failing_protocol ... ok
+test table_changes::resolve_dvs::tests::adds_and_removes ... ok
+test table_changes::resolve_dvs::tests::add_with_dv ... ok
+test table_changes::resolve_dvs::tests::cdc_and_remove_with_remove_dv_fails ... ok
+test table_changes::log_replay::tests::dv ... ok
+test table_changes::resolve_dvs::tests::cdc_file_resolution ... ok
+test table_changes::resolve_dvs::tests::delete_subset ... ok
+test table_changes::resolve_dvs::tests::restore_subset ... ok
+test table_changes::resolve_dvs::tests::remove_file_resolution ... ok
+test table_changes::log_replay::tests::filter_data_change ... ok
+test table_changes::resolve_dvs::tests::rm_with_dv ... ok
+test scan::tests::test_missing_column_row_group_skipping ... ok
+test table_configuration::test::dv_enabled ... ok
+test table_configuration::test::dv_not_supported ... ok
+test table_configuration::test::dv_supported_not_enabled ... ok
+test table_changes::log_replay::tests::data_skipping_filter ... ok
+test table_changes::log_replay::tests::cdc_selection ... ok
+test table_configuration::test::fails_on_unsupported_feature ... ok
+test table_configuration::test::ict_enabled_from_table_creation ... ok
+test table_configuration::test::ict_enabled_with_partial_enablement_info ... ok
+test table_changes::log_replay::tests::metadata_protocol ... ok
+test table_configuration::test::ict_supported_and_enabled ... ok
+test table_configuration::test::ict_supported_and_not_enabled ... ok
+test table_changes::tests::table_changes_has_cdf_schema ... ok
+test table_configuration::test::test_is_feature_enabled_returns_false_without_info ... ok
+test table_configuration::test::test_is_feature_info_enabled_always_if_supported ... ok
+test table_configuration::test::test_is_feature_info_enabled_with_custom_property_check ... ok
+test table_configuration::test::test_is_feature_supported_returns_false_without_info ... ok
+test table_configuration::test::test_is_feature_info_supported_reader_writer ... ok
+test table_configuration::test::test_is_feature_info_supported_writer ... ok
+test table_configuration::test::test_timestamp_ntz_validation_integration ... ok
+test table_configuration::test::test_try_new_from ... ok
+test table_changes::scan::tests::simple_table_changes_scan_builder ... ok
+test table_configuration::test::test_variant_validation_integration ... ok
+test table_features::column_mapping::tests::test_column_mapping_mode ... ok
+test table_configuration::test::write_with_cdf ... ok
+test table_features::tests::test_roundtrip_table_features ... ok
+test table_features::tests::test_roundtrip_writer_features ... ok
+test table_features::tests::test_unknown_features ... ok
+test table_features::timestamp_ntz::tests::test_timestamp_ntz_feature_validation ... ok
+test table_features::column_mapping::tests::test_column_mapping_disabled ... ok
+test table_properties::deserialize::tests::test_parse_bool ... ok
+test table_properties::deserialize::tests::test_parse_int ... ok
+test table_properties::deserialize::tests::test_invalid_parse_interval ... ok
+test table_properties::tests::allow_unknown_keys ... ok
+test table_changes::scan::tests::projected_and_filtered_table_changes_scan_builder ... ok
+test table_properties::deserialize::tests::test_parse_interval ... ok
+test table_properties::tests::known_key_unknown_val ... ok
+test table_properties::tests::test_parse_iceberg_compat_v1 ... ok
+test table_properties::tests::test_empty_table_properties ... ok
+test table_changes::log_replay::tests::unsupported_reader_feature ... ok
+test table_properties::tests::test_parse_iceberg_compat_v2 ... ok
+test table_properties::tests::test_parse_type_widening ... ok
+test table_properties::tests::test_parse_table_properties ... ok
+test transforms::tests::get_transform_expr_generate_row_ids_no_base_id ... ok
+test transforms::tests::test_dynamic_column_missing_metadata_error ... ok
+test transforms::tests::get_transform_expr_generate_row_ids ... ok
+test transforms::tests::test_get_transform_expr_dynamic_column_metadata ... ok
+test transforms::tests::test_get_transform_expr_dynamic_column_physical ... ok
+test table_features::column_mapping::tests::test_column_mapping_enabled ... ok
+test transforms::tests::test_get_transform_expr_metadata_derived_column ... ok
+test transforms::tests::test_get_transform_expr_missing_partition_value ... ok
+test transforms::tests::test_get_transform_expr_static_transforms ... ok
+test transforms::tests::test_parse_partition_value_raw_integer ... ok
+test transforms::tests::test_parse_partition_value_invalid_index ... ok
+test transforms::tests::test_parse_partition_value_raw_invalid_parse ... ok
+test transforms::tests::test_parse_partition_value_raw_invalid_type ... ok
+test transforms::tests::test_parse_partition_value_raw_null ... ok
+test transforms::tests::test_parse_partition_value_raw_string ... ok
+test transforms::tests::test_parse_partition_values_empty_spec ... ok
+test table_changes::tests::schema_evolution_fails ... ok
+test transforms::tests::test_parse_partition_values_mixed_transforms ... ok
+test utils::tests::try_from_uri_without_trailing_slash ... ok
+test utils::tests::test_path_parsing ... ok
+test transaction::tests::test_new_deletion_vector_path ... ok
+test transaction::tests::test_add_files_schema ... ok
+2026-08-23T18:34:30.842075Z  WARN delta_kernel::engine::default::json: read_json receiver end of channel dropped before sending completed
+test table_changes::scan_file::tests::test_scan_file_visiting ... ok
+test table_changes::tests::table_changes_checks_enable_cdf_flag ... ok
+test table_changes::log_replay::tests::incompatible_schemas_fail ... ok
+test snapshot::tests::test_snapshot_new_from ... ok
+test engine::default::json::tests::test_read_json_files_ordering ... ok
+test scan::tests::test_data_row_group_skipping ... ok
+test actions::deletion_vector::tests::test_sv_to_bools ... ok
+
+test result: ok. 692 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.77s
+
+     Running tests/cdf.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/llvm-cov-target/debug/deps/cdf-527530cfa005349c)
+
+running 16 tests
+test invalid_range_end_before_start ... ok
+test invalid_range_start_after_last_version_of_table ... ok
+test false_data_change_is_ignored ... ok
+test backtick_column_names ... ok
+test conditional_delete_all_rows ... ok
+test unconditional_delete ... ok
+test conditional_delete_two_rows ... ok
+test update_operations ... ok
+test cdf_with_deletion_vector ... ok
+test partition_table ... ok
+test cdf_with_column_mapping_id_mode ... ok
+test cdf_with_column_mapping_name_mode ... ok
+test cdf_non_partitioned ... ok
+test simple_cdf_version_ranges ... ok
+test basic_cdf ... ok
+test cdf_with_cdc_and_dvs ... ok
+
+test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.26s
+
+     Running tests/dv.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/llvm-cov-target/debug/deps/dv-9bf9ae03e8c3d19c)
+
+running 2 tests
+test non_dv_table ... ok
+test dv_table ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/golden_tables.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/llvm-cov-target/debug/deps/golden_tables-d54d607126408e83)
+
+running 87 tests
+test golden_124_decimal_decode_bug ... ok
+test golden_data_reader_date_types_etc ... ok
+test golden_data_reader_date_types_america ... ok
+test golden_data_reader_date_types_asia ... ok
+test golden_basic_with_inserts_merge ... ok
+test golden_basic_with_inserts_updates ... ok
+test golden_basic_with_vacuum_protocol_check_feature ... ok
+test golden_checkpoint ... ok
+test golden_data_reader_array_complex_objects ... ok
+test golden_data_reader_array_primitives ... ok
+test golden_basic_decimal_table_legacy ... ok
+test golden_basic_with_inserts_overwrite_restore ... ok
+test golden_basic_decimal_table ... ok
+test golden_data_reader_date_types_iceland ... ok
+test golden_data_reader_date_types_jst ... ok
+test golden_data_reader_date_types_utc ... ok
+test golden_data_reader_date_types_pst ... ok
+test golden_data_reader_nullable_field_invalid_schema_key ... ok
+test golden_data_reader_nested_struct ... ok
+test golden_data_reader_map ... ok
+test golden_corrupted_last_checkpoint_kernel ... ok
+test golden_data_reader_primitives ... ok
+test golden_data_skipping_basic_stats_all_types ... ok
+test golden_data_skipping_basic_stats_all_types_checkpoint ... ok
+test golden_deltalog_get_changes ... ok
+test golden_data_skipping_basic_stats_all_types_columnmapping_name ... ok
+test golden_decimal_various_scale_precision ... ok
+test golden_data_reader_escaped_chars ... ok
+test golden_125_iterator_bug ... ok
+test golden_data_reader_timestamp_ntz ... ok
+test golden_data_reader_timestamp_ntz_id_mode ... ok
+test golden_data_reader_timestamp_ntz_name_mode ... ok
+test golden_log_replay_special_characters ... ok
+test golden_log_replay_special_characters_a ... ok
+test golden_negative_deltalog_invalid_protocol_version - should panic ... ok
+test golden_log_replay_dv_key_cases ... ok
+test golden_data_skipping_change_stats_collected_across_versions ... ok
+test golden_negative_deltalog_state_reconstruction_without_metadata - should panic ... ok
+test golden_negative_deltalog_state_reconstruction_without_protocol - should panic ... ok
+test golden_negative_no_delta_log_folder - should panic ... ok
+test golden_negative_versions_not_contiguous - should panic ... ok
+test golden_data_skipping_partition_and_data_column ... ok
+test golden_kernel_timestamp_int96 ... ok
+test golden_skip_canonicalized_paths_normal_a ... ignored, BUG: path canonicalization
+test golden_skip_canonicalized_paths_normal_b ... ignored, BUG: path canonicalization
+test golden_skip_canonicalized_paths_special_a ... ignored, BUG: path canonicalization
+test golden_skip_canonicalized_paths_special_b ... ignored, BUG: path canonicalization
+test golden_skip_data_reader_partition_values ... ignored, Golden data needs to have 2021-09-08T11:11:11+00:00 as expected value for as_timestamp col
+test golden_skip_data_skipping_basic_stats_all_types_columnmapping_id ... ignored, id column mapping mode not supported
+test golden_skip_delete_re_add_same_file_different_transactions ... ignored, test not yet implemented
+test golden_skip_hive ... ignored, test not yet implemented - different file structure
+test golden_skip_log_replay_special_characters_b ... ignored, test not yet implemented
+test golden_skip_parquet_all_types ... ignored, schemas disagree about nullability, need to figure out which is correct and adjust
+test golden_skip_parquet_all_types_legacy_format ... ignored, legacy parquet has name `array`, we should have adjusted this to `element`
+test golden_basic_with_inserts_deletes_checkpoint ... ok
+test golden_log_replay_latest_metadata_protocol ... ok
+test golden_negative_deltalog_state_reconstruction_from_checkpoint_missing_metadata - should panic ... ok
+test golden_negative_deltalog_state_reconstruction_from_checkpoint_missing_protocol - should panic ... ok
+test golden_kernel_timestamp_pst ... ok
+test golden_kernel_timestamp_timestamp_micros ... ok
+test golden_kernel_timestamp_timestamp_millis ... ok
+test golden_snapshot_data0 ... ok
+test golden_snapshot_data2 ... ok
+test golden_snapshot_vacuumed ... ok
+test golden_snapshot_data1 ... ok
+test golden_table_with_columnmapping_mode_id ... ok
+test golden_snapshot_data2_deleted ... ok
+test golden_snapshot_data3 ... ok
+test golden_snapshot_repartitioned ... ok
+test golden_only_checkpoint_files ... ok
+test golden_table_with_columnmapping_mode_name ... ok
+test golden_multi_part_checkpoint ... ok
+test golden_time_travel_schema_changes_a ... ok
+test golden_time_travel_start ... ok
+test golden_time_travel_schema_changes_b ... ok
+test golden_dv_with_columnmapping ... ok
+test golden_time_travel_start_start20 ... ok
+test golden_time_travel_partition_changes_b ... ok
+test golden_time_travel_start_start20_start40 ... ok
+test golden_v2_checkpoint_json ... ok
+test golden_time_travel_partition_changes_a ... ok
+test golden_v2_checkpoint_parquet ... ok
+test golden_dv_partitioned_with_checkpoint ... ok
+test golden_parquet_decimal_type ... ok
+test golden_parquet_decimal_dictionaries ... ok
+test golden_parquet_decimal_dictionaries_v2 ... ok
+test golden_parquet_decimal_dictionaries_v1 ... ok
+
+test result: ok. 76 passed; 0 failed; 11 ignored; 0 measured; 0 filtered out; finished in 1.52s
+
+     Running tests/hdfs.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/llvm-cov-target/debug/deps/hdfs-00c3dad29495e22f)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/log_compaction.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/llvm-cov-target/debug/deps/log_compaction-a1dbc2d1b4d0d4d6)
+
+running 2 tests
+test expired_tombstone_exclusion ... ok
+test action_reconciliation_round_trip ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/log_tail.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/llvm-cov-target/debug/deps/log_tail-08131cc2e8a95bfd)
+
+running 6 tests
+test log_tail_behind_requested_version ... ok
+test log_tail_behind_filesystem ... ok
+test basic_snapshot_with_log_tail ... ok
+test log_tail_exceeds_requested_version ... ok
+test incremental_snapshot_with_log_tail ... ok
+test basic_snapshot_with_log_tail_staged_commits ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/read.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/llvm-cov-target/debug/deps/read-d4adfbe14e695f28)
+
+running 33 tests
+test predicate_on_non_nullable_column_missing_stats ... ok
+test predicate_on_non_nullable_partition_column ... ok
+test predicate_null ... ok
+test mixed_null ... ok
+test mixed_not_null ... ok
+test remove_action ... ok
+test predicate_on_number_with_not_null ... ok
+test single_commit_two_add_files ... ok
+test basic_decimal ... ok
+test test_row_index_metadata_column ... ok
+test test_unsupported_metadata_columns ... ok
+test column_ordering ... ok
+test short_dv ... ok
+test data ... ok
+test column_ordering_and_projection ... ok
+test two_commits ... ok
+test test_invalid_files_are_skipped ... ok
+test timestamp_partitioned_table ... ok
+test with_predicate_and_removes ... ok
+test type_widening_basic ... ok
+test type_widening_decimal ... ok
+test timestamp_ntz ... ok
+test predicate_on_letter_and_number ... ok
+test predicate_references_invalid_missing_column ... ok
+test and_or_predicates ... ok
+test compacted_log_files_table ... ok
+test stats ... ok
+test not_and_or_predicates ... ok
+test predicate_on_number ... ok
+test predicate_on_number_not ... ok
+test predicate_on_letter ... ok
+test unshredded_variant_table ... ok
+test invalid_skips_none_predicates ... ok
+
+test result: ok. 33 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.14s
+
+     Running tests/row_tracking.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/llvm-cov-target/debug/deps/row_tracking-c03aa1932408aa5e)
+
+running 10 tests
+test test_row_tracking_without_adds ... ok
+test test_no_row_tracking_fields_without_feature ... ok
+test test_row_tracking_single_record_batches ... ok
+test test_row_tracking_with_empty_adds ... ok
+test test_row_tracking_parallel_transactions_conflict ... ok
+test test_row_tracking_append ... ok
+test test_row_tracking_with_regular_and_empty_adds ... ok
+test test_row_tracking_three_consecutive_transactions ... ok
+test test_row_tracking_consecutive_transactions ... ok
+test test_row_tracking_large_batch ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+     Running tests/v2_checkpoints.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/llvm-cov-target/debug/deps/v2_checkpoints-82d4a53a04f0c8ea)
+
+running 8 tests
+test v2_checkpoints_json_with_last_checkpoint ... ok
+test v2_checkpoints_json_without_sidecars ... ok
+test v2_checkpoints_parquet_with_last_checkpoint ... ok
+test v2_checkpoints_parquet_without_sidecars ... ok
+test v2_classic_checkpoint_json ... ok
+test v2_classic_checkpoint_parquet ... ok
+test v2_checkpoints_json_with_sidecars ... ok
+test v2_checkpoints_parquet_with_sidecars ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.37s
+
+     Running tests/write.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/llvm-cov-target/debug/deps/write-1a45815dfd5e7b81)
+
+running 26 tests
+test test_domain_metadata_set_remove_conflicts ... ok
+test test_append_invalid_schema ... ok
+test test_commit_info_action ... ok
+test test_commit_info ... ok
+test test_remove_domain_metadata_unsupported_writer_feature ... ok
+test test_no_add_actions ... ok
+test test_remove_domain_metadata_non_existent_domain ... ok
+test test_domain_metadata_set_then_remove ... ok
+test test_set_domain_metadata_errors ... ok
+test test_set_domain_metadata_unsupported_writer_feature ... ok
+test test_set_domain_metadata_basic ... ok
+test test_append_timestamp_ntz ... ok
+test test_cdf_write_all_adds_succeeds ... ok
+test test_write_txn_actions ... ok
+test test_append ... ok
+test test_append_partitioned ... ok
+test test_cdf_write_mixed_with_data_change_fails ... ok
+test test_remove_files_adds_expected_entries ... ok
+test test_cdf_write_all_removes_succeeds ... ok
+test test_remove_files_verify_files_excluded_from_scan ... ok
+test test_ict_commit_e2e ... ok
+test test_append_twice ... ok
+test test_cdf_write_mixed_no_data_change_succeeds ... ok
+test test_shredded_variant_read_rejection ... ok
+test test_append_variant ... ok
+test test_remove_files_with_modified_selection_vector ... ok
+
+test result: ok. 26 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+     Running tests/write_row_tracking.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/llvm-cov-target/debug/deps/write_row_tracking-5d653ce1f08f8fa3)
+
+running 1 test
+test test_row_tracking_fields_in_add_and_remove_actions ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+Filename                                           Regions    Missed Regions     Cover   Functions  Missed Functions  Executed       Lines      Missed Lines     Cover    Branches   Missed Branches     Cover
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+action_reconciliation/log_replay.rs                    958                31    96.76%          56                 1    98.21%         637                 5    99.22%           0                 0         -
+action_reconciliation/mod.rs                           241                11    95.44%          18                 0   100.00%         148                 0   100.00%           0                 0         -
+actions/crc.rs                                         174                 8    95.40%           7                 0   100.00%         127                 7    94.49%           0                 0         -
+actions/deletion_vector.rs                             823                87    89.43%          52                12    76.92%         492                60    87.80%           0                 0         -
+actions/deletion_vector_writer.rs                      687                43    93.74%          38                10    73.68%         343                17    95.04%           0                 0         -
+actions/domain_metadata.rs                              61                 5    91.80%           6                 0   100.00%          43                 0   100.00%           0                 0         -
+actions/mod.rs                                        1868                66    96.47%         129                 8    93.80%        1332                37    97.22%           0                 0         -
+actions/set_transaction.rs                             246                 4    98.37%          11                 0   100.00%         131                 1    99.24%           0                 0         -
+actions/visitors.rs                                   1233               111    91.00%          66                 0   100.00%         804                52    93.53%           0                 0         -
+checkpoint/mod.rs                                      155                17    89.03%          13                 2    84.62%         139                16    88.49%           0                 0         -
+committer.rs                                           148                 8    94.59%          12                 1    91.67%         101                 6    94.06%           0                 0         -
+engine/arrow_conversion.rs                             320               129    59.69%          22                 6    72.73%         203                70    65.52%           0                 0         -
+engine/arrow_data.rs                                  1155               157    86.41%          61                 6    90.16%         581                67    88.47%           0                 0         -
+engine/arrow_expression/apply_schema.rs                265                21    92.08%          13                 0   100.00%         162                18    88.89%           0                 0         -
+engine/arrow_expression/evaluate_expression.rs        1414               119    91.58%          46                 6    86.96%         699                56    91.99%           0                 0         -
+engine/arrow_expression/mod.rs                         340                80    76.47%          12                 2    83.33%         163                29    82.21%           0                 0         -
+engine/arrow_expression/opaque.rs                       60                34    43.33%          12                 6    50.00%          62                38    38.71%           0                 0         -
+engine/arrow_get_data.rs                                56                 0   100.00%           7                 0   100.00%          39                 0   100.00%           0                 0         -
+engine/arrow_utils.rs                                 3632               121    96.67%         126                 5    96.03%        2009                66    96.71%           0                 0         -
+engine/default/executor.rs                             171                15    91.23%          24                 2    91.67%         131                15    88.55%           0                 0         -
+engine/default/file_stream.rs                          165                40    75.76%          10                 1    90.00%         122                33    72.95%           0                 0         -
+engine/default/filesystem.rs                           623                47    92.46%          29                 3    89.66%         296                26    91.22%           0                 0         -
+engine/default/json.rs                                 918                88    90.41%          68                17    75.00%         584                55    90.58%           0                 0         -
+engine/default/mod.rs                                  166                 5    96.99%          16                 1    93.75%          97                 3    96.91%           0                 0         -
+engine/default/parquet.rs                              741               161    78.27%          31                 9    70.97%         413                79    80.87%           0                 0         -
+engine/default/storage.rs                              117                36    69.23%           8                 2    75.00%          72                14    80.56%           0                 0         -
+engine/ensure_data_types.rs                            507                27    94.67%          23                 3    86.96%         360                24    93.33%           0                 0         -
+engine/mod.rs                                          142                 0   100.00%           5                 0   100.00%          51                 0   100.00%           0                 0         -
+engine/parquet_row_group_skipping.rs                   435               101    76.78%          16                 0   100.00%         166                29    82.53%           0                 0         -
+engine/sync/json.rs                                    194                20    89.69%          12                 1    91.67%         107                 6    94.39%           0                 0         -
+engine/sync/mod.rs                                      88                 8    90.91%          10                 1    90.00%          64                 1    98.44%           0                 0         -
+engine/sync/parquet.rs                                  67                11    83.58%           5                 2    60.00%          33                 2    93.94%           0                 0         -
+engine/sync/storage.rs                                 287                37    87.11%          16                 5    68.75%         133                14    89.47%           0                 0         -
+engine_data.rs                                         443                36    91.87%          47                 7    85.11%         228                24    89.47%           0                 0         -
+error.rs                                                98                15    84.69%          27                 4    85.19%          94                18    80.85%           0                 0         -
+expressions/column_names.rs                            584                23    96.06%          34                 2    94.12%         308                10    96.75%           0                 0         -
+expressions/literal_expression_transform.rs            374                 4    98.93%          20                 0   100.00%         220                 0   100.00%           0                 0         -
+expressions/mod.rs                                     678               123    81.86%          83                 4    95.18%         427                54    87.35%           0                 0         -
+expressions/scalars.rs                                1619               189    88.33%          88                 1    98.86%         783                64    91.83%           0                 0         -
+expressions/transforms.rs                              808               124    84.65%          83                16    80.72%         569                87    84.71%           0                 0         -
+history_manager/search.rs                              147                 4    97.28%           8                 0   100.00%          81                 1    98.77%           0                 0         -
+kernel_predicates/mod.rs                               717               107    85.08%          57                 8    85.96%         406                71    82.51%           0                 0         -
+kernel_predicates/parquet_stats_skipping.rs             71                 8    88.73%          11                 1    90.91%          58                 9    84.48%           0                 0         -
+last_checkpoint_hint.rs                                 36                 9    75.00%           4                 1    75.00%          21                 4    80.95%           0                 0         -
+lib.rs                                                 109                23    78.90%          14                 4    71.43%          63                11    82.54%           0                 0         -
+listed_log_files.rs                                    686                40    94.17%          39                 4    89.74%         421                32    92.40%           0                 0         -
+log_compaction/mod.rs                                   17                 0   100.00%           1                 0   100.00%          11                 0   100.00%           0                 0         -
+log_compaction/writer.rs                                68                 6    91.18%           5                 0   100.00%          60                 2    96.67%           0                 0         -
+log_path.rs                                            148                 4    97.30%          10                 1    90.00%          76                 1    98.68%           0                 0         -
+log_replay.rs                                          456                21    95.39%          28                 1    96.43%         259                 6    97.68%           0                 0         -
+log_segment.rs                                         473                33    93.02%          31                 0   100.00%         329                17    94.83%           0                 0         -
+path.rs                                               1203                84    93.02%          45                 5    88.89%         655                45    93.13%           0                 0         -
+row_tracking.rs                                        306                13    95.75%          21                 0   100.00%         158                 2    98.73%           0                 0         -
+scan/data_skipping.rs                                  247                19    92.31%          24                 3    87.50%         178                 4    97.75%           0                 0         -
+scan/field_classifiers.rs                               16                 0   100.00%           2                 0   100.00%          27                 0   100.00%           0                 0         -
+scan/log_replay.rs                                     610                31    94.92%          30                 0   100.00%         391                13    96.68%           0                 0         -
+scan/mod.rs                                           1363                86    93.69%          72                 8    88.89%         848                51    93.99%           0                 0         -
+scan/state.rs                                          200                37    81.50%          16                 4    75.00%         148                26    82.43%           0                 0         -
+scan/state_info.rs                                     594                27    95.45%          20                 0   100.00%         390                20    94.87%           0                 0         -
+schema/compare.rs                                      385                14    96.36%          17                 0   100.00%         236                 1    99.58%           0                 0         -
+schema/derive_macro_utils.rs                            49                 5    89.80%          10                 1    90.00%          29                 3    89.66%           0                 0         -
+schema/mod.rs                                         3026               218    92.80%         236                18    92.37%        1906               102    94.65%           0                 0         -
+schema/variant_utils.rs                                119                 0   100.00%           6                 0   100.00%         106                 0   100.00%           0                 0         -
+snapshot.rs                                           1913                99    94.82%          75                 2    97.33%        1085                13    98.80%           0                 0         -
+snapshot/builder.rs                                    174                10    94.25%          11                 1    90.91%         115                 4    96.52%           0                 0         -
+table_changes/log_replay.rs                            415                32    92.29%          19                 1    94.74%         231                 9    96.10%           0                 0         -
+table_changes/mod.rs                                   211                20    90.52%          13                 2    84.62%         135                10    92.59%           0                 0         -
+table_changes/physical_to_logical.rs                   438                26    94.06%          16                 1    93.75%         259                11    95.75%           0                 0         -
+table_changes/resolve_dvs.rs                           499                 2    99.60%          24                 0   100.00%         260                 0   100.00%           0                 0         -
+table_changes/scan.rs                                  357                26    92.72%          24                 2    91.67%         218                11    94.95%           0                 0         -
+table_changes/scan_file.rs                             361                18    95.01%          13                 0   100.00%         276                 7    97.46%           0                 0         -
+table_configuration.rs                                1253               102    91.86%          71                 4    94.37%         828                63    92.39%           0                 0         -
+table_features/column_mapping.rs                       363                 9    97.52%          16                 1    93.75%         230                 3    98.70%           0                 0         -
+table_features/mod.rs                                  236                60    74.58%          22                13    40.91%         193                61    68.39%           0                 0         -
+table_features/timestamp_ntz.rs                         78                 0   100.00%           3                 0   100.00%          67                 0   100.00%           0                 0         -
+table_properties.rs                                    207                 9    95.65%          10                 2    80.00%         161                 9    94.41%           0                 0         -
+table_properties/deserialize.rs                        449                25    94.43%          19                 1    94.74%         220                 1    99.55%           0                 0         -
+transaction/mod.rs                                     815                51    93.74%          59                 6    89.83%         556                25    95.50%           0                 0         -
+transforms.rs                                          625                20    96.80%          22                 0   100.00%         386                 9    97.67%           0                 0         -
+utils.rs                                               259                31    88.03%          24                 4    83.33%         174                24    86.21%           0                 0         -
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TOTAL                                                42760              3491    91.84%        2510               245    90.24%       25724              1784    93.06%           0                 0         -

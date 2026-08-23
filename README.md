@@ -6,6 +6,8 @@ This repository contains a software verification analysis of the [delta-kernel-r
 
 ```
 rustup toolchain install 1.90.0 --component clippy --component rustfmt
+rustup component add llvm-tools-preview
+cargo install cargo-llvm-cov
 ```
 
 ## About Delta Kernel
