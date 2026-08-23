@@ -18,7 +18,7 @@ From this directory:
 2. **C** - `clang-format --dry-run --Werror ffi/examples/read-table/*.c`. Log: `results/clang_format.log`.
 3. Apply both formatters, save `results/rustfmt.patch` and `results/clang_format.patch`, then restore the submodule so the tree stays clean.
 
-## Results
+## Conclusion
 
 - `rustfmt` passes with the default Rust 1.90.0 toolchain.
 - `clang-format` reports differences with Apple clang-format 21.0.0. The proposed changes are saved in `results/clang_format.patch`.
