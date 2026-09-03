@@ -1,0 +1,21 @@
+diff --git a/kernel/src/expressions/scalars.rs b/kernel/src/expressions/scalars.rs
+index 73e4a9db..49be705b 100644
+--- a/kernel/src/expressions/scalars.rs
++++ b/kernel/src/expressions/scalars.rs
+@@ -54,6 +54,16 @@ fn get_decimal_precision(value: i128) -> u8 {
+     value.unsigned_abs().checked_ilog10().map_or(0, |p| p + 1) as _
+ }
+ 
++#[cfg(kani)]
++#[kani::proof]
++fn verify_decimal_precision_range() {
++    let value: i128 = kani::any();
++    let precision = get_decimal_precision(value);
++
++    assert!(precision <= 39);
++    assert_eq!(precision == 0, value == 0);
++}
++
+ #[derive(Clone, Debug, PartialEq)]
+ pub struct ArrayData {
+     tpe: ArrayType,

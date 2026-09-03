@@ -1,0 +1,322 @@
+[
+  {
+    "diff": "--- kernel/src/table_properties/deserialize.rs\n+++ replace parse_interval_impl -> Result<Duration, ParseIntervalError> with Ok(Default::default())\n@@ -171,57 +171,17 @@\n /// Notably we don't support months nor years, nor do we support fractional values, and negative\n /// intervals aren't supported.\n ///\n /// For now this is adapted from delta-rs' `parse_interval` function:\n /// https://github.com/delta-io/delta-rs/blob/d4f18b3ae9d616e771b5d0e0fa498d0086fd91eb/crates/core/src/table/config.rs#L474\n ///\n /// See issue delta-kernel-rs/#507 for details: https://github.com/delta-io/delta-kernel-rs/issues/507\n fn parse_interval_impl(value: &str) -> Result<Duration, ParseIntervalError> {\n-    let mut it = value.split_whitespace();\n-    if it.next() != Some(\"interval\") {\n-        return Err(ParseIntervalError::NotAnInterval(value.to_string()));\n-    }\n-    let number = it\n-        .next()\n-        .ok_or_else(|| ParseIntervalError::NotAnInterval(value.to_string()))?;\n-    let number: i64 = number\n-        .parse()\n-        .map_err(|_| ParseIntervalError::ParseIntError(number.into()))?;\n-\n-    // TODO(zach): spark allows negative intervals, but we don't\n-    require!(\n-        number >= 0,\n-        ParseIntervalError::NegativeInterval(value.to_string())\n-    );\n-\n-    // convert to u64 since Duration expects it\n-    let number = number as u64; // non-negative i64 => always safe\n-\n-    let duration = match it\n-        .next()\n-        .ok_or_else(|| ParseIntervalError::NotAnInterval(value.to_string()))?\n-    {\n-        \"nanosecond\" | \"nanoseconds\" => Duration::from_nanos(number),\n-        \"microsecond\" | \"microseconds\" => Duration::from_micros(number),\n-        \"millisecond\" | \"milliseconds\" => Duration::from_millis(number),\n-        \"second\" | \"seconds\" => Duration::from_secs(number),\n-        \"minute\" | \"minutes\" => Duration::from_secs(number * SECONDS_PER_MINUTE),\n-        \"hour\" | \"hours\" => Duration::from_secs(number * SECONDS_PER_HOUR),\n-        \"day\" | \"days\" => Duration::from_secs(number * SECONDS_PER_DAY),\n-        \"week\" | \"weeks\" => Duration::from_secs(number * SECONDS_PER_WEEK),\n-        unit @ (\"month\" | \"months\") => {\n-            return Err(ParseIntervalError::UnsupportedInterval(unit.to_string()));\n-        }\n-        unit => {\n-            return Err(ParseIntervalError::UnknownUnit(unit.to_string()));\n-        }\n-    };\n-\n-    Ok(duration)\n+    Ok(Default::default()) /* ~ changed by cargo-mutants ~ */\n }\n \n #[cfg(test)]\n mod tests {\n     use super::*;\n \n     #[test]\n     fn test_parse_bool() {\n",
+    "file": "kernel/src/table_properties/deserialize.rs",
+    "function": {
+      "function_name": "parse_interval_impl",
+      "return_type": "-> Result<Duration, ParseIntervalError>",
+      "span": {
+        "end": {
+          "column": 2,
+          "line": 220
+        },
+        "start": {
+          "column": 1,
+          "line": 167
+        }
+      }
+    },
+    "genre": "FnValue",
+    "name": "kernel/src/table_properties/deserialize.rs:179:5: replace parse_interval_impl -> Result<Duration, ParseIntervalError> with Ok(Default::default())",
+    "package": "delta_kernel",
+    "replacement": "Ok(Default::default())",
+    "span": {
+      "end": {
+        "column": 17,
+        "line": 219
+      },
+      "start": {
+        "column": 5,
+        "line": 179
+      }
+    }
+  },
+  {
+    "diff": "--- kernel/src/table_properties/deserialize.rs\n+++ replace != with == in parse_interval_impl\n@@ -172,17 +172,17 @@\n /// intervals aren't supported.\n ///\n /// For now this is adapted from delta-rs' `parse_interval` function:\n /// https://github.com/delta-io/delta-rs/blob/d4f18b3ae9d616e771b5d0e0fa498d0086fd91eb/crates/core/src/table/config.rs#L474\n ///\n /// See issue delta-kernel-rs/#507 for details: https://github.com/delta-io/delta-kernel-rs/issues/507\n fn parse_interval_impl(value: &str) -> Result<Duration, ParseIntervalError> {\n     let mut it = value.split_whitespace();\n-    if it.next() != Some(\"interval\") {\n+    if it.next() == /* ~ changed by cargo-mutants ~ */ Some(\"interval\") {\n         return Err(ParseIntervalError::NotAnInterval(value.to_string()));\n     }\n     let number = it\n         .next()\n         .ok_or_else(|| ParseIntervalError::NotAnInterval(value.to_string()))?;\n     let number: i64 = number\n         .parse()\n         .map_err(|_| ParseIntervalError::ParseIntError(number.into()))?;\n",
+    "file": "kernel/src/table_properties/deserialize.rs",
+    "function": {
+      "function_name": "parse_interval_impl",
+      "return_type": "-> Result<Duration, ParseIntervalError>",
+      "span": {
+        "end": {
+          "column": 2,
+          "line": 220
+        },
+        "start": {
+          "column": 1,
+          "line": 167
+        }
+      }
+    },
+    "genre": "BinaryOperator",
+    "name": "kernel/src/table_properties/deserialize.rs:180:18: replace != with == in parse_interval_impl",
+    "package": "delta_kernel",
+    "replacement": "==",
+    "span": {
+      "end": {
+        "column": 20,
+        "line": 180
+      },
+      "start": {
+        "column": 18,
+        "line": 180
+      }
+    }
+  },
+  {
+    "diff": "--- kernel/src/table_properties/deserialize.rs\n+++ replace * with + in parse_interval_impl\n@@ -199,17 +199,17 @@\n     let duration = match it\n         .next()\n         .ok_or_else(|| ParseIntervalError::NotAnInterval(value.to_string()))?\n     {\n         \"nanosecond\" | \"nanoseconds\" => Duration::from_nanos(number),\n         \"microsecond\" | \"microseconds\" => Duration::from_micros(number),\n         \"millisecond\" | \"milliseconds\" => Duration::from_millis(number),\n         \"second\" | \"seconds\" => Duration::from_secs(number),\n-        \"minute\" | \"minutes\" => Duration::from_secs(number * SECONDS_PER_MINUTE),\n+        \"minute\" | \"minutes\" => Duration::from_secs(number + /* ~ changed by cargo-mutants ~ */ SECONDS_PER_MINUTE),\n         \"hour\" | \"hours\" => Duration::from_secs(number * SECONDS_PER_HOUR),\n         \"day\" | \"days\" => Duration::from_secs(number * SECONDS_PER_DAY),\n         \"week\" | \"weeks\" => Duration::from_secs(number * SECONDS_PER_WEEK),\n         unit @ (\"month\" | \"months\") => {\n             return Err(ParseIntervalError::UnsupportedInterval(unit.to_string()));\n         }\n         unit => {\n             return Err(ParseIntervalError::UnknownUnit(unit.to_string()));\n",
+    "file": "kernel/src/table_properties/deserialize.rs",
+    "function": {
+      "function_name": "parse_interval_impl",
+      "return_type": "-> Result<Duration, ParseIntervalError>",
+      "span": {
+        "end": {
+          "column": 2,
+          "line": 220
+        },
+        "start": {
+          "column": 1,
+          "line": 167
+        }
+      }
+    },
+    "genre": "BinaryOperator",
+    "name": "kernel/src/table_properties/deserialize.rs:207:60: replace * with + in parse_interval_impl",
+    "package": "delta_kernel",
+    "replacement": "+",
+    "span": {
+      "end": {
+        "column": 61,
+        "line": 207
+      },
+      "start": {
+        "column": 60,
+        "line": 207
+      }
+    }
+  },
+  {
+    "diff": "--- kernel/src/table_properties/deserialize.rs\n+++ replace * with / in parse_interval_impl\n@@ -199,17 +199,17 @@\n     let duration = match it\n         .next()\n         .ok_or_else(|| ParseIntervalError::NotAnInterval(value.to_string()))?\n     {\n         \"nanosecond\" | \"nanoseconds\" => Duration::from_nanos(number),\n         \"microsecond\" | \"microseconds\" => Duration::from_micros(number),\n         \"millisecond\" | \"milliseconds\" => Duration::from_millis(number),\n         \"second\" | \"seconds\" => Duration::from_secs(number),\n-        \"minute\" | \"minutes\" => Duration::from_secs(number * SECONDS_PER_MINUTE),\n+        \"minute\" | \"minutes\" => Duration::from_secs(number / /* ~ changed by cargo-mutants ~ */ SECONDS_PER_MINUTE),\n         \"hour\" | \"hours\" => Duration::from_secs(number * SECONDS_PER_HOUR),\n         \"day\" | \"days\" => Duration::from_secs(number * SECONDS_PER_DAY),\n         \"week\" | \"weeks\" => Duration::from_secs(number * SECONDS_PER_WEEK),\n         unit @ (\"month\" | \"months\") => {\n             return Err(ParseIntervalError::UnsupportedInterval(unit.to_string()));\n         }\n         unit => {\n             return Err(ParseIntervalError::UnknownUnit(unit.to_string()));\n",
+    "file": "kernel/src/table_properties/deserialize.rs",
+    "function": {
+      "function_name": "parse_interval_impl",
+      "return_type": "-> Result<Duration, ParseIntervalError>",
+      "span": {
+        "end": {
+          "column": 2,
+          "line": 220
+        },
+        "start": {
+          "column": 1,
+          "line": 167
+        }
+      }
+    },
+    "genre": "BinaryOperator",
+    "name": "kernel/src/table_properties/deserialize.rs:207:60: replace * with / in parse_interval_impl",
+    "package": "delta_kernel",
+    "replacement": "/",
+    "span": {
+      "end": {
+        "column": 61,
+        "line": 207
+      },
+      "start": {
+        "column": 60,
+        "line": 207
+      }
+    }
+  },
+  {
+    "diff": "--- kernel/src/table_properties/deserialize.rs\n+++ replace * with + in parse_interval_impl\n@@ -200,17 +200,17 @@\n         .next()\n         .ok_or_else(|| ParseIntervalError::NotAnInterval(value.to_string()))?\n     {\n         \"nanosecond\" | \"nanoseconds\" => Duration::from_nanos(number),\n         \"microsecond\" | \"microseconds\" => Duration::from_micros(number),\n         \"millisecond\" | \"milliseconds\" => Duration::from_millis(number),\n         \"second\" | \"seconds\" => Duration::from_secs(number),\n         \"minute\" | \"minutes\" => Duration::from_secs(number * SECONDS_PER_MINUTE),\n-        \"hour\" | \"hours\" => Duration::from_secs(number * SECONDS_PER_HOUR),\n+        \"hour\" | \"hours\" => Duration::from_secs(number + /* ~ changed by cargo-mutants ~ */ SECONDS_PER_HOUR),\n         \"day\" | \"days\" => Duration::from_secs(number * SECONDS_PER_DAY),\n         \"week\" | \"weeks\" => Duration::from_secs(number * SECONDS_PER_WEEK),\n         unit @ (\"month\" | \"months\") => {\n             return Err(ParseIntervalError::UnsupportedInterval(unit.to_string()));\n         }\n         unit => {\n             return Err(ParseIntervalError::UnknownUnit(unit.to_string()));\n         }\n",
+    "file": "kernel/src/table_properties/deserialize.rs",
+    "function": {
+      "function_name": "parse_interval_impl",
+      "return_type": "-> Result<Duration, ParseIntervalError>",
+      "span": {
+        "end": {
+          "column": 2,
+          "line": 220
+        },
+        "start": {
+          "column": 1,
+          "line": 167
+        }
+      }
+    },
+    "genre": "BinaryOperator",
+    "name": "kernel/src/table_properties/deserialize.rs:208:56: replace * with + in parse_interval_impl",
+    "package": "delta_kernel",
+    "replacement": "+",
+    "span": {
+      "end": {
+        "column": 57,
+        "line": 208
+      },
+      "start": {
+        "column": 56,
+        "line": 208
+      }
+    }
+  },
+  {
+    "diff": "--- kernel/src/table_properties/deserialize.rs\n+++ replace * with / in parse_interval_impl\n@@ -200,17 +200,17 @@\n         .next()\n         .ok_or_else(|| ParseIntervalError::NotAnInterval(value.to_string()))?\n     {\n         \"nanosecond\" | \"nanoseconds\" => Duration::from_nanos(number),\n         \"microsecond\" | \"microseconds\" => Duration::from_micros(number),\n         \"millisecond\" | \"milliseconds\" => Duration::from_millis(number),\n         \"second\" | \"seconds\" => Duration::from_secs(number),\n         \"minute\" | \"minutes\" => Duration::from_secs(number * SECONDS_PER_MINUTE),\n-        \"hour\" | \"hours\" => Duration::from_secs(number * SECONDS_PER_HOUR),\n+        \"hour\" | \"hours\" => Duration::from_secs(number / /* ~ changed by cargo-mutants ~ */ SECONDS_PER_HOUR),\n         \"day\" | \"days\" => Duration::from_secs(number * SECONDS_PER_DAY),\n         \"week\" | \"weeks\" => Duration::from_secs(number * SECONDS_PER_WEEK),\n         unit @ (\"month\" | \"months\") => {\n             return Err(ParseIntervalError::UnsupportedInterval(unit.to_string()));\n         }\n         unit => {\n             return Err(ParseIntervalError::UnknownUnit(unit.to_string()));\n         }\n",
+    "file": "kernel/src/table_properties/deserialize.rs",
+    "function": {
+      "function_name": "parse_interval_impl",
+      "return_type": "-> Result<Duration, ParseIntervalError>",
+      "span": {
+        "end": {
+          "column": 2,
+          "line": 220
+        },
+        "start": {
+          "column": 1,
+          "line": 167
+        }
+      }
+    },
+    "genre": "BinaryOperator",
+    "name": "kernel/src/table_properties/deserialize.rs:208:56: replace * with / in parse_interval_impl",
+    "package": "delta_kernel",
+    "replacement": "/",
+    "span": {
+      "end": {
+        "column": 57,
+        "line": 208
+      },
+      "start": {
+        "column": 56,
+        "line": 208
+      }
+    }
+  },
+  {
+    "diff": "--- kernel/src/table_properties/deserialize.rs\n+++ replace * with + in parse_interval_impl\n@@ -201,17 +201,17 @@\n         .ok_or_else(|| ParseIntervalError::NotAnInterval(value.to_string()))?\n     {\n         \"nanosecond\" | \"nanoseconds\" => Duration::from_nanos(number),\n         \"microsecond\" | \"microseconds\" => Duration::from_micros(number),\n         \"millisecond\" | \"milliseconds\" => Duration::from_millis(number),\n         \"second\" | \"seconds\" => Duration::from_secs(number),\n         \"minute\" | \"minutes\" => Duration::from_secs(number * SECONDS_PER_MINUTE),\n         \"hour\" | \"hours\" => Duration::from_secs(number * SECONDS_PER_HOUR),\n-        \"day\" | \"days\" => Duration::from_secs(number * SECONDS_PER_DAY),\n+        \"day\" | \"days\" => Duration::from_secs(number + /* ~ changed by cargo-mutants ~ */ SECONDS_PER_DAY),\n         \"week\" | \"weeks\" => Duration::from_secs(number * SECONDS_PER_WEEK),\n         unit @ (\"month\" | \"months\") => {\n             return Err(ParseIntervalError::UnsupportedInterval(unit.to_string()));\n         }\n         unit => {\n             return Err(ParseIntervalError::UnknownUnit(unit.to_string()));\n         }\n     };\n",
+    "file": "kernel/src/table_properties/deserialize.rs",
+    "function": {
+      "function_name": "parse_interval_impl",
+      "return_type": "-> Result<Duration, ParseIntervalError>",
+      "span": {
+        "end": {
+          "column": 2,
+          "line": 220
+        },
+        "start": {
+          "column": 1,
+          "line": 167
+        }
+      }
+    },
+    "genre": "BinaryOperator",
+    "name": "kernel/src/table_properties/deserialize.rs:209:54: replace * with + in parse_interval_impl",
+    "package": "delta_kernel",
+    "replacement": "+",
+    "span": {
+      "end": {
+        "column": 55,
+        "line": 209
+      },
+      "start": {
+        "column": 54,
+        "line": 209
+      }
+    }
+  },
+  {
+    "diff": "--- kernel/src/table_properties/deserialize.rs\n+++ replace * with / in parse_interval_impl\n@@ -201,17 +201,17 @@\n         .ok_or_else(|| ParseIntervalError::NotAnInterval(value.to_string()))?\n     {\n         \"nanosecond\" | \"nanoseconds\" => Duration::from_nanos(number),\n         \"microsecond\" | \"microseconds\" => Duration::from_micros(number),\n         \"millisecond\" | \"milliseconds\" => Duration::from_millis(number),\n         \"second\" | \"seconds\" => Duration::from_secs(number),\n         \"minute\" | \"minutes\" => Duration::from_secs(number * SECONDS_PER_MINUTE),\n         \"hour\" | \"hours\" => Duration::from_secs(number * SECONDS_PER_HOUR),\n-        \"day\" | \"days\" => Duration::from_secs(number * SECONDS_PER_DAY),\n+        \"day\" | \"days\" => Duration::from_secs(number / /* ~ changed by cargo-mutants ~ */ SECONDS_PER_DAY),\n         \"week\" | \"weeks\" => Duration::from_secs(number * SECONDS_PER_WEEK),\n         unit @ (\"month\" | \"months\") => {\n             return Err(ParseIntervalError::UnsupportedInterval(unit.to_string()));\n         }\n         unit => {\n             return Err(ParseIntervalError::UnknownUnit(unit.to_string()));\n         }\n     };\n",
+    "file": "kernel/src/table_properties/deserialize.rs",
+    "function": {
+      "function_name": "parse_interval_impl",
+      "return_type": "-> Result<Duration, ParseIntervalError>",
+      "span": {
+        "end": {
+          "column": 2,
+          "line": 220
+        },
+        "start": {
+          "column": 1,
+          "line": 167
+        }
+      }
+    },
+    "genre": "BinaryOperator",
+    "name": "kernel/src/table_properties/deserialize.rs:209:54: replace * with / in parse_interval_impl",
+    "package": "delta_kernel",
+    "replacement": "/",
+    "span": {
+      "end": {
+        "column": 55,
+        "line": 209
+      },
+      "start": {
+        "column": 54,
+        "line": 209
+      }
+    }
+  },
+  {
+    "diff": "--- kernel/src/table_properties/deserialize.rs\n+++ replace * with + in parse_interval_impl\n@@ -202,17 +202,17 @@\n     {\n         \"nanosecond\" | \"nanoseconds\" => Duration::from_nanos(number),\n         \"microsecond\" | \"microseconds\" => Duration::from_micros(number),\n         \"millisecond\" | \"milliseconds\" => Duration::from_millis(number),\n         \"second\" | \"seconds\" => Duration::from_secs(number),\n         \"minute\" | \"minutes\" => Duration::from_secs(number * SECONDS_PER_MINUTE),\n         \"hour\" | \"hours\" => Duration::from_secs(number * SECONDS_PER_HOUR),\n         \"day\" | \"days\" => Duration::from_secs(number * SECONDS_PER_DAY),\n-        \"week\" | \"weeks\" => Duration::from_secs(number * SECONDS_PER_WEEK),\n+        \"week\" | \"weeks\" => Duration::from_secs(number + /* ~ changed by cargo-mutants ~ */ SECONDS_PER_WEEK),\n         unit @ (\"month\" | \"months\") => {\n             return Err(ParseIntervalError::UnsupportedInterval(unit.to_string()));\n         }\n         unit => {\n             return Err(ParseIntervalError::UnknownUnit(unit.to_string()));\n         }\n     };\n \n",
+    "file": "kernel/src/table_properties/deserialize.rs",
+    "function": {
+      "function_name": "parse_interval_impl",
+      "return_type": "-> Result<Duration, ParseIntervalError>",
+      "span": {
+        "end": {
+          "column": 2,
+          "line": 220
+        },
+        "start": {
+          "column": 1,
+          "line": 167
+        }
+      }
+    },
+    "genre": "BinaryOperator",
+    "name": "kernel/src/table_properties/deserialize.rs:210:56: replace * with + in parse_interval_impl",
+    "package": "delta_kernel",
+    "replacement": "+",
+    "span": {
+      "end": {
+        "column": 57,
+        "line": 210
+      },
+      "start": {
+        "column": 56,
+        "line": 210
+      }
+    }
+  },
+  {
+    "diff": "--- kernel/src/table_properties/deserialize.rs\n+++ replace * with / in parse_interval_impl\n@@ -202,17 +202,17 @@\n     {\n         \"nanosecond\" | \"nanoseconds\" => Duration::from_nanos(number),\n         \"microsecond\" | \"microseconds\" => Duration::from_micros(number),\n         \"millisecond\" | \"milliseconds\" => Duration::from_millis(number),\n         \"second\" | \"seconds\" => Duration::from_secs(number),\n         \"minute\" | \"minutes\" => Duration::from_secs(number * SECONDS_PER_MINUTE),\n         \"hour\" | \"hours\" => Duration::from_secs(number * SECONDS_PER_HOUR),\n         \"day\" | \"days\" => Duration::from_secs(number * SECONDS_PER_DAY),\n-        \"week\" | \"weeks\" => Duration::from_secs(number * SECONDS_PER_WEEK),\n+        \"week\" | \"weeks\" => Duration::from_secs(number / /* ~ changed by cargo-mutants ~ */ SECONDS_PER_WEEK),\n         unit @ (\"month\" | \"months\") => {\n             return Err(ParseIntervalError::UnsupportedInterval(unit.to_string()));\n         }\n         unit => {\n             return Err(ParseIntervalError::UnknownUnit(unit.to_string()));\n         }\n     };\n \n",
+    "file": "kernel/src/table_properties/deserialize.rs",
+    "function": {
+      "function_name": "parse_interval_impl",
+      "return_type": "-> Result<Duration, ParseIntervalError>",
+      "span": {
+        "end": {
+          "column": 2,
+          "line": 220
+        },
+        "start": {
+          "column": 1,
+          "line": 167
+        }
+      }
+    },
+    "genre": "BinaryOperator",
+    "name": "kernel/src/table_properties/deserialize.rs:210:56: replace * with / in parse_interval_impl",
+    "package": "delta_kernel",
+    "replacement": "/",
+    "span": {
+      "end": {
+        "column": 57,
+        "line": 210
+      },
+      "start": {
+        "column": 56,
+        "line": 210
+      }
+    }
+  }
+]

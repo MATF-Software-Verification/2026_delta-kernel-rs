@@ -1,0 +1,21 @@
+--- kernel/src/table_properties/deserialize.rs
++++ replace * with / in parse_interval_impl
+@@ -201,17 +201,17 @@
+         .ok_or_else(|| ParseIntervalError::NotAnInterval(value.to_string()))?
+     {
+         "nanosecond" | "nanoseconds" => Duration::from_nanos(number),
+         "microsecond" | "microseconds" => Duration::from_micros(number),
+         "millisecond" | "milliseconds" => Duration::from_millis(number),
+         "second" | "seconds" => Duration::from_secs(number),
+         "minute" | "minutes" => Duration::from_secs(number * SECONDS_PER_MINUTE),
+         "hour" | "hours" => Duration::from_secs(number * SECONDS_PER_HOUR),
+-        "day" | "days" => Duration::from_secs(number * SECONDS_PER_DAY),
++        "day" | "days" => Duration::from_secs(number / /* ~ changed by cargo-mutants ~ */ SECONDS_PER_DAY),
+         "week" | "weeks" => Duration::from_secs(number * SECONDS_PER_WEEK),
+         unit @ ("month" | "months") => {
+             return Err(ParseIntervalError::UnsupportedInterval(unit.to_string()));
+         }
+         unit => {
+             return Err(ParseIntervalError::UnknownUnit(unit.to_string()));
+         }
+     };

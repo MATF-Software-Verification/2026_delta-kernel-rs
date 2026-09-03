@@ -1,0 +1,61 @@
+--- kernel/src/table_properties/deserialize.rs
++++ replace parse_interval_impl -> Result<Duration, ParseIntervalError> with Ok(Default::default())
+@@ -171,57 +171,17 @@
+ /// Notably we don't support months nor years, nor do we support fractional values, and negative
+ /// intervals aren't supported.
+ ///
+ /// For now this is adapted from delta-rs' `parse_interval` function:
+ /// https://github.com/delta-io/delta-rs/blob/d4f18b3ae9d616e771b5d0e0fa498d0086fd91eb/crates/core/src/table/config.rs#L474
+ ///
+ /// See issue delta-kernel-rs/#507 for details: https://github.com/delta-io/delta-kernel-rs/issues/507
+ fn parse_interval_impl(value: &str) -> Result<Duration, ParseIntervalError> {
+-    let mut it = value.split_whitespace();
+-    if it.next() != Some("interval") {
+-        return Err(ParseIntervalError::NotAnInterval(value.to_string()));
+-    }
+-    let number = it
+-        .next()
+-        .ok_or_else(|| ParseIntervalError::NotAnInterval(value.to_string()))?;
+-    let number: i64 = number
+-        .parse()
+-        .map_err(|_| ParseIntervalError::ParseIntError(number.into()))?;
+-
+-    // TODO(zach): spark allows negative intervals, but we don't
+-    require!(
+-        number >= 0,
+-        ParseIntervalError::NegativeInterval(value.to_string())
+-    );
+-
+-    // convert to u64 since Duration expects it
+-    let number = number as u64; // non-negative i64 => always safe
+-
+-    let duration = match it
+-        .next()
+-        .ok_or_else(|| ParseIntervalError::NotAnInterval(value.to_string()))?
+-    {
+-        "nanosecond" | "nanoseconds" => Duration::from_nanos(number),
+-        "microsecond" | "microseconds" => Duration::from_micros(number),
+-        "millisecond" | "milliseconds" => Duration::from_millis(number),
+-        "second" | "seconds" => Duration::from_secs(number),
+-        "minute" | "minutes" => Duration::from_secs(number * SECONDS_PER_MINUTE),
+-        "hour" | "hours" => Duration::from_secs(number * SECONDS_PER_HOUR),
+-        "day" | "days" => Duration::from_secs(number * SECONDS_PER_DAY),
+-        "week" | "weeks" => Duration::from_secs(number * SECONDS_PER_WEEK),
+-        unit @ ("month" | "months") => {
+-            return Err(ParseIntervalError::UnsupportedInterval(unit.to_string()));
+-        }
+-        unit => {
+-            return Err(ParseIntervalError::UnknownUnit(unit.to_string()));
+-        }
+-    };
+-
+-    Ok(duration)
++    Ok(Default::default()) /* ~ changed by cargo-mutants ~ */
+ }
+ 
+ #[cfg(test)]
+ mod tests {
+     use super::*;
+ 
+     #[test]
+     fn test_parse_bool() {

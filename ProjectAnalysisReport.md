@@ -11,10 +11,8 @@ Software verification analysis of the [delta-kernel-rs](https://github.com/delta
 | 2 | rustfmt and clang-format | Rust and C formatting checks | [02-rustfmt_clang/](02-rustfmt_clang/) |
 | 3 | Valgrind Memcheck | Dynamic memory analysis of the FFI example | 03-valgrind/ |
 | 4 | Unit testing | Testing individual functions and edge cases | [04-unit-tests/](04-unit-tests/) |
-| 5 | Integration and black-box testing | Testing public APIs and component interaction | 05-integration-tests/ |
-| 6 | cargo-fuzz and libFuzzer | Generating inputs for parsing functions | 06-fuzzing/ |
-| 7 | Kani | Bounded model checking of selected properties | 07-kani/ |
-| 8 | cargo-mutants | Evaluating the effectiveness of tests | 08-mutation-testing/ |
+| 5 | Kani | Bounded model checking of selected properties | [05-kani/](05-kani/) |
+| 6 | cargo-mutants | Evaluating the effectiveness of tests | [06-cargo-mutants/](06-cargo-mutants/) |
 
 ## 1. Clippy
 
@@ -73,3 +71,32 @@ A second test covers the previously untested branch where `Metadata::try_new` re
 Both focused tests passed. The full test run passed 907 tests, with 26 ignored and no failures.
 
 Total coverage changed from 91.82% to 91.84% for regions, 90.18% to 90.24% for functions, and 93.04% to 93.06% for lines. Line coverage in `actions/mod.rs` increased from 97.00% to 97.22%.
+
+## 05. Kani
+
+### What we proved
+
+The `verify_decimal_precision_range` harness uses an arbitrary symbolic `i128` and verifies that `get_decimal_precision` never returns more than 39 and returns zero exactly when the input is zero.
+
+The proof has no assumptions. Kani therefore considers every `i128` value under its model, including `i128::MIN`, zero, and `i128::MAX`.
+
+### Conclusion
+
+All 30 checks succeeded. The model-checking phase completed in approximately 1 second. Note: This proves the selected precision properties, not all behavior of decimal parsing or construction.
+
+## 06. cargo-mutants
+
+### What we ran
+
+`cargo-mutants` generated mutations only for `parse_interval_impl` in `kernel/src/table_properties/deserialize.rs`. It ran the existing `parse_interval` unit tests with the `default-engine-rustls` feature.
+
+The unmodified baseline took 25 seconds to build and 2 seconds to test. cargo-mutants automatically selected a 20-second timeout.
+
+### Conclusion
+
+All 10 generated mutants were caught. There were no missed, timed-out, or unviable mutants.
+
+For example, changing the initial `"interval"` comparison from `!=` to `==` made both selected interval tests fail. This confirms that the tests distinguish the original behavior from that mutation.
+
+The result demonstrates sensitivity to these 10 generated changes in one focused function. It does not prove that the tests detect every possible defect.
+

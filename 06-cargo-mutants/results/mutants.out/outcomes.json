@@ -1,0 +1,738 @@
+{
+  "outcomes": [
+    {
+      "scenario": "Baseline",
+      "summary": "Success",
+      "log_path": "log/baseline.log",
+      "diff_path": null,
+      "phase_results": [
+        {
+          "phase": "Build",
+          "duration": 25.798727833,
+          "process_status": "Success",
+          "argv": [
+            "/Users/branko.grbic/.rustup/toolchains/stable-aarch64-apple-darwin/bin/cargo",
+            "test",
+            "--no-run",
+            "--verbose",
+            "--package=delta_kernel@0.18.2",
+            "--features=default-engine-rustls"
+          ]
+        },
+        {
+          "phase": "Test",
+          "duration": 2.39400425,
+          "process_status": "Success",
+          "argv": [
+            "/Users/branko.grbic/.rustup/toolchains/stable-aarch64-apple-darwin/bin/cargo",
+            "test",
+            "--verbose",
+            "--package=delta_kernel@0.18.2",
+            "--features=default-engine-rustls",
+            "--lib",
+            "parse_interval"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": {
+        "Mutant": {
+          "name": "kernel/src/table_properties/deserialize.rs:179:5: replace parse_interval_impl -> Result<Duration, ParseIntervalError> with Ok(Default::default())",
+          "package": "delta_kernel",
+          "file": "kernel/src/table_properties/deserialize.rs",
+          "function": {
+            "function_name": "parse_interval_impl",
+            "return_type": "-> Result<Duration, ParseIntervalError>",
+            "span": {
+              "start": {
+                "line": 167,
+                "column": 1
+              },
+              "end": {
+                "line": 220,
+                "column": 2
+              }
+            }
+          },
+          "span": {
+            "start": {
+              "line": 179,
+              "column": 5
+            },
+            "end": {
+              "line": 219,
+              "column": 17
+            }
+          },
+          "replacement": "Ok(Default::default())",
+          "genre": "FnValue"
+        }
+      },
+      "summary": "CaughtMutant",
+      "log_path": "log/kernel__src__table_properties__deserialize.rs_line_179_col_5.log",
+      "diff_path": "diff/kernel__src__table_properties__deserialize.rs_line_179_col_5.diff",
+      "phase_results": [
+        {
+          "phase": "Build",
+          "duration": 12.223048708,
+          "process_status": "Success",
+          "argv": [
+            "/Users/branko.grbic/.rustup/toolchains/stable-aarch64-apple-darwin/bin/cargo",
+            "test",
+            "--no-run",
+            "--verbose",
+            "--package=delta_kernel@0.18.2",
+            "--features=default-engine-rustls"
+          ]
+        },
+        {
+          "phase": "Test",
+          "duration": 2.469806416,
+          "process_status": {
+            "Failure": 101
+          },
+          "argv": [
+            "/Users/branko.grbic/.rustup/toolchains/stable-aarch64-apple-darwin/bin/cargo",
+            "test",
+            "--verbose",
+            "--package=delta_kernel@0.18.2",
+            "--features=default-engine-rustls",
+            "--lib",
+            "parse_interval"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": {
+        "Mutant": {
+          "name": "kernel/src/table_properties/deserialize.rs:180:18: replace != with == in parse_interval_impl",
+          "package": "delta_kernel",
+          "file": "kernel/src/table_properties/deserialize.rs",
+          "function": {
+            "function_name": "parse_interval_impl",
+            "return_type": "-> Result<Duration, ParseIntervalError>",
+            "span": {
+              "start": {
+                "line": 167,
+                "column": 1
+              },
+              "end": {
+                "line": 220,
+                "column": 2
+              }
+            }
+          },
+          "span": {
+            "start": {
+              "line": 180,
+              "column": 18
+            },
+            "end": {
+              "line": 180,
+              "column": 20
+            }
+          },
+          "replacement": "==",
+          "genre": "BinaryOperator"
+        }
+      },
+      "summary": "CaughtMutant",
+      "log_path": "log/kernel__src__table_properties__deserialize.rs_line_180_col_18.log",
+      "diff_path": "diff/kernel__src__table_properties__deserialize.rs_line_180_col_18.diff",
+      "phase_results": [
+        {
+          "phase": "Build",
+          "duration": 10.901676,
+          "process_status": "Success",
+          "argv": [
+            "/Users/branko.grbic/.rustup/toolchains/stable-aarch64-apple-darwin/bin/cargo",
+            "test",
+            "--no-run",
+            "--verbose",
+            "--package=delta_kernel@0.18.2",
+            "--features=default-engine-rustls"
+          ]
+        },
+        {
+          "phase": "Test",
+          "duration": 2.463628833,
+          "process_status": {
+            "Failure": 101
+          },
+          "argv": [
+            "/Users/branko.grbic/.rustup/toolchains/stable-aarch64-apple-darwin/bin/cargo",
+            "test",
+            "--verbose",
+            "--package=delta_kernel@0.18.2",
+            "--features=default-engine-rustls",
+            "--lib",
+            "parse_interval"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": {
+        "Mutant": {
+          "name": "kernel/src/table_properties/deserialize.rs:207:60: replace * with + in parse_interval_impl",
+          "package": "delta_kernel",
+          "file": "kernel/src/table_properties/deserialize.rs",
+          "function": {
+            "function_name": "parse_interval_impl",
+            "return_type": "-> Result<Duration, ParseIntervalError>",
+            "span": {
+              "start": {
+                "line": 167,
+                "column": 1
+              },
+              "end": {
+                "line": 220,
+                "column": 2
+              }
+            }
+          },
+          "span": {
+            "start": {
+              "line": 207,
+              "column": 60
+            },
+            "end": {
+              "line": 207,
+              "column": 61
+            }
+          },
+          "replacement": "+",
+          "genre": "BinaryOperator"
+        }
+      },
+      "summary": "CaughtMutant",
+      "log_path": "log/kernel__src__table_properties__deserialize.rs_line_207_col_60.log",
+      "diff_path": "diff/kernel__src__table_properties__deserialize.rs_line_207_col_60.diff",
+      "phase_results": [
+        {
+          "phase": "Build",
+          "duration": 7.998762125,
+          "process_status": "Success",
+          "argv": [
+            "/Users/branko.grbic/.rustup/toolchains/stable-aarch64-apple-darwin/bin/cargo",
+            "test",
+            "--no-run",
+            "--verbose",
+            "--package=delta_kernel@0.18.2",
+            "--features=default-engine-rustls"
+          ]
+        },
+        {
+          "phase": "Test",
+          "duration": 2.46462725,
+          "process_status": {
+            "Failure": 101
+          },
+          "argv": [
+            "/Users/branko.grbic/.rustup/toolchains/stable-aarch64-apple-darwin/bin/cargo",
+            "test",
+            "--verbose",
+            "--package=delta_kernel@0.18.2",
+            "--features=default-engine-rustls",
+            "--lib",
+            "parse_interval"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": {
+        "Mutant": {
+          "name": "kernel/src/table_properties/deserialize.rs:207:60: replace * with / in parse_interval_impl",
+          "package": "delta_kernel",
+          "file": "kernel/src/table_properties/deserialize.rs",
+          "function": {
+            "function_name": "parse_interval_impl",
+            "return_type": "-> Result<Duration, ParseIntervalError>",
+            "span": {
+              "start": {
+                "line": 167,
+                "column": 1
+              },
+              "end": {
+                "line": 220,
+                "column": 2
+              }
+            }
+          },
+          "span": {
+            "start": {
+              "line": 207,
+              "column": 60
+            },
+            "end": {
+              "line": 207,
+              "column": 61
+            }
+          },
+          "replacement": "/",
+          "genre": "BinaryOperator"
+        }
+      },
+      "summary": "CaughtMutant",
+      "log_path": "log/kernel__src__table_properties__deserialize.rs_line_207_col_60_001.log",
+      "diff_path": "diff/kernel__src__table_properties__deserialize.rs_line_207_col_60_001.diff",
+      "phase_results": [
+        {
+          "phase": "Build",
+          "duration": 8.896271042,
+          "process_status": "Success",
+          "argv": [
+            "/Users/branko.grbic/.rustup/toolchains/stable-aarch64-apple-darwin/bin/cargo",
+            "test",
+            "--no-run",
+            "--verbose",
+            "--package=delta_kernel@0.18.2",
+            "--features=default-engine-rustls"
+          ]
+        },
+        {
+          "phase": "Test",
+          "duration": 2.760217292,
+          "process_status": {
+            "Failure": 101
+          },
+          "argv": [
+            "/Users/branko.grbic/.rustup/toolchains/stable-aarch64-apple-darwin/bin/cargo",
+            "test",
+            "--verbose",
+            "--package=delta_kernel@0.18.2",
+            "--features=default-engine-rustls",
+            "--lib",
+            "parse_interval"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": {
+        "Mutant": {
+          "name": "kernel/src/table_properties/deserialize.rs:208:56: replace * with + in parse_interval_impl",
+          "package": "delta_kernel",
+          "file": "kernel/src/table_properties/deserialize.rs",
+          "function": {
+            "function_name": "parse_interval_impl",
+            "return_type": "-> Result<Duration, ParseIntervalError>",
+            "span": {
+              "start": {
+                "line": 167,
+                "column": 1
+              },
+              "end": {
+                "line": 220,
+                "column": 2
+              }
+            }
+          },
+          "span": {
+            "start": {
+              "line": 208,
+              "column": 56
+            },
+            "end": {
+              "line": 208,
+              "column": 57
+            }
+          },
+          "replacement": "+",
+          "genre": "BinaryOperator"
+        }
+      },
+      "summary": "CaughtMutant",
+      "log_path": "log/kernel__src__table_properties__deserialize.rs_line_208_col_56.log",
+      "diff_path": "diff/kernel__src__table_properties__deserialize.rs_line_208_col_56.diff",
+      "phase_results": [
+        {
+          "phase": "Build",
+          "duration": 10.032287292,
+          "process_status": "Success",
+          "argv": [
+            "/Users/branko.grbic/.rustup/toolchains/stable-aarch64-apple-darwin/bin/cargo",
+            "test",
+            "--no-run",
+            "--verbose",
+            "--package=delta_kernel@0.18.2",
+            "--features=default-engine-rustls"
+          ]
+        },
+        {
+          "phase": "Test",
+          "duration": 2.816873959,
+          "process_status": {
+            "Failure": 101
+          },
+          "argv": [
+            "/Users/branko.grbic/.rustup/toolchains/stable-aarch64-apple-darwin/bin/cargo",
+            "test",
+            "--verbose",
+            "--package=delta_kernel@0.18.2",
+            "--features=default-engine-rustls",
+            "--lib",
+            "parse_interval"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": {
+        "Mutant": {
+          "name": "kernel/src/table_properties/deserialize.rs:208:56: replace * with / in parse_interval_impl",
+          "package": "delta_kernel",
+          "file": "kernel/src/table_properties/deserialize.rs",
+          "function": {
+            "function_name": "parse_interval_impl",
+            "return_type": "-> Result<Duration, ParseIntervalError>",
+            "span": {
+              "start": {
+                "line": 167,
+                "column": 1
+              },
+              "end": {
+                "line": 220,
+                "column": 2
+              }
+            }
+          },
+          "span": {
+            "start": {
+              "line": 208,
+              "column": 56
+            },
+            "end": {
+              "line": 208,
+              "column": 57
+            }
+          },
+          "replacement": "/",
+          "genre": "BinaryOperator"
+        }
+      },
+      "summary": "CaughtMutant",
+      "log_path": "log/kernel__src__table_properties__deserialize.rs_line_208_col_56_001.log",
+      "diff_path": "diff/kernel__src__table_properties__deserialize.rs_line_208_col_56_001.diff",
+      "phase_results": [
+        {
+          "phase": "Build",
+          "duration": 9.228767625,
+          "process_status": "Success",
+          "argv": [
+            "/Users/branko.grbic/.rustup/toolchains/stable-aarch64-apple-darwin/bin/cargo",
+            "test",
+            "--no-run",
+            "--verbose",
+            "--package=delta_kernel@0.18.2",
+            "--features=default-engine-rustls"
+          ]
+        },
+        {
+          "phase": "Test",
+          "duration": 2.756345708,
+          "process_status": {
+            "Failure": 101
+          },
+          "argv": [
+            "/Users/branko.grbic/.rustup/toolchains/stable-aarch64-apple-darwin/bin/cargo",
+            "test",
+            "--verbose",
+            "--package=delta_kernel@0.18.2",
+            "--features=default-engine-rustls",
+            "--lib",
+            "parse_interval"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": {
+        "Mutant": {
+          "name": "kernel/src/table_properties/deserialize.rs:209:54: replace * with + in parse_interval_impl",
+          "package": "delta_kernel",
+          "file": "kernel/src/table_properties/deserialize.rs",
+          "function": {
+            "function_name": "parse_interval_impl",
+            "return_type": "-> Result<Duration, ParseIntervalError>",
+            "span": {
+              "start": {
+                "line": 167,
+                "column": 1
+              },
+              "end": {
+                "line": 220,
+                "column": 2
+              }
+            }
+          },
+          "span": {
+            "start": {
+              "line": 209,
+              "column": 54
+            },
+            "end": {
+              "line": 209,
+              "column": 55
+            }
+          },
+          "replacement": "+",
+          "genre": "BinaryOperator"
+        }
+      },
+      "summary": "CaughtMutant",
+      "log_path": "log/kernel__src__table_properties__deserialize.rs_line_209_col_54.log",
+      "diff_path": "diff/kernel__src__table_properties__deserialize.rs_line_209_col_54.diff",
+      "phase_results": [
+        {
+          "phase": "Build",
+          "duration": 9.211531542,
+          "process_status": "Success",
+          "argv": [
+            "/Users/branko.grbic/.rustup/toolchains/stable-aarch64-apple-darwin/bin/cargo",
+            "test",
+            "--no-run",
+            "--verbose",
+            "--package=delta_kernel@0.18.2",
+            "--features=default-engine-rustls"
+          ]
+        },
+        {
+          "phase": "Test",
+          "duration": 2.519176583,
+          "process_status": {
+            "Failure": 101
+          },
+          "argv": [
+            "/Users/branko.grbic/.rustup/toolchains/stable-aarch64-apple-darwin/bin/cargo",
+            "test",
+            "--verbose",
+            "--package=delta_kernel@0.18.2",
+            "--features=default-engine-rustls",
+            "--lib",
+            "parse_interval"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": {
+        "Mutant": {
+          "name": "kernel/src/table_properties/deserialize.rs:209:54: replace * with / in parse_interval_impl",
+          "package": "delta_kernel",
+          "file": "kernel/src/table_properties/deserialize.rs",
+          "function": {
+            "function_name": "parse_interval_impl",
+            "return_type": "-> Result<Duration, ParseIntervalError>",
+            "span": {
+              "start": {
+                "line": 167,
+                "column": 1
+              },
+              "end": {
+                "line": 220,
+                "column": 2
+              }
+            }
+          },
+          "span": {
+            "start": {
+              "line": 209,
+              "column": 54
+            },
+            "end": {
+              "line": 209,
+              "column": 55
+            }
+          },
+          "replacement": "/",
+          "genre": "BinaryOperator"
+        }
+      },
+      "summary": "CaughtMutant",
+      "log_path": "log/kernel__src__table_properties__deserialize.rs_line_209_col_54_001.log",
+      "diff_path": "diff/kernel__src__table_properties__deserialize.rs_line_209_col_54_001.diff",
+      "phase_results": [
+        {
+          "phase": "Build",
+          "duration": 9.258631166,
+          "process_status": "Success",
+          "argv": [
+            "/Users/branko.grbic/.rustup/toolchains/stable-aarch64-apple-darwin/bin/cargo",
+            "test",
+            "--no-run",
+            "--verbose",
+            "--package=delta_kernel@0.18.2",
+            "--features=default-engine-rustls"
+          ]
+        },
+        {
+          "phase": "Test",
+          "duration": 2.604685917,
+          "process_status": {
+            "Failure": 101
+          },
+          "argv": [
+            "/Users/branko.grbic/.rustup/toolchains/stable-aarch64-apple-darwin/bin/cargo",
+            "test",
+            "--verbose",
+            "--package=delta_kernel@0.18.2",
+            "--features=default-engine-rustls",
+            "--lib",
+            "parse_interval"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": {
+        "Mutant": {
+          "name": "kernel/src/table_properties/deserialize.rs:210:56: replace * with + in parse_interval_impl",
+          "package": "delta_kernel",
+          "file": "kernel/src/table_properties/deserialize.rs",
+          "function": {
+            "function_name": "parse_interval_impl",
+            "return_type": "-> Result<Duration, ParseIntervalError>",
+            "span": {
+              "start": {
+                "line": 167,
+                "column": 1
+              },
+              "end": {
+                "line": 220,
+                "column": 2
+              }
+            }
+          },
+          "span": {
+            "start": {
+              "line": 210,
+              "column": 56
+            },
+            "end": {
+              "line": 210,
+              "column": 57
+            }
+          },
+          "replacement": "+",
+          "genre": "BinaryOperator"
+        }
+      },
+      "summary": "CaughtMutant",
+      "log_path": "log/kernel__src__table_properties__deserialize.rs_line_210_col_56.log",
+      "diff_path": "diff/kernel__src__table_properties__deserialize.rs_line_210_col_56.diff",
+      "phase_results": [
+        {
+          "phase": "Build",
+          "duration": 9.34600675,
+          "process_status": "Success",
+          "argv": [
+            "/Users/branko.grbic/.rustup/toolchains/stable-aarch64-apple-darwin/bin/cargo",
+            "test",
+            "--no-run",
+            "--verbose",
+            "--package=delta_kernel@0.18.2",
+            "--features=default-engine-rustls"
+          ]
+        },
+        {
+          "phase": "Test",
+          "duration": 2.386739125,
+          "process_status": {
+            "Failure": 101
+          },
+          "argv": [
+            "/Users/branko.grbic/.rustup/toolchains/stable-aarch64-apple-darwin/bin/cargo",
+            "test",
+            "--verbose",
+            "--package=delta_kernel@0.18.2",
+            "--features=default-engine-rustls",
+            "--lib",
+            "parse_interval"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario": {
+        "Mutant": {
+          "name": "kernel/src/table_properties/deserialize.rs:210:56: replace * with / in parse_interval_impl",
+          "package": "delta_kernel",
+          "file": "kernel/src/table_properties/deserialize.rs",
+          "function": {
+            "function_name": "parse_interval_impl",
+            "return_type": "-> Result<Duration, ParseIntervalError>",
+            "span": {
+              "start": {
+                "line": 167,
+                "column": 1
+              },
+              "end": {
+                "line": 220,
+                "column": 2
+              }
+            }
+          },
+          "span": {
+            "start": {
+              "line": 210,
+              "column": 56
+            },
+            "end": {
+              "line": 210,
+              "column": 57
+            }
+          },
+          "replacement": "/",
+          "genre": "BinaryOperator"
+        }
+      },
+      "summary": "CaughtMutant",
+      "log_path": "log/kernel__src__table_properties__deserialize.rs_line_210_col_56_001.log",
+      "diff_path": "diff/kernel__src__table_properties__deserialize.rs_line_210_col_56_001.diff",
+      "phase_results": [
+        {
+          "phase": "Build",
+          "duration": 8.202477916,
+          "process_status": "Success",
+          "argv": [
+            "/Users/branko.grbic/.rustup/toolchains/stable-aarch64-apple-darwin/bin/cargo",
+            "test",
+            "--no-run",
+            "--verbose",
+            "--package=delta_kernel@0.18.2",
+            "--features=default-engine-rustls"
+          ]
+        },
+        {
+          "phase": "Test",
+          "duration": 2.4193923330000002,
+          "process_status": {
+            "Failure": 101
+          },
+          "argv": [
+            "/Users/branko.grbic/.rustup/toolchains/stable-aarch64-apple-darwin/bin/cargo",
+            "test",
+            "--verbose",
+            "--package=delta_kernel@0.18.2",
+            "--features=default-engine-rustls",
+            "--lib",
+            "parse_interval"
+          ]
+        }
+      ]
+    }
+  ],
+  "total_mutants": 10,
+  "missed": 0,
+  "caught": 10,
+  "timeout": 0,
+  "unviable": 0,
+  "success": 0,
+  "start_time": "2026-09-02T20:12:57.471367Z",
+  "end_time": "2026-09-02T20:15:27.137181Z",
+  "cargo_mutants_version": "27.1.0"
+}

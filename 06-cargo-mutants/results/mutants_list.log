@@ -1,0 +1,11 @@
+cargo-mutants 27.1.0
+kernel/src/table_properties/deserialize.rs:179:5: replace parse_interval_impl -> Result<Duration, ParseIntervalError> with Ok(Default::default())
+kernel/src/table_properties/deserialize.rs:180:18: replace != with == in parse_interval_impl
+kernel/src/table_properties/deserialize.rs:207:60: replace * with + in parse_interval_impl
+kernel/src/table_properties/deserialize.rs:207:60: replace * with / in parse_interval_impl
+kernel/src/table_properties/deserialize.rs:208:56: replace * with + in parse_interval_impl
+kernel/src/table_properties/deserialize.rs:208:56: replace * with / in parse_interval_impl
+kernel/src/table_properties/deserialize.rs:209:54: replace * with + in parse_interval_impl
+kernel/src/table_properties/deserialize.rs:209:54: replace * with / in parse_interval_impl
+kernel/src/table_properties/deserialize.rs:210:56: replace * with + in parse_interval_impl
+kernel/src/table_properties/deserialize.rs:210:56: replace * with / in parse_interval_impl

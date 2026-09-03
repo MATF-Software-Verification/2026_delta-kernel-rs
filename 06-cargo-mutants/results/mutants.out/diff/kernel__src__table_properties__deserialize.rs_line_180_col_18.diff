@@ -1,0 +1,21 @@
+--- kernel/src/table_properties/deserialize.rs
++++ replace != with == in parse_interval_impl
+@@ -172,17 +172,17 @@
+ /// intervals aren't supported.
+ ///
+ /// For now this is adapted from delta-rs' `parse_interval` function:
+ /// https://github.com/delta-io/delta-rs/blob/d4f18b3ae9d616e771b5d0e0fa498d0086fd91eb/crates/core/src/table/config.rs#L474
+ ///
+ /// See issue delta-kernel-rs/#507 for details: https://github.com/delta-io/delta-kernel-rs/issues/507
+ fn parse_interval_impl(value: &str) -> Result<Duration, ParseIntervalError> {
+     let mut it = value.split_whitespace();
+-    if it.next() != Some("interval") {
++    if it.next() == /* ~ changed by cargo-mutants ~ */ Some("interval") {
+         return Err(ParseIntervalError::NotAnInterval(value.to_string()));
+     }
+     let number = it
+         .next()
+         .ok_or_else(|| ParseIntervalError::NotAnInterval(value.to_string()))?;
+     let number: i64 = number
+         .parse()
+         .map_err(|_| ParseIntervalError::ParseIntError(number.into()))?;

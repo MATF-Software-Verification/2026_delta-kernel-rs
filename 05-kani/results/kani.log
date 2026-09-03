@@ -1,0 +1,301 @@
+cargo-kani 0.67.0
+Kani Rust Verifier 0.67.0 (cargo plugin)
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling unicode-ident v1.0.24
+   Compiling stable_deref_trait v1.2.1
+   Compiling litemap v0.8.3
+   Compiling writeable v0.6.4
+   Compiling icu_properties_data v2.3.0
+   Compiling icu_normalizer_data v2.3.0
+   Compiling utf8_iter v1.0.4
+   Compiling libc v0.2.189
+   Compiling serde_core v1.0.229
+   Compiling autocfg v1.5.1
+   Compiling cfg-if v1.0.4
+   Compiling rand_core v0.10.1
+   Compiling smallvec v1.15.2
+   Compiling getrandom v0.4.3
+   Compiling zmij v1.0.23
+   Compiling semver v1.0.28
+   Compiling chacha20 v0.10.1
+   Compiling serde v1.0.229
+   Compiling once_cell v1.21.4
+   Compiling thiserror v2.0.20
+   Compiling core-foundation-sys v0.8.7
+   Compiling percent-encoding v2.3.2
+   Compiling serde_json v1.0.151
+   Compiling rustc_version v0.4.1
+   Compiling heck v0.5.0
+   Compiling iana-time-zone v0.1.65
+   Compiling form_urlencoded v1.2.2
+   Compiling tracing-core v0.1.36
+   Compiling num-traits v0.2.19
+   Compiling crc-catalog v2.5.0
+   Compiling byteorder v1.5.0
+   Compiling itoa v1.0.18
+   Compiling delta_kernel v0.18.2 (/Users/branko.grbic/Documents/Faculty/2026_delta-kernel-rs/delta-kernel-rs/kernel)
+   Compiling hashbrown v0.17.1
+   Compiling bytemuck v1.25.2
+   Compiling pin-project-lite v0.2.17
+   Compiling equivalent v1.0.2
+   Compiling either v1.17.0
+   Compiling log v0.4.33
+   Compiling memchr v2.8.3
+   Compiling itertools v0.14.0
+   Compiling indexmap v2.14.0
+   Compiling roaring v0.11.5
+   Compiling crc v3.4.0
+   Compiling z85 v3.0.7
+   Compiling bytes v1.12.1
+   Compiling syn v2.0.119
+   Compiling syn v3.0.3
+   Compiling rand v0.10.2
+   Compiling uuid v1.24.1
+   Compiling zerovec-derive v0.11.4
+   Compiling displaydoc v0.2.7
+   Compiling thiserror-impl v2.0.20
+   Compiling serde_derive v1.0.229
+   Compiling chrono v0.4.45
+   Compiling synstructure v0.13.2
+   Compiling zerofrom-derive v0.1.7
+   Compiling yoke-derive v0.8.2
+   Compiling strum_macros v0.27.2
+   Compiling tracing-attributes v0.1.31
+   Compiling delta_kernel_derive v0.18.2 (/Users/branko.grbic/Documents/Faculty/2026_delta-kernel-rs/delta-kernel-rs/derive-macros)
+   Compiling zerofrom v0.1.8
+   Compiling tracing v0.1.44
+   Compiling strum v0.27.2
+   Compiling yoke v0.8.3
+   Compiling zerovec v0.11.7
+   Compiling zerotrie v0.2.5
+   Compiling tinystr v0.8.4
+   Compiling potential_utf v0.1.6
+   Compiling icu_collections v2.3.0
+   Compiling icu_locale_core v2.3.0
+   Compiling icu_provider v2.3.0
+   Compiling icu_properties v2.3.0
+   Compiling icu_normalizer v2.3.0
+   Compiling idna_adapter v1.2.2
+   Compiling idna v1.1.0
+   Compiling url v2.5.8
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 13.61s
+Checking harness expressions::scalars::verify_decimal_precision_range...
+CBMC 6.8.0 (cbmc-6.8.0)
+CBMC version 6.8.0 (cbmc-6.8.0) 64-bit arm64 macos
+Reading GOTO program from file /private/tmp/delta-kernel-rs-kani/kani/aarch64-apple-darwin/debug/deps/delta_kernel-fae97c0bbedff04c__RNvNtNtCsb8oHdfjhqL7_12delta_kernel11expressions7scalars30verify_decimal_precision_range.out
+Generating GOTO Program
+Adding CPROVER library (arm64)
+Removal of function pointers and virtual functions
+Generic Property Instrumentation
+Running with 16 object bits, 48 offset bits (user-specified)
+Starting Bounded Model Checking
+aborting path on assume(false) at file /Users/runner/.rustup/toolchains/nightly-2025-11-21-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/num/uint_macros.rs line 1658 column 19 function core::num::<impl u128>::checked_ilog10 thread 0
+aborting path on assume(false) at file /Users/runner/.rustup/toolchains/nightly-2025-11-21-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/option.rs line 1229 column 15 function std::option::Option::<u32>::map_or::<u32, {closure@kernel/src/expressions/scalars.rs:54:53: 54:56}> thread 0
+Runtime Symex: 0.0170993s
+size of program expression: 936 steps
+slicing removed 457 assignments
+Generated 62 VCC(s), 45 remaining after simplification
+Runtime Postprocess Equation: 0.000182792s
+Passing problem to propositional reduction
+converting SSA
+Runtime Convert SSA: 0.0232794s
+Running propositional reduction
+Post-processing
+Runtime Post-process: 5.542e-06s
+Solving with CaDiCaL 2.0.0
+26209 variables, 123528 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.00323758s
+Runtime decision procedure: 0.0267724s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+26210 variables, 123529 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.0156335s
+Runtime decision procedure: 0.0157945s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+26211 variables, 123530 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.45817s
+Runtime decision procedure: 0.458525s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+26212 variables, 123531 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.302258s
+Runtime decision procedure: 0.302599s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+26213 variables, 123532 clauses
+SAT checker: instance is SATISFIABLE
+Runtime Solver: 0.0773566s
+Runtime decision procedure: 0.0776889s
+Running propositional reduction
+Solving with CaDiCaL 2.0.0
+26214 variables, 123533 clauses
+SAT checker: instance is UNSATISFIABLE
+Runtime Solver: 0.00191096s
+Runtime decision procedure: 0.00197658s
+
+RESULTS:
+Check 1: core::num::int_log10::less_than_5.assertion.1
+	 - Status: SUCCESS
+	 - Description: "attempt to add with overflow"
+	 - Location: ../../../../../runner/.rustup/toolchains/nightly-2025-11-21-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/num/int_log10.rs:43:7 in function core::num::int_log10::less_than_5
+
+Check 2: core::num::int_log10::less_than_5.assertion.2
+	 - Status: SUCCESS
+	 - Description: "attempt to add with overflow"
+	 - Location: ../../../../../runner/.rustup/toolchains/nightly-2025-11-21-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/num/int_log10.rs:43:20 in function core::num::int_log10::less_than_5
+
+Check 3: core::num::int_log10::less_than_5.assertion.3
+	 - Status: SUCCESS
+	 - Description: "attempt to add with overflow"
+	 - Location: ../../../../../runner/.rustup/toolchains/nightly-2025-11-21-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/num/int_log10.rs:43:35 in function core::num::int_log10::less_than_5
+
+Check 4: core::num::int_log10::less_than_5.assertion.4
+	 - Status: SUCCESS
+	 - Description: "attempt to add with overflow"
+	 - Location: ../../../../../runner/.rustup/toolchains/nightly-2025-11-21-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/num/int_log10.rs:43:48 in function core::num::int_log10::less_than_5
+
+Check 5: core::num::int_log10::less_than_5.assertion.5
+	 - Status: SUCCESS
+	 - Description: "attempt to shift right with overflow"
+	 - Location: ../../../../../runner/.rustup/toolchains/nightly-2025-11-21-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/num/int_log10.rs:43:5 in function core::num::int_log10::less_than_5
+
+Check 6: expressions::scalars::get_decimal_precision::{closure#0}.assertion.1
+	 - Status: SUCCESS
+	 - Description: "attempt to add with overflow"
+	 - Location: kernel/src/expressions/scalars.rs:54:57 in function expressions::scalars::get_decimal_precision::{closure#0}
+
+Check 7: core::num::<impl u128>::checked_ilog10.unreachable.1
+	 - Status: SUCCESS
+	 - Description: "unreachable code"
+	 - Location: ../../../../../runner/.rustup/toolchains/nightly-2025-11-21-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/num/uint_macros.rs:1658:19 in function core::num::<impl u128>::checked_ilog10
+
+Check 8: core::num::int_log10::u128.assertion.1
+	 - Status: SUCCESS
+	 - Description: "attempt to divide by zero"
+	 - Location: ../../../../../runner/.rustup/toolchains/nightly-2025-11-21-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/num/int_log10.rs:83:9 in function core::num::int_log10::u128
+
+Check 9: core::num::int_log10::u128.arithmetic_overflow.1
+	 - Status: SUCCESS
+	 - Description: "attempt to divide by zero"
+	 - Location: ../../../../../runner/.rustup/toolchains/nightly-2025-11-21-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/num/int_log10.rs:83:9 in function core::num::int_log10::u128
+
+Check 10: core::num::int_log10::u128.assertion.2
+	 - Status: SUCCESS
+	 - Description: "attempt to add with overflow"
+	 - Location: ../../../../../runner/.rustup/toolchains/nightly-2025-11-21-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/num/int_log10.rs:84:9 in function core::num::int_log10::u128
+
+Check 11: core::num::int_log10::u128.assertion.3
+	 - Status: SUCCESS
+	 - Description: "attempt to add with overflow"
+	 - Location: ../../../../../runner/.rustup/toolchains/nightly-2025-11-21-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/num/int_log10.rs:85:16 in function core::num::int_log10::u128
+
+Check 12: core::num::int_log10::u128.assertion.4
+	 - Status: SUCCESS
+	 - Description: "attempt to divide by zero"
+	 - Location: ../../../../../runner/.rustup/toolchains/nightly-2025-11-21-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/num/int_log10.rs:88:9 in function core::num::int_log10::u128
+
+Check 13: core::num::int_log10::u128.arithmetic_overflow.2
+	 - Status: SUCCESS
+	 - Description: "attempt to divide by zero"
+	 - Location: ../../../../../runner/.rustup/toolchains/nightly-2025-11-21-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/num/int_log10.rs:88:9 in function core::num::int_log10::u128
+
+Check 14: core::num::int_log10::u128.assertion.5
+	 - Status: SUCCESS
+	 - Description: "attempt to add with overflow"
+	 - Location: ../../../../../runner/.rustup/toolchains/nightly-2025-11-21-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/num/int_log10.rs:89:9 in function core::num::int_log10::u128
+
+Check 15: core::num::int_log10::u128.assertion.6
+	 - Status: SUCCESS
+	 - Description: "attempt to add with overflow"
+	 - Location: ../../../../../runner/.rustup/toolchains/nightly-2025-11-21-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/num/int_log10.rs:91:5 in function core::num::int_log10::u128
+
+Check 16: expressions::scalars::verify_decimal_precision_range.assertion.1
+	 - Status: SUCCESS
+	 - Description: "assertion failed: precision <= 39"
+	 - Location: kernel/src/expressions/scalars.rs:63:5 in function expressions::scalars::verify_decimal_precision_range
+
+Check 17: expressions::scalars::verify_decimal_precision_range.assertion.2
+	 - Status: SUCCESS
+	 - Description: "assertion failed: precision == 0 == value == 0"
+	 - Location: kernel/src/expressions/scalars.rs:64:5 in function expressions::scalars::verify_decimal_precision_range
+
+Check 18: std::option::Option::<u32>::map_or::<u32, {closure@kernel/src/expressions/scalars.rs:54:53: 54:56}>.unreachable.1
+	 - Status: SUCCESS
+	 - Description: "unreachable code"
+	 - Location: ../../../../../runner/.rustup/toolchains/nightly-2025-11-21-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/option.rs:1229:15 in function std::option::Option::<u32>::map_or::<u32, {closure@kernel/src/expressions/scalars.rs:54:53: 54:56}>
+
+Check 19: core::num::int_log10::u32.assertion.1
+	 - Status: SUCCESS
+	 - Description: "attempt to divide by zero"
+	 - Location: ../../../../../runner/.rustup/toolchains/nightly-2025-11-21-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/num/int_log10.rs:57:9 in function core::num::int_log10::u32
+
+Check 20: core::num::int_log10::u32.arithmetic_overflow.1
+	 - Status: SUCCESS
+	 - Description: "attempt to divide by zero"
+	 - Location: ../../../../../runner/.rustup/toolchains/nightly-2025-11-21-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/num/int_log10.rs:57:9 in function core::num::int_log10::u32
+
+Check 21: core::num::int_log10::u32.assertion.2
+	 - Status: SUCCESS
+	 - Description: "attempt to add with overflow"
+	 - Location: ../../../../../runner/.rustup/toolchains/nightly-2025-11-21-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/num/int_log10.rs:58:9 in function core::num::int_log10::u32
+
+Check 22: core::num::int_log10::u32.assertion.3
+	 - Status: SUCCESS
+	 - Description: "attempt to add with overflow"
+	 - Location: ../../../../../runner/.rustup/toolchains/nightly-2025-11-21-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/num/int_log10.rs:60:5 in function core::num::int_log10::u32
+
+Check 23: core::num::int_log10::u64.assertion.1
+	 - Status: SUCCESS
+	 - Description: "attempt to divide by zero"
+	 - Location: ../../../../../runner/.rustup/toolchains/nightly-2025-11-21-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/num/int_log10.rs:68:9 in function core::num::int_log10::u64
+
+Check 24: core::num::int_log10::u64.arithmetic_overflow.1
+	 - Status: SUCCESS
+	 - Description: "attempt to divide by zero"
+	 - Location: ../../../../../runner/.rustup/toolchains/nightly-2025-11-21-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/num/int_log10.rs:68:9 in function core::num::int_log10::u64
+
+Check 25: core::num::int_log10::u64.assertion.2
+	 - Status: SUCCESS
+	 - Description: "attempt to add with overflow"
+	 - Location: ../../../../../runner/.rustup/toolchains/nightly-2025-11-21-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/num/int_log10.rs:69:9 in function core::num::int_log10::u64
+
+Check 26: core::num::int_log10::u64.assertion.3
+	 - Status: SUCCESS
+	 - Description: "attempt to divide by zero"
+	 - Location: ../../../../../runner/.rustup/toolchains/nightly-2025-11-21-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/num/int_log10.rs:72:9 in function core::num::int_log10::u64
+
+Check 27: core::num::int_log10::u64.arithmetic_overflow.2
+	 - Status: SUCCESS
+	 - Description: "attempt to divide by zero"
+	 - Location: ../../../../../runner/.rustup/toolchains/nightly-2025-11-21-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/num/int_log10.rs:72:9 in function core::num::int_log10::u64
+
+Check 28: core::num::int_log10::u64.assertion.4
+	 - Status: SUCCESS
+	 - Description: "attempt to add with overflow"
+	 - Location: ../../../../../runner/.rustup/toolchains/nightly-2025-11-21-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/num/int_log10.rs:73:9 in function core::num::int_log10::u64
+
+Check 29: core::num::int_log10::u64.assertion.5
+	 - Status: SUCCESS
+	 - Description: "attempt to add with overflow"
+	 - Location: ../../../../../runner/.rustup/toolchains/nightly-2025-11-21-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/num/int_log10.rs:75:5 in function core::num::int_log10::u64
+
+Check 30: core::num::<impl u128>::checked_ilog10.pointer_dereference.1
+	 - Status: SUCCESS
+	 - Description: "dereference failure: dead object"
+	 - Location: ../../../../../runner/.rustup/toolchains/nightly-2025-11-21-aarch64-apple-darwin/lib/rustlib/src/rust/library/core/src/num/uint_macros.rs:1658:19 in function core::num::<impl u128>::checked_ilog10
+
+
+SUMMARY:
+ ** 0 of 30 failed
+
+VERIFICATION:- SUCCESSFUL
+Verification Time: 1.0111061s
+
+Manual Harness Summary:
+Complete - 1 successfully verified harnesses, 0 failures, 1 total.
