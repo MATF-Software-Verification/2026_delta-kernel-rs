@@ -1,0 +1,9 @@
+[package]
+name = "delta-kernel-miri"
+version = "0.1.0"
+edition = "2021"
+
+[workspace]
+
+[dependencies]
+delta_kernel_ffi = { path = "../../delta-kernel-rs/ffi", default-features = false }

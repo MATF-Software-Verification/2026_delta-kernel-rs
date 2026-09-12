@@ -1,0 +1,141 @@
+miri 0.1.0 (0fc141305d 2026-09-11)
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling unicode-ident v1.0.24
+   Compiling stable_deref_trait v1.2.1
+   Compiling serde_core v1.0.229
+   Compiling zmij v1.0.23
+   Compiling libc v0.2.189
+   Compiling serde_json v1.0.151
+   Compiling writeable v0.6.4
+   Compiling litemap v0.8.3
+   Compiling icu_normalizer_data v2.3.0
+   Compiling utf8_iter v1.0.4
+   Compiling icu_properties_data v2.3.0
+   Compiling utf8parse v0.2.2
+   Compiling getrandom v0.4.3
+   Compiling colorchoice v1.0.5
+   Compiling anstyle v1.0.14
+   Compiling anstyle-parse v1.0.0
+   Compiling heck v0.5.0
+   Compiling rustix v1.1.4
+   Compiling is_terminal_polyfill v1.70.2
+   Compiling anstyle-query v1.1.5
+   Compiling rand_core v0.10.1
+   Compiling cfg-if v1.0.4
+   Compiling autocfg v1.5.1
+   Compiling strsim v0.11.1
+   Compiling anstream v1.0.0
+   Compiling serde v1.0.229
+   Compiling winnow v1.0.4
+   Compiling bitflags v2.13.1
+   Compiling smallvec v1.16.0
+   Compiling clap_lex v1.1.0
+   Compiling num-traits v0.2.19
+   Compiling clap_builder v4.6.6
+   Compiling toml_parser v1.1.3+spec-1.1.0
+   Compiling once_cell v1.21.4
+   Compiling fastrand v2.5.0
+   Compiling itoa v1.0.18
+   Compiling cbindgen v0.29.4
+   Compiling equivalent v1.0.2
+   Compiling winnow v0.7.15
+   Compiling semver v1.0.28
+   Compiling memchr v2.8.3
+   Compiling hashbrown v0.17.1
+   Compiling rustc_version v0.4.1
+   Compiling clap v4.6.6
+   Compiling indexmap v2.14.2
+   Compiling chacha20 v0.10.2
+   Compiling core-foundation-sys v0.8.7
+   Compiling percent-encoding v2.3.2
+   Compiling thiserror v2.0.20
+   Compiling log v0.4.34
+   Compiling form_urlencoded v1.2.2
+   Compiling tracing-core v0.1.36
+   Compiling iana-time-zone v0.1.65
+   Compiling delta_kernel v0.18.2 (/Users/branko.grbic/Documents/Faculty/2026_delta-kernel-rs/delta-kernel-rs/kernel)
+   Compiling byteorder v1.5.0
+   Compiling pin-project-lite v0.2.17
+   Compiling bytemuck v1.25.2
+   Compiling either v1.18.0
+   Compiling crc-catalog v2.5.0
+   Compiling itertools v0.14.0
+   Compiling crc v3.4.0
+   Compiling roaring v0.11.5
+   Compiling errno v0.3.14
+   Compiling z85 v3.0.7
+   Compiling bytes v1.12.1
+   Compiling syn v2.0.119
+   Compiling syn v3.0.5
+   Compiling toml_datetime v0.7.5+spec-1.1.0
+   Compiling serde_spanned v1.1.1
+   Compiling toml v0.9.12+spec-1.1.0
+   Compiling tempfile v3.27.0
+   Compiling rand v0.10.2
+   Compiling zerovec-derive v0.11.6
+   Compiling displaydoc v0.2.7
+   Compiling serde_derive v1.0.229
+   Compiling thiserror-impl v2.0.20
+   Compiling uuid v1.26.0
+   Compiling synstructure v0.13.2
+   Compiling zerofrom-derive v0.1.7
+   Compiling yoke-derive v0.8.2
+   Compiling tracing-attributes v0.1.31
+   Compiling strum_macros v0.27.2
+   Compiling delta_kernel_derive v0.18.2 (/Users/branko.grbic/Documents/Faculty/2026_delta-kernel-rs/delta-kernel-rs/derive-macros)
+   Compiling delta_kernel_ffi_macros v0.18.2 (/Users/branko.grbic/Documents/Faculty/2026_delta-kernel-rs/delta-kernel-rs/ffi-proc-macros)
+   Compiling chrono v0.4.45
+   Compiling zerofrom v0.1.8
+   Compiling tracing v0.1.44
+   Compiling strum v0.27.2
+   Compiling yoke v0.8.3
+   Compiling zerovec v0.11.8
+   Compiling zerotrie v0.2.5
+   Compiling delta_kernel_ffi v0.18.2 (/Users/branko.grbic/Documents/Faculty/2026_delta-kernel-rs/delta-kernel-rs/ffi)
+   Compiling tinystr v0.8.4
+   Compiling potential_utf v0.1.6
+   Compiling icu_collections v2.3.0
+   Compiling icu_locale_core v2.3.0
+   Compiling icu_provider v2.3.1
+   Compiling icu_properties v2.3.0
+   Compiling icu_normalizer v2.3.0
+   Compiling idna_adapter v1.2.2
+   Compiling idna v1.1.0
+   Compiling url v2.5.8
+warning: method `extend` is never used
+    --> /Users/branko.grbic/Documents/Faculty/2026_delta-kernel-rs/delta-kernel-rs/kernel/src/schema/mod.rs:1099:19
+     |
+1093 | impl ColumnNamesAndTypes {
+     | ------------------------ method in this implementation
+...
+1099 |     pub(crate) fn extend(&mut self, other: ColumnNamesAndTypes) {
+     |                   ^^^^^^
+     |
+     = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `delta_kernel` (lib) generated 1 warning
+   Compiling delta-kernel-miri v0.1.0 (/Users/branko.grbic/Documents/Faculty/2026_delta-kernel-rs/03-miri/miri-harness)
+warning: unused dependency `delta_kernel_ffi`
+ --> Cargo.toml:9:1
+  |
+9 | delta_kernel_ffi = { path = "../../delta-kernel-rs/ffi", default-features = false }
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `cargo::unused_dependencies` is set to `warn` by default
+help: consider removing the dependency on `delta_kernel_ffi`
+warning: `delta-kernel-miri` (manifest) generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 12.29s
+     Running unittests src/lib.rs (/tmp/delta-kernel-rs-miri/miri/aarch64-apple-darwin/debug/build/delta-kernel-miri/66d704b25f1bc4d9/out/delta_kernel_miri-66d704b25f1bc4d9)
+
+running 1 test
+test tests::bool_slice_round_trip_and_free ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.16s
+
+   Doc-tests delta_kernel_miri
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

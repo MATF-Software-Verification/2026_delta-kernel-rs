@@ -9,7 +9,7 @@ Software verification analysis of the [delta-kernel-rs](https://github.com/delta
 |---|-------------------|---------|-----------|
 | 1 | Clippy | Static analysis of Rust code | [01-clippy/](01-clippy/) |
 | 2 | rustfmt and clang-format | Rust and C formatting checks | [02-rustfmt_clang/](02-rustfmt_clang/) |
-| 3 | Valgrind Memcheck | Dynamic memory analysis of the FFI example | 03-valgrind/ |
+| 3 | Miri | Undefined-behavior analysis of executed Rust code | [03-miri/](03-miri/) |
 | 4 | Unit testing | Testing individual functions and edge cases | [04-unit-tests/](04-unit-tests/) |
 | 5 | Kani | Bounded model checking of selected properties | [05-kani/](05-kani/) |
 | 6 | cargo-mutants | Evaluating the effectiveness of tests | [06-cargo-mutants/](06-cargo-mutants/) |
@@ -49,6 +49,22 @@ Since pedantic lints can be noisy, AI could be a great additional tool to triage
 - `clang-format` reports differences with Apple clang-format 21.0.0. The proposed changes are saved in `results/clang_format.patch`.
 
 Note: Since clang-format can take a lot of time, I focused on one specific directory to speed-up time.
+
+## 03. Miri
+
+### What we ran
+
+`./run.sh` uses Miri 0.1.0 from the Rust nightly toolchain. Miri interprets Rust code and reports undefined behavior on executed paths.
+
+The small external Rust harness exercises `KernelBoolSlice`, an FFI-owned type backed by a raw `NonNull<bool>` pointer. It converts a `Vec<bool>` into the slice, reads the values through `slice::from_raw_parts`, and frees the allocation through `free_bool_slice`, which reconstructs it with `Vec::from_raw_parts`.
+
+The harness is outside the Delta Kernel workspace so Miri does not compile unrelated development dependencies. An initial attempt to run the kernel's own unit tests with `default-engine-rustls` was rejected by `ring` because Miri does not expose the Apple ARM target features expected by that dependency.
+
+### Conclusion
+
+The Rust ownership round-trip test passed under Miri with no undefined-behavior diagnostics.
+
+This result covers only the `KernelBoolSlice` path. It is not exhaustive and does not show that other FFI ownership paths or unexecuted Delta Kernel code are free of undefined behavior.
 
 ## 04. Unit testing
 
