@@ -21,8 +21,8 @@ Then, from this directory:
 
 `./run.sh` runs a small external test harness against Delta Kernel's FFI-owned `KernelBoolSlice`.
 
-The test converts a `Vec<bool>` into a raw-pointer-backed slice, reads it through `slice::from_raw_parts`, and frees it through the exported `free_bool_slice` function, which reconstructs the allocation with `Vec::from_raw_parts`. This directly checks the unsafe ownership round trip used at the C/Rust boundary. Log: `results/miri.log`.
-
 ## Conclusion
+
+The test converts a `Vec<bool>` into a raw-pointer-backed slice, reads it and frees it. This directly checks the unsafe ownership round trip used at the C/Rust boundary. Log: `results/miri.log`.
 
 Miri reported no undefined behavior.
