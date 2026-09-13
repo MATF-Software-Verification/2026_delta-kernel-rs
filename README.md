@@ -21,6 +21,16 @@ Current version is **v0.18.2**, pinned at commit `f105333a003232d7284f1a8f06cca3
 
 ## Tools and reproduction
 
+| # | Tool or technique | Purpose | Directory |
+|---|-------------------|---------|-----------|
+| 1 | Clippy | Static analysis of Rust code | [01-clippy/](01-clippy/) |
+| 2 | rustfmt and clang-format | Rust and C formatting checks | [02-rustfmt_clang/](02-rustfmt_clang/) |
+| 3 | Miri | Undefined-behavior analysis of executed Rust code | [03-miri/](03-miri/) |
+| 4 | Unit testing | Testing individual functions and edge cases | [04-unit-tests/](04-unit-tests/) |
+| 5 | Kani | Bounded model checking of selected properties | [05-kani/](05-kani/) |
+| 6 | cargo-mutants | Evaluating the effectiveness of tests | [06-cargo-mutants/](06-cargo-mutants/) |
+
+
 Run:
 - Clippy: `./01-clippy/run.sh`
 - rustfmt and clang-format: `./02-rustfmt_clang/run.sh`
