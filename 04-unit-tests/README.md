@@ -29,9 +29,11 @@ Then, from this directory:
 
 ## Results
 
-The test confirms that a schema nested 41 levels parses successfully, while 42 levels fails because it exceeds `serde_json`'s recursion limit. On v0.18.2 this appears as `Error::MalformedJson`.
+The test confirms that a schema nested 41 levels parses successfully, while 42 levels fails because it exceeds `serde_json`'s recursion limit. On v0.18.2 this appears as `Error::MalformedJson`. This test reproduces the deeply nested schema problem from [issue #1896](https://github.com/delta-io/delta-kernel-rs/issues/1896), which motivated [PR #2940](https://github.com/delta-io/delta-kernel-rs/pull/2940).
+Code pointer: [`Metadata::parse_schema`](../delta-kernel-rs/kernel/src/actions/mod.rs), lines 325–328.
 
 A second test covers the previously untested branch where `Metadata::try_new` rejects metadata columns and verifies the exact `Error::Schema` message.
+Code pointer: [`Metadata::try_new`](../delta-kernel-rs/kernel/src/actions/mod.rs), lines 264–269.
 
 Both focused tests passed. The full test run passed 907 tests, with 26 ignored and no failures.
 
