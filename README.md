@@ -34,10 +34,8 @@ Results are saved in each tool's `results/` directory.
 ## Conclusions
 
 - Default Clippy and rustfmt checks passed; pedantic Clippy was noisy and clang-format proposed changes.
-- Miri found no undefined behavior in the tested FFI ownership round trip.
+- Miri, Kani and cargo mutant found no problems in small scope they were verifying.
 - All 907 kernel tests passed; the added tests characterized schema-nesting and metadata-column errors and slightly increased coverage.
-- Kani proved the selected decimal precision properties for every `i128`.
-- All 10 selected interval-parser mutants were caught.
 
 ## Author
 
