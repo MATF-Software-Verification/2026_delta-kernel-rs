@@ -1,2 +1,3 @@
 .vscode/
 03-miri/miri-harness/target/
+06-cargo-mutants/results/mutants.out/

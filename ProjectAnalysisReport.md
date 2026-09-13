@@ -14,7 +14,7 @@ Software verification analysis of the [delta-kernel-rs](https://github.com/delta
 | 5 | Kani | Bounded model checking of selected properties | [05-kani/](05-kani/) |
 | 6 | cargo-mutants | Evaluating the effectiveness of tests | [06-cargo-mutants/](06-cargo-mutants/) |
 
-## 1. Clippy
+## 01. Clippy
 
 ### What we ran
 
@@ -22,18 +22,18 @@ Software verification analysis of the [delta-kernel-rs](https://github.com/delta
 
 1. **Basic** (`-D warnings`) - same bar as typical CI. Log: `results/clippy_basic.log`.
 2. **Pedantic** (`-W clippy::pedantic`) - extra lints. Log: `results/clippy_pedantic.log`.
-3. `--fix` - apply auto-fixes, save `results/clippy_fixes.patch`, then restore the submodule so the tree stays clean.
+3. `--fix` - apply auto-fixes, save `results/clippy_pedantic_fixes.patch`, then restore the submodule so the tree stays clean.
 
 ### Conclusion
 
-The default Clippy analysis of the `delta_kernel` package completed successfully. It reported 0 warnings with warnings treated as errors. 
+The default Clippy analysis of the `delta_kernel` package completed successfully. It reported 0 warnings with warnings treated as errors.
 The additional pedantic analysis contained 1,321 items, but Cargo explicitly reported 784 duplicate warnings. The important distinction is that `clippy::pedantic` is intentionally strict, disabled by default, and can produce occasional false positives. Therefore, pedantic warnings should not be treated as a failed score.
 
 ### AI Triage
 
-Since pedantic lints can be noisy, AI could be a great additional tool to triage and filter out important pedantic lints. Example of the triage is saved at `results/pedantic_ai_triage.md`.
+Since pedantic lints can be noisy, AI could be a great additional tool to triage and filter out important pedantic lints. Example of the triage is saved at `results/clippy_pedantic_ai_triage.md`.
 
-## 02. Rustftmt & clang-format
+## 02. rustfmt and clang-format
 
 ### What we ran
 
@@ -57,6 +57,8 @@ Note: Since clang-format can take a lot of time, I focused on one specific direc
 `./run.sh` uses Miri 0.1.0 from the Rust nightly toolchain. Miri interprets Rust code and reports undefined behavior on executed paths.
 
 The small external Rust harness exercises `KernelBoolSlice`, an FFI-owned type backed by a raw `NonNull<bool>` pointer. It converts a `Vec<bool>` into the slice, reads the values through `slice::from_raw_parts`, and frees the allocation through `free_bool_slice`, which reconstructs it with `Vec::from_raw_parts`.
+
+Code pointer: [`bool_slice_round_trip_and_free`](03-miri/miri-harness/src/lib.rs).
 
 The harness is outside the Delta Kernel workspace so Miri does not compile unrelated development dependencies. An initial attempt to run the kernel's own unit tests with `default-engine-rustls` was rejected by `ring` because Miri does not expose the Apple ARM target features expected by that dependency.
 
@@ -82,7 +84,11 @@ The added unit test reproduces the deeply nested schema problem from [issue #189
 
 The test confirms that a schema nested 41 levels parses successfully, while 42 levels fails because it exceeds `serde_json`'s recursion limit. On v0.18.2 this appears as `Error::MalformedJson`.
 
+Code pointer: [`Metadata::parse_schema`](delta-kernel-rs/kernel/src/actions/mod.rs), lines 325–328.
+
 A second test covers the previously untested branch where `Metadata::try_new` rejects metadata columns and verifies the exact `Error::Schema` message.
+
+Code pointer: [`Metadata::try_new`](delta-kernel-rs/kernel/src/actions/mod.rs), lines 264–269.
 
 Both focused tests passed. The full test run passed 907 tests, with 26 ignored and no failures.
 
@@ -93,6 +99,8 @@ Total coverage changed from 91.82% to 91.84% for regions, 90.18% to 90.24% for f
 ### What we proved
 
 The `verify_decimal_precision_range` harness uses an arbitrary symbolic `i128` and verifies that `get_decimal_precision` never returns more than 39 and returns zero exactly when the input is zero.
+
+Code pointer: [`get_decimal_precision`](delta-kernel-rs/kernel/src/expressions/scalars.rs), lines 50–55.
 
 The proof has no assumptions. Kani therefore considers every `i128` value under its model, including `i128::MIN`, zero, and `i128::MAX`.
 
@@ -106,8 +114,7 @@ All 30 checks succeeded. The model-checking phase completed in approximately 1 s
 
 `cargo-mutants` generated mutations only for `parse_interval_impl` in `kernel/src/table_properties/deserialize.rs`. It ran the existing `parse_interval` unit tests with the `default-engine-rustls` feature.
 
-The unmodified baseline took 25 seconds to build and 2 seconds to test. cargo-mutants automatically selected a 20-second timeout.
-
+Code pointer: [`parse_interval_impl`](delta-kernel-rs/kernel/src/table_properties/deserialize.rs), lines 178–220.
 ### Conclusion
 
 All 10 generated mutants were caught. There were no missed, timed-out, or unviable mutants.

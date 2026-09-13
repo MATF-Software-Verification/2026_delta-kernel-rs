@@ -20,7 +20,7 @@ echo "Listing interval parser mutants..."
 echo "Running interval parser mutants..."
 cargo mutants -p delta_kernel --features default-engine-rustls \
   -f "kernel/src/table_properties/deserialize.rs" -F "parse_interval_impl" \
-  -j 1 --no-shuffle --output "$RESULTS_DIR" -- --lib parse_interval \
+  --output "$RESULTS_DIR" -- --lib parse_interval \
   &> "$TEMP_LOG"
 
 mv "$TEMP_LOG" "$RESULTS_DIR/mutants.log"

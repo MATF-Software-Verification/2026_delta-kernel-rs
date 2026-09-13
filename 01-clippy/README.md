@@ -16,7 +16,7 @@ From this directory:
 
 1. **Basic** (`-D warnings`) - same bar as typical CI. Log: `results/clippy_basic.log`.
 2. **Pedantic** (`-W clippy::pedantic`) - extra lints. Log: `results/clippy_pedantic.log`.
-3. `--fix` - apply auto-fixes, save `results/clippy_fixes.patch`, then restore the submodule so the tree stays clean.
+3. `--fix` - apply auto-fixes, save `results/clippy_pedantic_fixes.patch`, then restore the submodule so the tree stays clean.
 
 ## Conclusion
 
@@ -25,4 +25,4 @@ The additional pedantic analysis contained 1,321 items, but Cargo explicitly rep
 
 ## AI Triage
 
-Since pedantic lints can be noisy, AI could be a great additional tool to triage and filter out important pedantic lints. Example of the triage is saved at `results/pedantic_ai_triage.md`.
+Since pedantic lints can be noisy, AI could be a great additional tool to triage and filter out important pedantic lints. Example of the triage is saved at `results/clippy_pedantic_ai_triage.md`.

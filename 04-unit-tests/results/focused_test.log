@@ -1,148 +1,252 @@
+   Compiling serde_core v1.0.229
+   Compiling num-traits v0.2.19
+   Compiling log v0.4.33
+   Compiling crypto-common v0.1.7
+   Compiling tracing-core v0.1.36
+   Compiling regex-syntax v0.8.11
+   Compiling block-padding v0.3.3
+   Compiling rand v0.9.5
+   Compiling crossbeam-utils v0.8.22
+   Compiling zstd-sys v2.0.16+zstd.1.5.7
+   Compiling prost-derive v0.14.4
+   Compiling rustix v1.1.4
+   Compiling g2poly v1.2.2
    Compiling delta_kernel v0.18.2 (/Users/branko.grbic/Documents/Faculty/2026_delta-kernel-rs/delta-kernel-rs/kernel)
+   Compiling cpufeatures v0.2.17
+   Compiling plotters-backend v0.3.7
+   Compiling digest v0.10.7
+   Compiling inout v0.1.4
+   Compiling zstd-safe v7.2.4
+   Compiling anstyle v1.0.14
+   Compiling ciborium-io v0.2.2
+   Compiling g2gen v1.2.2
+   Compiling cipher v0.4.4
+   Compiling clap_lex v1.1.0
+   Compiling plotters-svg v0.3.7
+   Compiling md-5 v0.10.6
+   Compiling tracing v0.1.44
+   Compiling crossbeam-epoch v0.9.20
+   Compiling half v2.7.1
+   Compiling num-integer v0.1.47
+   Compiling num-complex v0.4.6
+   Compiling atoi v2.0.0
+   Compiling ordered-float v2.10.1
+   Compiling zstd v0.13.3
+   Compiling h2 v0.4.15
+   Compiling crossbeam-deque v0.8.7
+   Compiling aes v0.8.4
+   Compiling cbc v0.1.2
+   Compiling des v0.8.1
+   Compiling num-bigint v0.4.8
+   Compiling thrift v0.17.0
+   Compiling rayon-core v1.13.0
+   Compiling ctr v0.9.2
+   Compiling g2p v1.2.2
+   Compiling ciborium-ll v0.2.2
+   Compiling clap_builder v4.6.6
+   Compiling hmac v0.12.1
+   Compiling itertools v0.10.5
+   Compiling dns-lookup v2.1.1
+   Compiling filetime v0.2.29
+   Compiling libloading v0.8.9
+   Compiling roxmltree v0.21.1
+   Compiling xattr v1.6.1
+   Compiling whoami v1.6.1
+   Compiling hex v0.4.3
+   Compiling bumpalo v3.20.3
+   Compiling fastrand v2.5.0
+   Compiling cast v0.3.0
+   Compiling tar v0.4.46
+   Compiling rayon v1.12.0
+   Compiling plotters v0.3.7
+   Compiling is-terminal v0.4.17
+   Compiling tempfile v3.27.0
+   Compiling anes v0.1.6
+   Compiling oorandom v11.1.5
+   Compiling regex-automata v0.4.18
+   Compiling prost v0.14.4
+   Compiling arrow-buffer v57.3.1
+   Compiling serde v1.0.229
+   Compiling serde_json v1.0.151
+   Compiling csv v1.4.0
+   Compiling prost-types v0.14.4
+   Compiling criterion-plot v0.5.0
+   Compiling chrono v0.4.45
+   Compiling serde_urlencoded v0.7.1
+   Compiling quick-xml v0.38.4
+   Compiling ciborium v0.2.2
+   Compiling arrow-data v57.3.1
+   Compiling clap v4.6.6
+   Compiling tinytemplate v1.2.1
+   Compiling chrono-tz v0.10.4
+   Compiling hyper v1.11.0
+   Compiling regex v1.13.1
+   Compiling matchers v0.2.0
+   Compiling tracing-subscriber v0.3.23
+   Compiling hdfs-native v0.12.4
+   Compiling criterion v0.5.1
+   Compiling hyper-util v0.1.20
+   Compiling test-log v0.2.21
+   Compiling hyper-rustls v0.27.9
+   Compiling reqwest v0.12.28
+   Compiling object_store v0.12.5
+   Compiling arrow-array v57.3.1
+   Compiling arrow-select v57.3.1
+   Compiling arrow-arith v57.3.1
+   Compiling arrow-row v57.3.1
+   Compiling arrow-ord v57.3.1
+   Compiling arrow-ipc v57.3.1
+   Compiling arrow-string v57.3.1
+   Compiling arrow-cast v57.3.1
+   Compiling hdfs-native-object-store v0.15.0
+   Compiling arrow-json v57.3.1
+   Compiling arrow-csv v57.3.1
+   Compiling parquet v57.3.1
+   Compiling arrow v57.3.1
    Compiling test_utils v0.18.2 (/Users/branko.grbic/Documents/Faculty/2026_delta-kernel-rs/delta-kernel-rs/test-utils)
-    Finished `test` profile [unoptimized + debuginfo] target(s) in 11.13s
-     Running unittests src/lib.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/delta_kernel-5773cb4266929cbd)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 50.83s
+     Running unittests src/lib.rs (target/debug/deps/delta_kernel-5773cb4266929cbd)
 
 running 1 test
 test actions::tests::test_parse_schema_nesting_boundary ... ok
 
 test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 692 filtered out; finished in 0.01s
 
-     Running tests/cdf.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/cdf-527530cfa005349c)
+     Running tests/cdf.rs (target/debug/deps/cdf-527530cfa005349c)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 16 filtered out; finished in 0.00s
 
-     Running tests/dv.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/dv-9bf9ae03e8c3d19c)
+     Running tests/dv.rs (target/debug/deps/dv-9bf9ae03e8c3d19c)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.00s
 
-     Running tests/golden_tables.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/golden_tables-d54d607126408e83)
+     Running tests/golden_tables.rs (target/debug/deps/golden_tables-d54d607126408e83)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 87 filtered out; finished in 0.00s
 
-     Running tests/hdfs.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/hdfs-00c3dad29495e22f)
+     Running tests/hdfs.rs (target/debug/deps/hdfs-00c3dad29495e22f)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
-     Running tests/log_compaction.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/log_compaction-a1dbc2d1b4d0d4d6)
+     Running tests/log_compaction.rs (target/debug/deps/log_compaction-a1dbc2d1b4d0d4d6)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.00s
 
-     Running tests/log_tail.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/log_tail-08131cc2e8a95bfd)
+     Running tests/log_tail.rs (target/debug/deps/log_tail-08131cc2e8a95bfd)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.00s
 
-     Running tests/read.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/read-d4adfbe14e695f28)
+     Running tests/read.rs (target/debug/deps/read-d4adfbe14e695f28)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 33 filtered out; finished in 0.00s
 
-     Running tests/row_tracking.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/row_tracking-c03aa1932408aa5e)
+     Running tests/row_tracking.rs (target/debug/deps/row_tracking-c03aa1932408aa5e)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s
 
-     Running tests/v2_checkpoints.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/v2_checkpoints-82d4a53a04f0c8ea)
+     Running tests/v2_checkpoints.rs (target/debug/deps/v2_checkpoints-82d4a53a04f0c8ea)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 0.00s
 
-     Running tests/write.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/write-1a45815dfd5e7b81)
+     Running tests/write.rs (target/debug/deps/write-1a45815dfd5e7b81)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 26 filtered out; finished in 0.00s
 
-     Running tests/write_row_tracking.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/write_row_tracking-5d653ce1f08f8fa3)
+     Running tests/write_row_tracking.rs (target/debug/deps/write_row_tracking-5d653ce1f08f8fa3)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s
 
-    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.34s
-     Running unittests src/lib.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/delta_kernel-5773cb4266929cbd)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.28s
+     Running unittests src/lib.rs (target/debug/deps/delta_kernel-5773cb4266929cbd)
 
 running 1 test
 test actions::tests::test_metadata_try_new_rejects_metadata_columns ... ok
 
 test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 692 filtered out; finished in 0.00s
 
-     Running tests/cdf.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/cdf-527530cfa005349c)
+     Running tests/cdf.rs (target/debug/deps/cdf-527530cfa005349c)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 16 filtered out; finished in 0.00s
 
-     Running tests/dv.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/dv-9bf9ae03e8c3d19c)
+     Running tests/dv.rs (target/debug/deps/dv-9bf9ae03e8c3d19c)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.00s
 
-     Running tests/golden_tables.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/golden_tables-d54d607126408e83)
+     Running tests/golden_tables.rs (target/debug/deps/golden_tables-d54d607126408e83)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 87 filtered out; finished in 0.00s
 
-     Running tests/hdfs.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/hdfs-00c3dad29495e22f)
+     Running tests/hdfs.rs (target/debug/deps/hdfs-00c3dad29495e22f)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
-     Running tests/log_compaction.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/log_compaction-a1dbc2d1b4d0d4d6)
+     Running tests/log_compaction.rs (target/debug/deps/log_compaction-a1dbc2d1b4d0d4d6)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.00s
 
-     Running tests/log_tail.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/log_tail-08131cc2e8a95bfd)
+     Running tests/log_tail.rs (target/debug/deps/log_tail-08131cc2e8a95bfd)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.00s
 
-     Running tests/read.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/read-d4adfbe14e695f28)
+     Running tests/read.rs (target/debug/deps/read-d4adfbe14e695f28)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 33 filtered out; finished in 0.00s
 
-     Running tests/row_tracking.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/row_tracking-c03aa1932408aa5e)
+     Running tests/row_tracking.rs (target/debug/deps/row_tracking-c03aa1932408aa5e)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s
 
-     Running tests/v2_checkpoints.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/v2_checkpoints-82d4a53a04f0c8ea)
+     Running tests/v2_checkpoints.rs (target/debug/deps/v2_checkpoints-82d4a53a04f0c8ea)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 0.00s
 
-     Running tests/write.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/write-1a45815dfd5e7b81)
+     Running tests/write.rs (target/debug/deps/write-1a45815dfd5e7b81)
 
 running 0 tests
 
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 26 filtered out; finished in 0.00s
 
-     Running tests/write_row_tracking.rs (/var/folders/d1/npqv18yn4vjdnbjs_lyc555m0000gp/T/cursor-sandbox-cache/cdbffc07cc4039eb8b1fbd660be2a30a/cargo-target/debug/deps/write_row_tracking-5d653ce1f08f8fa3)
+     Running tests/write_row_tracking.rs (target/debug/deps/write_row_tracking-5d653ce1f08f8fa3)
 
 running 0 tests
 

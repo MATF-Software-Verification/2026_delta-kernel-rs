@@ -22,16 +22,16 @@ Then, from this directory:
 
 The run uses the `default-engine-rustls` feature and filters Cargo tests to the existing `parse_interval` unit tests. Mutants run one at a time so the result is predictable and easy to reproduce.
 
+Code pointers: [`parse_interval_impl`](../delta-kernel-rs/kernel/src/table_properties/deserialize.rs), lines 178–220.
+
 ## Results
 
-cargo-mutants 27.1.0 generated 10 mutants:
+cargo-mutants generated 10 mutants:
 
 - Caught: 10
 - Missed: 0
 - Timeouts: 0
 - Unviable: 0
-
-The unmodified baseline took 25 seconds to build and 2 seconds to test. cargo-mutants automatically selected a 20-second test timeout.
 
 For example, changing the initial `"interval"` check from `!=` to `==` caused both interval tests to fail, so that mutant was caught.
 
