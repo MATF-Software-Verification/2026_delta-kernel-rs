@@ -7,7 +7,7 @@
 Install the tool once:
 
 ```
-cargo install cargo-mutants --locked
+cargo install cargo-mutants
 ```
 
 Then, from this directory:

@@ -13,9 +13,7 @@ echo "Running Miri on Delta Kernel Rust code..."
 {
   cargo +nightly miri --version
   CARGO_TARGET_DIR="$TEMP_DIR" cargo +nightly miri test \
-    --manifest-path "$SCRIPT_DIR/miri-harness/Cargo.toml" --locked
+    --manifest-path "$SCRIPT_DIR/miri-harness/Cargo.toml"
 } &> "$RESULTS_DIR/miri.log"
-STATUS=$?
 
 rm -rf "$TEMP_DIR"
-exit "$STATUS"

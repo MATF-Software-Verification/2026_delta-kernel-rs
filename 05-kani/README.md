@@ -7,7 +7,7 @@ Kani is a bounded model checker for Rust. It checks assertions for every value r
 Install Kani once:
 
 ```
-cargo install --locked kani-verifier
+cargo install kani-verifier
 cargo kani setup
 ```
 

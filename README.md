@@ -7,7 +7,7 @@ This repository contains a software verification analysis of the [delta-kernel-r
 ```
 rustup toolchain install 1.90.0 -c clippy -c rustfmt -c llvm-tools-preview
 rustup toolchain install nightly -c miri
-cargo install --locked cargo-llvm-cov cargo-mutants kani-verifier
+cargo install cargo-llvm-cov cargo-mutants kani-verifier
 cargo kani setup
 cargo +nightly miri setup
 ```
